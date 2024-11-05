@@ -12,7 +12,6 @@
         "url": "https://google.com"
     },
     "license": "MIT",
-   
     "scripts": {
         "postinstall": "husky",
         "dev": "next dev",

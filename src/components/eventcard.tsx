@@ -13,6 +13,7 @@ interface BaseEventCardProps {
     locationOnTop?: boolean;
     showDescription?: boolean;
     isPressable?: boolean;
+    isDatevisible?: boolean;
     showRegisterButton?: boolean;
     truncateDescription?: boolean;
 }
@@ -40,6 +41,7 @@ const EventCard: React.FC<EventCardProps> = ({
     clickCallback,
     locationOnTop = true,
     showDescription,
+    isDatevisible=false,
     isPressable = false,
     showRegisterButton = true,
     truncateDescription = false,
@@ -69,97 +71,7 @@ const EventCard: React.FC<EventCardProps> = ({
                     <Skeleton className='h-full w-full' />
                 </Card>
             ) : (
-                // <Card
-                //     isPressable={isPressable}
-                //     onPress={() => clickCallback && clickCallback()}
-                //     // isFooterBlurred
-                //     className={`col-span-12 h-[300px] w-full sm:col-span-5 ${className}`}
-                // >
-                //     <CardHeader className='absolute top-1 z-20 flex-col items-start'>
-                //         {locationOnTop && (
-                //             <div className='text-tiny font-bold text-white/60'>
-                //                 <Badge variant='default' className='bg-gray-700/70 p-2'>
-                //                     <p className='flex items-center gap-1 space-x-2'>
-                //                         <MapPin size={16} />
-                //                         {event.location}
-                //                     </p>
-                //                 </Badge>
-                //             </div>
-                //         )}
-                //         <h4 className='text-left text-2xl font-medium text-white'>{event.name}</h4>
-                //     </CardHeader>
-                //     <div className='relative h-full w-full'>
-                //         <div
-                //             className='absolute inset-0 z-0 bg-cover bg-center'
-                //             style={{
-                //                 opacity: 0.8,
-                //                 backgroundImage: `url(${event.imageSrc})`,
-                //                 backgroundSize: "cover",
-                //             }}
-                //         />
-                //         <div
-                //             className={
-                //                 "absolute inset-0 z-10 bg-black opacity-35 transition-opacity duration-300 hover:opacity-55"
-                //             }
-                //         />
-                //     </div>
-                //     <CardFooter className='absolute bottom-0 z-20 justify-between border-t-1 border-zinc-100/50 bg-white text-black'>
-                //         <div className={"flex flex-col space-y-2"}>
-                //             {showDescription && (
-                //                 <div className='text-md'>
-                //                     <div className={"flex flex-col items-center gap-2"}>
-                //                         <span>
-                //                             {truncateDescription
-                //                                 ? event.description.slice(0, 86) + "..."
-                //                                 : event.description}
-                //                         </span>
-                //                     </div>
-                //                     <Divider className='my-3' />
-                //                 </div>
-                //             )}
-                //             <div className='flex flex-row justify-between'>
-                //                 <div className={"space-y-2"}>
-                //                     {!locationOnTop && (
-                //                         <DetailsWrapper>
-                //                             <p className='flex items-center space-x-2'>
-                //                                 <MapPin size={16} />
-                //                                 <span>{event.location}</span>
-                //                             </p>
-                //                         </DetailsWrapper>
-                //                     )}
-                //                     <DetailsWrapper>
-                //                         <Calendar className='h-4 w-4' />
-                //                         <span>
-                //                             {dayjs(event.startDateTime).format("MMM D, YYYY")}
-                //                         </span>
-                //                         {/* display this only if endDateTime.date is different from startDateTime.date */}
-                //                         {dayjs(event.startDateTime).format("MMM D, YYYY") !==
-                //                             dayjs(event.endDateTime).format("MMM D, YYYY") && (
-                //                             <span>
-                //                                 - {dayjs(event.endDateTime).format("MMM D, YYYY")}
-                //                             </span>
-                //                         )}
-                //                     </DetailsWrapper>
-                //                     <DetailsWrapper>
-                //                         <Clock className='h-4 w-4' />
-                //                         <span>{dayjs(event.startDateTime).format("h:mm A")}</span>
-                //                         {dayjs(event.startDateTime).format("h:mm A") !==
-                //                             dayjs(event.endDateTime).format("h:mm A") && (
-                //                             <span>
-                //                                 - {dayjs(event.endDateTime).format("h:mm A")}
-                //                             </span>
-                //                         )}
-                //                     </DetailsWrapper>
-                //                 </div>
-                //                 <div className=''>
-                //                     <DetailsWrapper>
-                //                         {showRegisterButton && <RegisterButton />}
-                //                     </DetailsWrapper>
-                //                 </div>
-                //             </div>
-                //         </div>
-                //     </CardFooter>
-                // </Card>
+             
                 <Card
                     isPressable={isPressable}
                     onPress={() => clickCallback && clickCallback()}
@@ -209,7 +121,8 @@ const EventCard: React.FC<EventCardProps> = ({
                                     </div>
                                     <Divider className='my-3' />
                                 </div>
-                            )}
+                                )}
+                                 {!locationOnTop && (
                             <div className='flex justify-between'>
                                 <div className='space-y-2'>
                                     {!locationOnTop && (
@@ -250,7 +163,8 @@ const EventCard: React.FC<EventCardProps> = ({
                                         {showRegisterButton && <RegisterButton />}
                                     </DetailsWrapper>
                                 </div>
-                            </div>
+                                    </div>
+                                        )}
                         </div>
                     </CardFooter>
                 </Card>

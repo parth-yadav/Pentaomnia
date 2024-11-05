@@ -49,7 +49,7 @@ export const HomeEvents: React.FC = () => {
                                 isPressable
                                 showDescription
                                 showRegisterButton
-                                locationOnTop
+                                locationOnTop = {false}
                                 truncateDescription
                             />
                         </motion.div>
@@ -79,9 +79,9 @@ export const HomeEvents: React.FC = () => {
                                 event={event}
                                 isPressable
                                 showRegisterButton={false}
-                                locationOnTop
+                                locationOnTop = {true}
                                 showDescription
-                                truncateDescription
+                                truncateDescription 
                             />
                         </div>
                     ))}
