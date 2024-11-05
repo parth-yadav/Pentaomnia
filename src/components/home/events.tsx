@@ -29,10 +29,10 @@ export const HomeEvents: React.FC = () => {
     return (
         <section
             id='events'
-            className='w-full bg-gray-100 py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
+            className='w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
         >
             <div className='container px-4 md:px-6'>
-                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter sm:text-5xl'>
+                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Upcoming Events
                 </h2>
                 <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -44,7 +44,7 @@ export const HomeEvents: React.FC = () => {
                         >
                             <EventCard
                                 clickCallback={() => handleCardClick(index)}
-                                className='max-h-[400px] min-h-[350px] w-full'
+                                className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
                                 event={event}
                                 isPressable
                                 showDescription
@@ -67,7 +67,7 @@ export const HomeEvents: React.FC = () => {
                 </div>
             </div>
             <div className='container mt-8 px-4 md:px-6'>
-                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter sm:text-5xl'>
+                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Past Events
                 </h2>
                 <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -75,7 +75,7 @@ export const HomeEvents: React.FC = () => {
                         <div className='m-4' key={"past-" + index}>
                             <EventCard
                                 clickCallback={() => handleCardClick(index)}
-                                className='max-h-[400px] min-h-[350px] w-full'
+                                className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
                                 event={event}
                                 isPressable
                                 showRegisterButton={false}

@@ -11,22 +11,27 @@ export const HomePromotions: React.FC = () => {
     }
     const productPromotions: Promotions[] = [
         {
-            name: "Tech Gadgets",
+            name: "Social Media Marketing",
             description: "Get the latest tech gadgets at discounted prices.",
             icon: "💻",
         },
         {
-            name: "Fashion Items",
+            name: "Web Development & Design",
             description: "Upgrade your wardrobe with stylish fashion items.",
             icon: "👗",
         },
         {
-            name: "Study Materials",
+            name: "Ads Campaign Management",
             description: "Stock up on study materials for your courses.",
             icon: "📚",
         },
         {
-            name: "Fitness Gear",
+            name: "Product Shoots & Visual Content Creation",
+            description: "Stay active with discounted fitness gear and equipment.",
+            icon: "🏋️",
+        },
+        {
+            name: "Branding & Identity Development",
             description: "Stay active with discounted fitness gear and equipment.",
             icon: "🏋️",
         },
@@ -34,12 +39,32 @@ export const HomePromotions: React.FC = () => {
 
     const socialPromotions: Promotions[] = [
         {
-            name: "Instagram Challenge",
+            name: "Corporate Events",
             description: "Share your Pentaomnia experience and win prizes!",
             icon: <InstagramIcon size={24} />,
         },
         {
-            name: "YouTube Series",
+            name: "University & College Events",
+            description: "Watch our latest videos on student success stories.",
+            icon: <YoutubeIcon size={24} />,
+        },
+        {
+            name: "Product/Service Branding & Promotion Events",
+            description: "Watch our latest videos on student success stories.",
+            icon: <YoutubeIcon size={24} />,
+        },
+        {
+            name: "Product Launches",
+            description: "Watch our latest videos on student success stories.",
+            icon: <YoutubeIcon size={24} />,
+        },
+        {
+            name: "Technical Events & Workshops",
+            description: "Watch our latest videos on student success stories.",
+            icon: <YoutubeIcon size={24} />,
+        },
+        {
+            name: "Private Functions & Celebrations",
             description: "Watch our latest videos on student success stories.",
             icon: <YoutubeIcon size={24} />,
         },
@@ -52,16 +77,17 @@ export const HomePromotions: React.FC = () => {
                     Our Services
                 </h2>
                 <div className='grid gap-6 lg:grid-cols-2'>
-                    <Card>
-                        <CardHeader>
+                    <Card className='shadow-lg shadow-primary'>
+                        <CardHeader className='flex items-center justify-center'>
                             <CardTitle>Event Management</CardTitle>
                         </CardHeader>
+
                         <CardContent>
                             <div className='grid gap-4 sm:grid-cols-2'>
                                 {productPromotions.map((item, index) => (
                                     <div key={index} className='flex items-center space-x-4'>
                                         <div
-                                            className={`flex h-12 w-12 items-center justify-center rounded-full ${iconBgColors[index % iconBgColors.length]}`}
+                                            className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
                                             {typeof item.icon === "string" ? (
                                                 <span className='text-2xl'>{item.icon}</span>
@@ -80,16 +106,18 @@ export const HomePromotions: React.FC = () => {
                             </div>
                         </CardContent>
                     </Card>
-                    <Card>
+                    <Card className='shadow-lg shadow-primary'>
                         <CardHeader>
-                            <CardTitle>Digital Marketing</CardTitle>
+                            <CardTitle className='flex items-center justify-center'>
+                                Digital Marketing
+                            </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className='space-y-4'>
+                            <div className='grid gap-4 sm:grid-cols-2'>
                                 {socialPromotions.map((item, index) => (
                                     <div key={index} className='flex items-center space-x-4'>
                                         <div
-                                            className={`flex h-12 w-12 items-center justify-center rounded-full ${iconBgColors[index % iconBgColors.length]}`}
+                                            className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
                                             {typeof item.icon === "string" ? (
                                                 <span className='text-2xl'>{item.icon}</span>

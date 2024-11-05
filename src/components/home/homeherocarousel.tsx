@@ -20,7 +20,7 @@ interface HomeHeroCarouselProps {
 export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className }) => {
     const plugin = useRef(
         Autoplay({
-            delay: 13500,
+            delay: 4000,
             stopOnInteraction: true,
         }),
     );
@@ -28,10 +28,10 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className })
     return (
         <Carousel
             plugins={[plugin.current]}
-            className={`${className} max-w-[600px] sm:min-w-[500px] lg:max-w-[600px]`}
+            className={`${className} max-w-[400px] p-10 sm:min-w-[200px] lg:max-w-[600px]`}
             opts={{
                 loop: true,
-                duration: 40,
+                duration: 20,
                 skipSnaps: true,
                 // dragFree: true,
             }}
@@ -39,7 +39,7 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className })
             {/* <div className='bg-red-800 w-[400px] h-[400px]'></div> */}
             <CarouselContent className=''>
                 {Array.from({ length: 5 }).map((_, index) => (
-                    <CarouselItem key={index} className='scale-115 min-w-[400px]'>
+                    <CarouselItem key={index} className='max-h-[400px] min-w-[300px]'>
                         <Image
                             src={"https://picsum.photos/600?random=" + index}
                             alt={`Event ${index + 1}`}

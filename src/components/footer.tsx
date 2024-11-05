@@ -5,7 +5,7 @@ export default function Footer() {
         <footer id='footer' className='relative w-full bg-gray-800 py-6 text-white'>
             <div className='container px-4 md:px-6'>
                 <div className='grid gap-8 sm:grid-cols-2 md:grid-cols-3'>
-                    <div className='space-y-2'>
+                    <div className='space-y-2 text-accent'>
                         <h3 className='text-lg font-semibold'>Quick Links</h3>
                         <ul className='space-y-1'>
                             <li>
@@ -25,13 +25,24 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className='space-y-2'>
+                    <div className='space-y-2 text-accent'>
                         <h3 className='text-lg font-semibold'>Contact Us</h3>
-                        <p>Email: info@pentaomnia.com</p>
-                        <p>Phone: +91 6904206969</p>
-                        <p>Address: Lovely Professional University</p>
+                        <p>Email: Pentaomnia@gmail.com</p>
+                        <p>Phone: +91-9592333800</p>
+                        <p>Address:</p>
+                        <p>
+                            {" "}
+                            Corporate Office: Room 209, Block 13 Lovely Professional University
+                            Jalandhar, Punjab - 144411
+                        </p>
+                        <p>
+                            {" "}
+                            Headquarters: PENTAOMNIA PRIVATE LIMITED C/o Sh. Naim House No. 24, Ward
+                            No. 08 Jhakhra Village, Tola & PO Baisakhwa BLOCK SIKTA, BETTIAH West
+                            Champaran, Bihar, India, 845307
+                        </p>
                     </div>
-                    <div className='space-y-2'>
+                    <div className='space-y-2 text-accent'>
                         <h3 className='text-lg font-semibold'>Follow Us</h3>
                         <div className='flex space-x-4'>
                             <Link className='hover:text-gray-300' href='#'>
@@ -70,7 +81,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className='mt-8 border-t border-gray-700 pt-8 text-center'>
+                <div className='mt-8 border-t border-gray-700 pt-8 text-center text-accent'>
                     <p>© 2024 Pentaomnia. All rights reserved.</p>
                 </div>
             </div>

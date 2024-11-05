@@ -1,7 +1,10 @@
 import { Building2 } from "lucide-react";
+import Image from "next/image";
+
+import Logo from "../../public/images/brand.png";
 
 export const BrandIcon = (props: any) => {
-    return <Building2 {...props} />;
+    return <Image src={Logo} alt='Brand Logo' width={40} height={40} {...props} />;
 };
 
 export const BrandText = (props: any) => {

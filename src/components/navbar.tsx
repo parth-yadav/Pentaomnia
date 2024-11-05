@@ -14,16 +14,17 @@ import {
 import Link from "next/link";
 
 import { BrandIcon, BrandText } from "@/components/brand";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface LinkProps {
     name: string;
     href: string;
     disabled?: boolean;
 }
+
 const Links: LinkProps[] = [
     { name: "Events", href: "/events" },
     { name: "Promotions", href: "/promos" },
-    // { name: "Partners", href: "/partners" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "#footer" },
     { name: "Register", href: "/register" },
@@ -31,33 +32,46 @@ const Links: LinkProps[] = [
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const isMobile = useIsMobile();
+
     return (
-        <Navbar isBlurred={!isMenuOpen} isBordered onMenuOpenChange={setIsMenuOpen}>
-            <Link href='/'>
-                <NavbarBrand>
-                    <BrandIcon />
-                    <BrandText />
-                </NavbarBrand>
-            </Link>
-            <NavbarContent className='hidden gap-8 sm:flex' justify='center'>
-                {Links.map(({ name, href }) => (
-                    <Link key={name} href={href}>
-                        <NavbarItem>{name}</NavbarItem>
-                    </Link>
-                ))}
-                {/* <ThemeToggle /> */}
+        <Navbar
+            isBlurred={!isMenuOpen}
+            isBordered
+            onMenuOpenChange={setIsMenuOpen}
+            className={isMobile ? "flex-col items-start" : ""}
+        >
+            <NavbarContent>
+                <NavbarMenuToggle
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    className={isMobile ? "block" : "hidden"}
+                />
+                <Link href='/'>
+                    <NavbarBrand>
+                        <BrandIcon />
+                        <BrandText />
+                    </NavbarBrand>
+                </Link>
             </NavbarContent>
-            <NavbarMenuToggle
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className='sm:hidden'
-            />
-            <NavbarMenu>
+
+            <NavbarContent className={`${isMobile ? "hidden" : "flex"} gap-8`} justify='center'>
                 {Links.map(({ name, href }) => (
                     <Link key={name} href={href}>
-                        <NavbarMenuItem>{name}</NavbarMenuItem>
+                        <NavbarItem className='transition-colors duration-300 hover:text-accent'>
+                            {name}
+                        </NavbarItem>
                     </Link>
                 ))}
-                {/* <ThemeToggle /> */}
+            </NavbarContent>
+
+            <NavbarMenu className={`${isMobile ? "flex" : "hidden"} flex-col pt-4`}>
+                {Links.map(({ name, href }) => (
+                    <Link key={name} href={href}>
+                        <NavbarMenuItem className='w-full transition-colors duration-300 hover:text-accent'>
+                            {name}
+                        </NavbarMenuItem>
+                    </Link>
+                ))}
             </NavbarMenu>
         </Navbar>
     );
