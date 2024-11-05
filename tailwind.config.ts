@@ -36,12 +36,16 @@ const config = {
                 ring: "hsl(var(--ring))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
+                // C1E6F3 1E3970 FCB817
+                // hsl(196, 68%, 85%)
+                // hsl(220, 58%, 28%)
+                // hsl(42, 97%, 54%)
                 primary: {
-                    DEFAULT: "hsl(var(--primary))",
+                    DEFAULT: "hsl(220, 58%, 28%)",
                     foreground: "hsl(var(--primary-foreground))",
                 },
                 secondary: {
-                    DEFAULT: "hsl(var(--secondary))",
+                    DEFAULT: "hsl(196, 68%, 85%)",
                     foreground: "hsl(var(--secondary-foreground))",
                 },
                 destructive: {
@@ -53,7 +57,7 @@ const config = {
                     foreground: "hsl(var(--muted-foreground))",
                 },
                 accent: {
-                    DEFAULT: "hsl(var(--accent))",
+                    DEFAULT: "hsl(42, 97%, 54%)",
                     foreground: "hsl(var(--accent-foreground))",
                 },
                 popover: {

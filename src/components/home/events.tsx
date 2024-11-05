@@ -37,12 +37,20 @@ export const HomeEvents: React.FC = () => {
                 </h2>
                 <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                     {events.map((event, index) => (
-                        <motion.div className='m-4' key={index} layoutId={String(index)}>
+                        <motion.div
+                            className='m-4'
+                            key={"upcoming" + index}
+                            layoutId={String(index)}
+                        >
                             <EventCard
                                 clickCallback={() => handleCardClick(index)}
                                 className='max-h-[400px] min-h-[350px] w-full'
                                 event={event}
                                 isPressable
+                                showDescription
+                                showRegisterButton
+                                locationOnTop
+                                truncateDescription
                             />
                         </motion.div>
                     ))}
@@ -56,6 +64,27 @@ export const HomeEvents: React.FC = () => {
                             />
                         )}
                     </AnimatePresence>
+                </div>
+            </div>
+            <div className='container mt-8 px-4 md:px-6'>
+                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter sm:text-5xl'>
+                    Past Events
+                </h2>
+                <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    {events.slice(0, 2).map((event, index) => (
+                        <div className='m-4' key={"past-" + index}>
+                            <EventCard
+                                clickCallback={() => handleCardClick(index)}
+                                className='max-h-[400px] min-h-[350px] w-full'
+                                event={event}
+                                isPressable
+                                showRegisterButton={false}
+                                locationOnTop
+                                showDescription
+                                truncateDescription
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -40,6 +40,7 @@ const EventPopup: React.FC<EventPopupInterface> = ({ onClose, layoutId, event })
                     event={event}
                     loading={false}
                     className='h-[60vh]'
+                    showRegisterButton={false}
                 />
                 <div className='mt-4 flex items-center justify-end gap-2'>
                     <Button
