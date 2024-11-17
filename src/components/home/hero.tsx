@@ -33,11 +33,11 @@ export const HomeHero: React.FC = () => {
                             </Button>
                         </Link>
 
-                        <Link key='join-us' href='/register' prefetch={false}>
+                        {/* <Link key='join-us' href='/register' prefetch={false}>
                             <Button className='bg-accent' variant={"ghost"}>
                                 Join Us
                             </Button>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
                 <div className='mx-auto flex w-full items-center justify-center'>

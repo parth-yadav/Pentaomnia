@@ -77,7 +77,7 @@ const EventCard: React.FC<EventCardProps> = ({
                     onPress={() => clickCallback && clickCallback()}
                     className={`relative col-span-12 h-[300px] w-full transform overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 sm:col-span-5 ${className}`}
                 >
-                    <CardHeader className='absolute top-4 z-20 flex-col items-start'>
+                    {/* <CardHeader className='absolute top-4 z-20 flex-col items-start'>
                         {locationOnTop && (
                             <div className='text-tiny font-bold text-white/70'>
                                 <Badge
@@ -91,7 +91,7 @@ const EventCard: React.FC<EventCardProps> = ({
                                 </Badge>
                             </div>
                         )}
-                    </CardHeader>
+                    </CardHeader> */}
 
                     <div className='relative h-full w-full'>
                         <Image
