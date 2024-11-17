@@ -109,16 +109,18 @@ export const HomePartners: React.FC = () => {
                 {CONST_CLIENTS_LIST.slice(0, 12).map((client) => (
                     <div
                         key={client.id}
-                        className='flex flex-col items-center rounded-lg bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg'
+                        className='flex h-48 flex-col items-center justify-between rounded-lg bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg'
                     >
-                        <Image
-                            src={client.logo}
-                            alt={`${client.name} logo`}
-                            width={200} // Adjust these values as needed
-                            height={100} // Adjust these values as needed
-                            className='object-contain' // Optional: helps maintain aspect ratio
-                        />
-                        <h3 className='text-center text-lg font-semibold'>{client.name}</h3>
+                        <div className='flex h-full items-center justify-center'>
+                            <Image
+                                src={client.logo}
+                                alt={`${client.name} logo`}
+                                width={200}
+                                height={100}
+                                className='max-h-32 w-auto object-contain'
+                            />
+                        </div>
+                        <h3 className='mt-2 text-center text-lg font-semibold'>{client.name}</h3>
                     </div>
                 ))}
             </div>
