@@ -95,23 +95,23 @@ export default function Footer() {
                     <div className='space-y-2 text-accent'>
       <h3 className='text-lg font-semibold'>Follow Us</h3>
       <div className='flex space-x-4'>
-        <Link className='hover:text-gray-300' href='#'>
+        <Link className='hover:text-gray-300' href='https://www.facebook.com/Pentaomnia/'>
           <Facebook className='h-6 w-6' />
           <span className='sr-only'>Facebook</span>
         </Link>
-        <Link className='hover:text-gray-300' href='#'>
+        <Link className='hover:text-gray-300' href='https://www.instagram.com/pentaomnia/'>
           <Instagram className='h-6 w-6' />
           <span className='sr-only'>Instagram</span>
         </Link>
-        <Link className='hover:text-gray-300' href='#'>
+        <Link className='hover:text-gray-300' href='https://x.com/pentaomnia'>
           <Twitter className='h-6 w-6' />
           <span className='sr-only'>Twitter</span>
         </Link>
-        <Link className='hover:text-gray-300' href='#'>
+        <Link className='hover:text-gray-300' href='https://in.linkedin.com/company/pentaomnia'>
           <Linkedin className='h-6 w-6' />
           <span className='sr-only'>LinkedIn</span>
         </Link>
-        <Link className='hover:text-gray-300' href='#'>
+        <Link className='hover:text-gray-300' href='https://www.youtube.com/c/PentaOmnia'>
           <Youtube className='h-6 w-6' />
           <span className='sr-only'>Youtube</span>
         </Link>
