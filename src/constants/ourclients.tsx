@@ -4,11 +4,11 @@ import AlephiumLogo from "../../public/images/logos/alpheum.png";
 import CastrolLogo from "../../public/images/logos/castrol.png";
 import CocaColaLogo from "../../public/images/logos/cocacola.png";
 import FitnessEdgeLogo from "../../public/images/logos/fitnessedge.jpeg";
-import GyanopediaLogo from "../../public/images/logos/alpheum.png";
+import GyanopediaLogo from "../../public/images/logos/gyanopedia.png";
 import HarleyLogo from "../../public/images/logos/harley d.jpeg";
 import JassRecordsLogo from "../../public/images/logos/JASS RECORDS.png";
-import KawasakiLogo from "../../public/images/logos/kawasaki.png";
-import KongLogo from "../../public/images/logos/alpheum.png";
+import KawasakiLogo from "../../public/images/logos/download (1).png";
+import KongLogo from "../../public/images/logos/kong.png";
 import ZillionsLogo from "../../public/images/logos/zillionsoftech.jpg";
 
 export interface OurClients {

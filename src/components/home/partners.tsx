@@ -109,7 +109,7 @@ export const HomePartners: React.FC = () => {
                 {CONST_CLIENTS_LIST.slice(0, 12).map((client) => (
                     <div
                         key={client.id}
-                        className='flex h-48 flex-col items-center justify-between rounded-lg bg-white p-4 shadow-md transition-all duration-300 hover:shadow-lg'
+                        className='flex h-48 flex-col items-center justify-between rounded-lg bg-white p-4 shadow-primary hover:shadow-accent shadow-md transition-all duration-300 hover:shadow-lg'
                     >
                         <div className='flex h-full items-center justify-center'>
                             <Image
