@@ -100,15 +100,7 @@ export default function PromotionsPage() {
                                 />
                             </motion.div>
                         ))}
-                        {/* <AnimatePresence>
-                            {promos && selectedId !== null && promos[selectedId] && (
-                                <PromoCard
-                                    event={events[selectedId]}
-                                    onClose={handleClosePopup}
-                                    layoutId={String(selectedId)}
-                                />
-                            )}
-                        </AnimatePresence> */}
+                    
                     </div>
                 )}
             </div>

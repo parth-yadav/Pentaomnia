@@ -113,6 +113,7 @@ export default function EventsPage() {
                                     event={events[selectedId]}
                                     onClose={handleClosePopup}
                                     layoutId={String(selectedId)}
+                                    showRegisterButton={false}
                                 />
                             )}
                         </AnimatePresence>
