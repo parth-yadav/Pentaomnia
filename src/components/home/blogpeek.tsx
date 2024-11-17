@@ -42,11 +42,12 @@ export const HomeBlogPeek: React.FC = () => {
                     <p className='text-center text-gray-500'>No blogs found.</p>
                 ) : (
                     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
-                        {isLoading &&
+                        {/* {isLoading &&
                             [...Array(6)].map((_, index) => <BlogCard loading key={index} />)}
                         {blogs.map((blog) => (
                             <BlogCard key={blog.title} blog={blog} />
-                        ))}
+                        ))} */}
+                            
                     </div>
                 )}
             </div>
