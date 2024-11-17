@@ -1,64 +1,71 @@
-import { Facebook, Instagram, SlackIcon, Twitter, Youtube } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
 
+import AlephiumLogo from "../../public/images/eventimages/alpheum.jpg";
+import CastrolLogo from "../../public/images/eventimages/alpheum.jpg";
+import CocaColaLogo from "../../public/images/eventimages/alpheum.jpg";
+import FitnessEdgeLogo from "../../public/images/eventimages/alpheum.jpg";
+import GyanopediaLogo from "../../public/images/eventimages/alpheum.jpg";
+import HarleyLogo from "../../public/images/eventimages/alpheum.jpg";
+import JassRecordsLogo from "../../public/images/eventimages/alpheum.jpg";
+import KawasakiLogo from "../../public/images/eventimages/alpheum.jpg";
+import KongLogo from "../../public/images/eventimages/alpheum.jpg";
+import ZillionsLogo from "../../public/images/eventimages/alpheum.jpg";
 
-
-
-
-interface OurClients {
+export interface OurClients {
     id: number;
     name: string;
-    logo: string | React.ReactNode;
+    logo: string  | StaticImageData;
 }
 
 export const CONST_CLIENTS_LIST: OurClients[] = [
     {
         id: 1,
         name: "Castrol Punjab",
-        logo: <SlackIcon size={48} />,
+        logo: CastrolLogo,
     },
     {
         id: 2,
         name: "Fitness Edge",
-        logo: <Instagram size={48} />,
+        logo: FitnessEdgeLogo,
     },
     {
         id: 3,
         name: "Coca Cola",
-        logo: <Twitter size={48} />,
+        logo: CocaColaLogo,
     },
     {
         id: 4,
         name: "Alephium",
-        logo: <Facebook size={48} />,
+        logo: AlephiumLogo,
     },
     {
         id: 5,
         name: "Harley",
-        logo: <Youtube size={48} />,
+        logo: HarleyLogo,
     },
     {
         id: 6,
         name: "Kawasaki Bikes",
-        logo: <SlackIcon size={48} />,
+        logo: KawasakiLogo,
     },
     {
         id: 7,
         name: "Zillions of Tech",
-        logo: <Instagram size={48} />,
+        logo: ZillionsLogo,
     },
     {
         id: 8,
         name: "Jass Records",
-        logo: <Twitter size={48} />,
+        logo: JassRecordsLogo,
     },
     {
         id: 9,
         name: "Kong Arm Wrestling",
-        logo: <Facebook size={48} />,
+        logo: KongLogo,
     },
     {
         id: 10,
         name: "Gyanopedia",
-        logo: <Youtube size={48} />,
+        logo: GyanopediaLogo,
     },
 ];

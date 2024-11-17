@@ -73,6 +73,7 @@ export const HomeEvents: React.FC = () => {
                             onClose={handleClosePopup}
                             layoutId={String(selectedId)}
                             event={[...liveEvents, ...pastEvents].find((e) => e.id === selectedId)!}
+                            showRegisterButton={false}
                         />
                     )}
                 </AnimatePresence>
@@ -89,7 +90,7 @@ export const HomeEvents: React.FC = () => {
                                 className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
                                 event={event}
                                 isPressable
-                                showRegisterButton={true}
+                                showRegisterButton
                                 locationOnTop={true}
                                 showDescription
                                 truncateDescription

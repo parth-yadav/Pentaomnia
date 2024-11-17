@@ -1,5 +1,3 @@
-;
-
 // "use client";
 
 // import { useEffect, useRef } from "react";
@@ -98,9 +96,10 @@
 //         </section>
 //     );
 // };
-import { Facebook, Instagram, SlackIcon, Twitter, Youtube } from "lucide-react";
-import { CONST_CLIENTS_LIST } from "@/constants/ourclients";
 
+import Image from "next/image";
+
+import { CONST_CLIENTS_LIST } from "@/constants/ourclients";
 
 export const HomePartners: React.FC = () => {
     return (
@@ -110,10 +109,15 @@ export const HomePartners: React.FC = () => {
                 {CONST_CLIENTS_LIST.slice(0, 12).map((client) => (
                     <div
                         key={client.id}
-                        className='flex flex-col items-center  rounded-lg bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg'
-                    
+                        className='flex flex-col items-center rounded-lg bg-white p-2 shadow-md transition-all duration-300 hover:shadow-lg'
                     >
-                        <div className='mb-4 text-primary'>{client.logo}</div>
+                        <Image
+                            src={client.logo}
+                            alt={`${client.name} logo`}
+                            width={200} // Adjust these values as needed
+                            height={100} // Adjust these values as needed
+                            className='object-contain' // Optional: helps maintain aspect ratio
+                        />
                         <h3 className='text-center text-lg font-semibold'>{client.name}</h3>
                     </div>
                 ))}

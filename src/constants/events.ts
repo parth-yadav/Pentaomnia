@@ -1,3 +1,23 @@
+import { StaticImageData } from "next/image";
+
+// Event Image Imports
+import Event2Image from "../../public/images/eventimages/alpheum.jpg";
+import Event3Image from "../../public/images/eventimages/alpheum.jpg";
+import Event4Image from "../../public/images/eventimages/armwrestle.jpg";
+import Event5Image from "../../public/images/eventimages/alpheum.jpg";
+import Event6Image from "../../public/images/eventimages/innovateex.jpg";
+import Event7Image from "../../public/images/eventimages/alpheum.jpg";
+//import Event8Image from "../../public/images/eventimages/alpheum.jpg";
+import Event9Image from "../../public/images/eventimages/alpheum.jpg";
+import Event1Image from "../../public/images/eventimages/alpheum.jpg";
+import Event10Image from "../../public/images/eventimages/alpheum.jpg";
+import Event11Image from "../../public/images/eventimages/alpheum.jpg";
+import Event12Image from "../../public/images/eventimages/kuch khatta hojaye.jpg";
+import Event13Image from "../../public/images/eventimages/alpheum.jpg";
+import Event14Image from "../../public/images/eventimages/alpheum.jpg";
+import Event15Image from "../../public/images/eventimages/alpheum.jpg";
+import Event16Image from "../../public/images/eventimages/alpheum.jpg";
+
 export interface Event {
     id: number;
     name: string;
@@ -5,7 +25,7 @@ export interface Event {
     startDateTime: string;
     endDateTime?: string;
     location: string;
-    imageSrc?: string;
+    imageSrc: string  | StaticImageData;
 }
 
 export const CONST_EVENTS: Event[] = [
@@ -17,7 +37,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-10-20T12:00:00",
         endDateTime: "2024-8-30T14:00:00",
         location: "UniMall",
-        imageSrc: "https://picsum.photos/1000?random=1",
+        imageSrc: Event1Image,
     },
     {
         id: 2,
@@ -27,7 +47,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-10-22T15:00:00",
         endDateTime: "2024-10-20T17:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=2",
+        imageSrc: Event2Image,
     },
     {
         id: 3,
@@ -37,7 +57,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-10-25T18:00:00",
         endDateTime: "2024-8-31T20:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=3",
+        imageSrc: Event3Image,
     },
     {
         id: 4,
@@ -47,7 +67,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-9-16T19:00:00",
         endDateTime: "2024-9-17T21:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=4",
+        imageSrc: Event4Image,
     },
     {
         id: 5,
@@ -57,7 +77,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-10-31T18:00:00",
         endDateTime: "2024-8-7T21:00:00",
         location: "UniPolis",
-        imageSrc: "https://picsum.photos/1000?random=5",
+        imageSrc: Event5Image,
     },
     {
         id: 6,
@@ -67,9 +87,8 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-3-30T19:00:00",
         endDateTime: "2024-3-31T22:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=6",
+        imageSrc: Event6Image,
     },
-
     {
         id: 7,
         name: "Flaming Friday",
@@ -78,18 +97,9 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-8-17T10:00:00",
         endDateTime: "2024-8-17T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event7Image,
     },
-    {
-        id: 8,
-        name: "Flaming Friday",
-        description:
-            "On 17th September 2022, Pentaomnia organized Flaming Friday, an electrifying EDM festival featuring a Wonderland DJ artist. The event attracted a massive crowd of over 10,000 attendees who reveled in the energetic music and vibrant atmosphere. It was a landmark event that underscored the cultural vibrancy and engagement potential of campus life.",
-        startDateTime: "2024-8-17T10:00:00",
-        endDateTime: "2024-8-17T15:00:00",
-        location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
-    },
+   
     {
         id: 9,
         name: "Salesforce Nexus",
@@ -98,7 +108,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-8-10T10:00:00",
         endDateTime: "2024-8-10T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event9Image,
     },
     {
         id: 10,
@@ -108,7 +118,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-8-30T10:00:00",
         endDateTime: "2024-8-30T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event10Image,
     },
     {
         id: 11,
@@ -118,7 +128,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-9-17T10:00:00",
         endDateTime: "2024-9-17T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event11Image,
     },
     {
         id: 12,
@@ -128,7 +138,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-9-17T10:00:00",
         endDateTime: "2024-9-17T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event12Image,
     },
     {
         id: 13,
@@ -138,7 +148,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-8-10T10:00:00",
         endDateTime: "2024-8-10T15:00:00",
         location: "WonderLand Jalandhar",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event13Image,
     },
     {
         id: 14,
@@ -148,7 +158,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2019-8-10T10:00:00",
         endDateTime: "2019-8-10T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event14Image,
     },
     {
         id: 15,
@@ -158,7 +168,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-9-17T10:00:00",
         endDateTime: "2024-9-17T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event15Image,
     },
     {
         id: 16,
@@ -168,6 +178,6 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2024-9-17T10:00:00",
         endDateTime: "2024-9-17T15:00:00",
         location: "LPU",
-        imageSrc: "https://picsum.photos/1000?random=8",
+        imageSrc: Event16Image,
     },
 ];

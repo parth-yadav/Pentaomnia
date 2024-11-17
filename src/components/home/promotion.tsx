@@ -1,72 +1,86 @@
-import { InstagramIcon, YoutubeIcon } from "lucide-react";
+import {
+    BuildingIcon,
+    CameraIcon,
+    CodeIcon,
+    GraduationCapIcon,
+    InstagramIcon,
+    MonitorIcon,
+    PaletteIcon,
+    PartyPopperIcon,
+    PenToolIcon,
+    RocketIcon,
+    ShoppingBagIcon,
+    SpeakerIcon,
+    YoutubeIcon,
+} from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const HomePromotions: React.FC = () => {
-    const iconBgColors = ["bg-blue-400", "bg-pink-400", "bg-red-400", "bg-orange-400"];
+    const iconBgColors = ["bg-accent"];
     interface Promotions {
         name: string;
         description: string;
-        icon: string | React.ReactNode;
+        icon: React.ReactNode;
     }
     const productPromotions: Promotions[] = [
         {
             name: "Social Media Marketing",
-            description: "Get the latest tech gadgets at discounted prices.",
-            icon: "💻",
+            description: "Boost your online presence with targeted campaigns.",
+            icon: <InstagramIcon size={24} />,
         },
         {
             name: "Web Development & Design",
-            description: "Upgrade your wardrobe with stylish fashion items.",
-            icon: "👗",
+            description: "Create stunning and functional websites.",
+            icon: <MonitorIcon size={24} />,
         },
         {
             name: "Ads Campaign Management",
-            description: "Stock up on study materials for your courses.",
-            icon: "📚",
+            description: "Optimize your ad spend with expert management.",
+            icon: <SpeakerIcon size={24} />,
         },
         {
             name: "Product Shoots & Visual Content Creation",
-            description: "Stay active with discounted fitness gear and equipment.",
-            icon: "🏋️",
+            description: "Capture your products in the best light.",
+            icon: <CameraIcon size={24} />,
         },
         {
             name: "Branding & Identity Development",
-            description: "Stay active with discounted fitness gear and equipment.",
-            icon: "🏋️",
+            description: "Establish a strong and memorable brand identity.",
+            icon: <PaletteIcon size={24} />,
         },
     ];
 
     const socialPromotions: Promotions[] = [
         {
             name: "Corporate Events",
-            description: "Share your Pentaomnia experience and win prizes!",
-            icon: <InstagramIcon size={24} />,
+            description: "Organize professional and impactful corporate gatherings.",
+            icon: <BuildingIcon size={24} />,
         },
         {
             name: "University & College Events",
-            description: "Watch our latest videos on student success stories.",
-            icon: <YoutubeIcon size={24} />,
+            description: "Create memorable experiences for academic institutions.",
+            icon: <GraduationCapIcon size={24} />,
         },
         {
             name: "Product/Service Branding & Promotion Events",
-            description: "Watch our latest videos on student success stories.",
-            icon: <YoutubeIcon size={24} />,
+            description: "Showcase your offerings with tailored events.",
+            icon: <ShoppingBagIcon size={24} />,
         },
         {
             name: "Product Launches",
-            description: "Watch our latest videos on student success stories.",
-            icon: <YoutubeIcon size={24} />,
+            description: "Make a splash with exciting product launch events.",
+            icon: <RocketIcon size={24} />,
         },
         {
             name: "Technical Events & Workshops",
-            description: "Watch our latest videos on student success stories.",
-            icon: <YoutubeIcon size={24} />,
+            description: "Facilitate learning and networking in tech-focused events.",
+            icon: <CodeIcon size={24} />,
         },
         {
             name: "Private Functions & Celebrations",
-            description: "Watch our latest videos on student success stories.",
-            icon: <YoutubeIcon size={24} />,
+            description: "Create unforgettable moments for personal milestones.",
+            icon: <PartyPopperIcon size={24} />,
         },
     ];
 
@@ -85,16 +99,12 @@ export const HomePromotions: React.FC = () => {
                         </CardHeader>
                         <CardContent>
                             <div className='grid gap-4 sm:grid-cols-2'>
-                                {socialPromotions.map((item, index) => (
+                                {productPromotions.map((item, index) => (
                                     <div key={index} className='flex items-center space-x-4'>
                                         <div
                                             className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
-                                            {typeof item.icon === "string" ? (
-                                                <span className='text-2xl'>{item.icon}</span>
-                                            ) : (
-                                                item.icon
-                                            )}
+                                            {item.icon}
                                         </div>
                                         <div>
                                             <h3 className='font-semibold'>{item.name}</h3>
@@ -111,24 +121,19 @@ export const HomePromotions: React.FC = () => {
                         <CardHeader className='flex items-center justify-center'>
                             <CardTitle>Event Management Services Provider</CardTitle>
                         </CardHeader>
-
                         <CardContent>
                             <div className='grid gap-4 sm:grid-cols-2'>
-                                {productPromotions.map((item, index) => (
+                                {socialPromotions.map((item, index) => (
                                     <div key={index} className='flex items-center space-x-4'>
                                         <div
                                             className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
-                                            {typeof item.icon === "string" ? (
-                                                <span className='text-2xl'>{item.icon}</span>
-                                            ) : (
-                                                item.icon
-                                            )}
+                                            {item.icon}
                                         </div>
                                         <div>
                                             <h3 className='font-semibold'>{item.name}</h3>
                                             <p className='text-sm text-gray-400'>
-                                                Special student discounts available!
+                                                {item.description}
                                             </p>
                                         </div>
                                     </div>
@@ -136,7 +141,6 @@ export const HomePromotions: React.FC = () => {
                             </div>
                         </CardContent>
                     </Card>
-                    
                 </div>
             </div>
         </section>
