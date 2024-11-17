@@ -78,38 +78,9 @@ export const HomePromotions: React.FC = () => {
                 </h2>
                 <div className='grid gap-6 lg:grid-cols-2'>
                     <Card className='shadow-lg shadow-primary'>
-                        <CardHeader className='flex items-center justify-center'>
-                            <CardTitle>Event Management</CardTitle>
-                        </CardHeader>
-
-                        <CardContent>
-                            <div className='grid gap-4 sm:grid-cols-2'>
-                                {productPromotions.map((item, index) => (
-                                    <div key={index} className='flex items-center space-x-4'>
-                                        <div
-                                            className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
-                                        >
-                                            {typeof item.icon === "string" ? (
-                                                <span className='text-2xl'>{item.icon}</span>
-                                            ) : (
-                                                item.icon
-                                            )}
-                                        </div>
-                                        <div>
-                                            <h3 className='font-semibold'>{item.name}</h3>
-                                            <p className='text-sm text-gray-400'>
-                                                Special student discounts available!
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <Card className='shadow-lg shadow-primary'>
                         <CardHeader>
                             <CardTitle className='flex items-center justify-center'>
-                                Digital Marketing
+                                360° Marketing Agency
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -136,6 +107,36 @@ export const HomePromotions: React.FC = () => {
                             </div>
                         </CardContent>
                     </Card>
+                    <Card className='shadow-lg shadow-primary'>
+                        <CardHeader className='flex items-center justify-center'>
+                            <CardTitle>Event Management Services Provider</CardTitle>
+                        </CardHeader>
+
+                        <CardContent>
+                            <div className='grid gap-4 sm:grid-cols-2'>
+                                {productPromotions.map((item, index) => (
+                                    <div key={index} className='flex items-center space-x-4'>
+                                        <div
+                                            className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
+                                        >
+                                            {typeof item.icon === "string" ? (
+                                                <span className='text-2xl'>{item.icon}</span>
+                                            ) : (
+                                                item.icon
+                                            )}
+                                        </div>
+                                        <div>
+                                            <h3 className='font-semibold'>{item.name}</h3>
+                                            <p className='text-sm text-gray-400'>
+                                                Special student discounts available!
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                    
                 </div>
             </div>
         </section>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import type { Event } from "@/constants/events";
 
@@ -13,10 +13,16 @@ import EventPopup from "@/components/home/eventPopup";
 import { CONST_EVENTS } from "@/constants/events";
 
 export const HomeEvents: React.FC = () => {
-    const events: Event[] = CONST_EVENTS.sort((a, b) =>
-        dayjs(a.endDateTime).diff(dayjs(b.endDateTime)),
-    );
     const [selectedId, setSelectedId] = useState<number | null>(null);
+
+    const { liveEvents, pastEvents } = useMemo(() => {
+        const now = dayjs();
+        const sorted = CONST_EVENTS.sort((a, b) => dayjs(a.endDateTime).diff(dayjs(b.endDateTime)));
+        return {
+            liveEvents: sorted.filter((event) => dayjs(event.endDateTime).isAfter(now)),
+            pastEvents: sorted.filter((event) => dayjs(event.endDateTime).isBefore(now)),
+        };
+    }, []);
 
     const handleCardClick = (index: number) => {
         setSelectedId(index);
@@ -25,6 +31,29 @@ export const HomeEvents: React.FC = () => {
     const handleClosePopup = () => {
         setSelectedId(null);
     };
+
+    const renderEventCards = (events: Event[], isPast: boolean) => (
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            {events.map((event, index) => (
+                <motion.div
+                    className='m-4'
+                    key={`${isPast ? "past" : "live"}-${index}`}
+                    layoutId={String(event.id)}
+                >
+                    <EventCard
+                        clickCallback={() => handleCardClick(event.id)}
+                        className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
+                        event={event}
+                        isPressable
+                        showDescription
+                        showRegisterButton={!isPast}
+                        locationOnTop={isPast}
+                        truncateDescription
+                    />
+                </motion.div>
+            ))}
+        </div>
+    );
 
     return (
         <section
@@ -35,58 +64,23 @@ export const HomeEvents: React.FC = () => {
                 <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Upcoming Events
                 </h2>
-                <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                    {events.map((event, index) => (
-                        <motion.div
-                            className='m-4'
-                            key={"upcoming" + index}
-                            layoutId={String(index)}
-                        >
-                            <EventCard
-                                clickCallback={() => handleCardClick(index)}
-                                className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
-                                event={event}
-                                isPressable
-                                showDescription
-                                showRegisterButton
-                                locationOnTop = {false}
-                                truncateDescription
-                            />
-                        </motion.div>
-                    ))}
-                    <AnimatePresence>
-                        {selectedId !== null && events[selectedId] && (
-                            <EventPopup
-                                // event={events[selectedId]}
-                                onClose={handleClosePopup}
-                                layoutId={String(selectedId)}
-                                event={events[selectedId]}
-                            />
-                        )}
-                    </AnimatePresence>
-                </div>
+                {renderEventCards(liveEvents, false)}
             </div>
             <div className='container mt-8 px-4 md:px-6'>
                 <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Past Events
                 </h2>
-                <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                    {events.slice(0, 2).map((event, index) => (
-                        <div className='m-4' key={"past-" + index}>
-                            <EventCard
-                                clickCallback={() => handleCardClick(index)}
-                                className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
-                                event={event}
-                                isPressable
-                                showRegisterButton={false}
-                                locationOnTop = {true}
-                                showDescription
-                                truncateDescription 
-                            />
-                        </div>
-                    ))}
-                </div>
+                {renderEventCards(pastEvents, true)}
             </div>
+            <AnimatePresence>
+                {selectedId !== null && (
+                    <EventPopup
+                        onClose={handleClosePopup}
+                        layoutId={String(selectedId)}
+                        event={[...liveEvents, ...pastEvents].find((e) => e.id === selectedId)!}
+                    />
+                )}
+            </AnimatePresence>
         </section>
     );
 };

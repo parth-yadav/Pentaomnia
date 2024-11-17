@@ -10,17 +10,57 @@ export default function Footer() {
                         <ul className='space-y-1'>
                             <li>
                                 <Link className='hover:underline' href='#events'>
-                                    Events
+                                    Home
                                 </Link>
                             </li>
                             <li>
                                 <Link className='hover:underline' href='#promotions'>
-                                    Promotions
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Our Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Event Management
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Digital Marketing
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Case Studies
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Testimonials
                                 </Link>
                             </li>
                             <li>
                                 <Link className='hover:underline' href='#blog'>
                                     Blog
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Contact Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    FAQs
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className='hover:underline' href='#blog'>
+                                    Request Services
                                 </Link>
                             </li>
                         </ul>
@@ -31,15 +71,22 @@ export default function Footer() {
                         <p>Phone: +91-9592333800</p>
                         <p>Address:</p>
                         <p>
-                            {" "}
+                             <Link className='hover:underline' href='#blog'>
+                                    {" "}
                             Corporate Office: Room 209, Block 13 Lovely Professional University
                             Jalandhar, Punjab - 144411
+                                </Link>
+                           
                         </p>
                         <p>
-                            {" "}
+                             <Link className='hover:underline' href='#blog'>
+                                    {" "}
                             Headquarters: PENTAOMNIA PRIVATE LIMITED C/o Sh. Naim House No. 24, Ward
                             No. 08 Jhakhra Village, Tola & PO Baisakhwa BLOCK SIKTA, BETTIAH West
                             Champaran, Bihar, India, 845307
+                                </Link>
+                            
+                           
                         </p>
                     </div>
                     <div className='space-y-2 text-accent'>

@@ -1,5 +1,9 @@
 import { Facebook, Instagram, SlackIcon, Twitter, Youtube } from "lucide-react";
 
+
+
+
+
 interface OurClients {
     id: number;
     name: string;
@@ -9,52 +13,52 @@ interface OurClients {
 export const CONST_CLIENTS_LIST: OurClients[] = [
     {
         id: 1,
-        name: "TechCorp",
+        name: "Castrol Punjab",
         logo: <SlackIcon size={48} />,
     },
     {
         id: 2,
-        name: "FitLife",
+        name: "Fitness Edge",
         logo: <Instagram size={48} />,
     },
     {
         id: 3,
-        name: "EduSolutions",
+        name: "Coca Cola",
         logo: <Twitter size={48} />,
     },
     {
         id: 4,
-        name: "CreativeMinds",
+        name: "Alephium",
         logo: <Facebook size={48} />,
     },
     {
         id: 5,
-        name: "InnovateCo",
+        name: "Harley",
         logo: <Youtube size={48} />,
     },
     {
         id: 6,
-        name: "TechCorp",
+        name: "Kawasaki Bikes",
         logo: <SlackIcon size={48} />,
     },
     {
         id: 7,
-        name: "FitLife",
+        name: "Zillions of Tech",
         logo: <Instagram size={48} />,
     },
     {
         id: 8,
-        name: "EduSolutions",
+        name: "Jass Records",
         logo: <Twitter size={48} />,
     },
     {
         id: 9,
-        name: "CreativeMinds",
+        name: "Kong Arm Wrestling",
         logo: <Facebook size={48} />,
     },
     {
         id: 10,
-        name: "InnovateCo",
+        name: "Gyanopedia",
         logo: <Youtube size={48} />,
     },
 ];
