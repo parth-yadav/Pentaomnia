@@ -5,7 +5,7 @@ export const HomeWho: React.FC = () => {
             className='relative bg-center py-12 md:py-24 lg:py-32'
             style={{ backgroundImage: `url('/images/2.jpg')` }}
         >
-            <div className='absolute inset-0 bg-black/40 backdrop-blur-lg'></div>{" "}
+            <div className='absolute inset-0 bg-black/80 backdrop-blur-lg'></div>
             {/* Blurred overlay */}
             <div className='container relative z-10 px-4 md:px-6'>
                 <div className='flex flex-col items-center justify-center space-y-4 text-center'>
