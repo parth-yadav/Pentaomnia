@@ -9,17 +9,15 @@ export const HomeGetInvolved: React.FC = () => {
                 <div className='flex flex-col items-center justify-center space-y-4 text-center'>
                     <div className='space-y-2'>
                         <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                            Join Us!
+                            Your Success is Our Mission—Partner with Us Today
                         </h2>
-                        <p className='max-w-[600px] md:text-xl'>
-                            Join Pentaomnia today and unlock a world of opportunities. Connect with
-                            like-minded students, participate in exciting events, and boost your
-                            career prospects.
+                        <p className=' md:text-xl'>
+                           Whether elevating your brand or organizing unforgettable events, our team is ready to bring your vision to life. Partner with us today and embark on a journey of creativity and success!
                         </p>
                     </div>
                     <Link href='/register' prefetch={false}>
                         <Button className='bg-primary text-white hover:text-accent' size='lg'>
-                            Become a Member
+                            Request Services Now
                         </Button>
                     </Link>
                 </div>

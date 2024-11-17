@@ -43,7 +43,7 @@ const EventCard: React.FC<EventCardProps> = ({
     showDescription,
     isDatevisible=false,
     isPressable = false,
-    showRegisterButton = true,
+    showRegisterButton = false,
     truncateDescription = false,
 }) => {
     const RegisterButton: React.FC<{ className?: string }> = ({ className }) => (
@@ -91,9 +91,7 @@ const EventCard: React.FC<EventCardProps> = ({
                                 </Badge>
                             </div>
                         )}
-                        <h4 className='text-left text-2xl font-semibold text-white'>
-                            {event.name}
-                        </h4>
+                        
                     </CardHeader>
 
                     <div className='relative h-full w-full'>
@@ -109,7 +107,10 @@ const EventCard: React.FC<EventCardProps> = ({
                     </div>
 
                     <CardFooter className='absolute bottom-0 z-20 justify-between border-t border-gray-300 bg-white bg-opacity-90 p-4 backdrop-blur-md'>
-                        <div className='flex flex-col space-y-2'>
+                            <div className='flex flex-col space-y-2'>
+                                 <h4 className='text-left text-2xl font-semibold text-black'>
+                            {event.name}
+                        </h4>
                             {showDescription && (
                                 <div className='text-md'>
                                     <div className='flex flex-col items-start gap-2'>
