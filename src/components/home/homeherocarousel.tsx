@@ -5,19 +5,14 @@ import { useRef } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 interface HomeHeroCarouselProps {
     className?: string;
+    images: string[]; // Array of local image paths
 }
 
-export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className }) => {
+export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, images }) => {
     const plugin = useRef(
         Autoplay({
             delay: 4000,
@@ -33,17 +28,15 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className })
                 loop: true,
                 duration: 20,
                 skipSnaps: true,
-                // dragFree: true,
             }}
         >
-            {/* <div className='bg-red-800 w-[400px] h-[400px]'></div> */}
-            <CarouselContent className=''>
-                {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselContent>
+                {images.map((imagePath, index) => (
                     <CarouselItem key={index} className='max-h-[400px] min-w-[300px]'>
                         <Image
-                            src={"https://picsum.photos/600?random=" + index}
-                            alt={`Event ${index + 1}`}
-                            className='h-full w-full'
+                            src={imagePath}
+                            alt={`Carousel Image ${index + 1}`}
+                            className='h-full w-full object-cover'
                             height={600}
                             width={600}
                         />

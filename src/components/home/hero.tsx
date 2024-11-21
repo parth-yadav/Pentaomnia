@@ -1,9 +1,23 @@
 import Link from "next/link";
 
+
+
 import { HomeHeroCarousel } from "@/components/home/homeherocarousel";
 import { Button } from "@/components/ui/button";
 
+
+
+import image from "../../../public/images/eventimages/alpheum.jpg";
+
+
 export const HomeHero: React.FC = () => {
+    const localImages = [
+        "/images/eventimages/alpheum.jpg",
+        "/images/eventimages/arcana20.jpg",
+        "/images/eventimages/armwrestle.jpg",
+        "/images/eventimages/innovateex.jpg",
+        "/images/eventimages/musclemania.jpg",
+    ];
     return (
       
         <section className='w-full bg-gradient-to-r from-primary to-black'>
@@ -41,7 +55,7 @@ export const HomeHero: React.FC = () => {
                     </div>
                 </div>
                 <div className='mx-auto flex w-full items-center justify-center'>
-                    <HomeHeroCarousel className='' />
+                    <HomeHeroCarousel className='' images={localImages} />
                 </div>
             </div>
         </section>
