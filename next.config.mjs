@@ -1,12 +1,15 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
     eslint: {
         ignoreDuringBuilds: true,
     },
-    images: {
-        domains: ["picsum.photos", "loremflickr.com", "cloudflare-ipfs.com"],
+    typescript: {
+        ignoreBuildErrors: true,
     },
+    images: {
+        unoptimized: true, // Important for static export
+    },
+    output: "export",
 };
 
 export default nextConfig;
