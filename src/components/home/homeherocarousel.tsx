@@ -23,7 +23,7 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, i
     return (
         <Carousel
             plugins={[plugin.current]}
-            className={`${className} max-w-[400px] p-10 sm:min-w-[200px] lg:max-w-[600px]`}
+            className={`${className} max-w-[400px]  lg:max-w-[600px]`}
             opts={{
                 loop: true,
                 duration: 20,
@@ -32,11 +32,11 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, i
         >
             <CarouselContent>
                 {images.map((imagePath, index) => (
-                    <CarouselItem key={index} className='max-h-[400px] min-w-[300px]'>
+                    <CarouselItem key={index} className=''>
                         <Image
                             src={imagePath}
                             alt={`Carousel Image ${index + 1}`}
-                            className='h-full w-full object-cover'
+                            className='object-cover'
                             height={600}
                             width={600}
                         />
