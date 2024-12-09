@@ -3,7 +3,7 @@ export const HomeWho: React.FC = () => {
         <section
             id='about'
             className='relative bg-center py-12 md:py-24 lg:py-32'
-            style={{ backgroundImage: `url('/images/2.jpg')` }}
+            style={{ backgroundImage: `url('images/2.jpg')` }}
         >
             <div className='absolute inset-0 bg-black/80 backdrop-blur-lg'></div>
             {/* Blurred overlay */}

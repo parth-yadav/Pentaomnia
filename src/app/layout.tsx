@@ -9,6 +9,7 @@ import RootProvider from "@/providers/root";
 
 import packageJson from "../../package.json";
 
+// Optional interface for the package.json structure, if needed
 interface PackageJson {
     name: string;
     description: string;
@@ -21,11 +22,35 @@ interface PackageJson {
 
 const typedPackageJson = packageJson as PackageJson;
 
+// Set your custom site description and SEO keywords here
 export const metadata: Metadata = {
-    title: typedPackageJson.name ?? "Next.js TypeScript & shadcn/ui — Template",
-    description: typedPackageJson.description ?? "Next.js TypeScript & shadcn/ui — Template",
-    
+    title: "Pentaomnia", // Title for the site
+    description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // Custom description
+    keywords: "event management, deigital marketing, event organistion, jalandhar, phagwara,", // Custom SEO keywords
+    openGraph: {
+        title: "Pentaomnia", // OpenGraph title
+        description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // OpenGraph description
+        url: "https://www.pentaomnia.com",
+        siteName: "Pentaomnia",
+        images: [
+            {
+                url: "/images/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Open Graph Image",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "@yourtwitterhandle",
+        title: "Pentaomnia", // Twitter title
+        description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // Twitter description
+        // Uncomment if you have a Twitter image
+        // image: "/images/og-image.jpg",
+    },
 };
+
 export const viewport: Viewport = {
     themeColor: "#000",
 };
