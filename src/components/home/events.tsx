@@ -1,16 +1,36 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import type { Event } from "@/constants/events";
 
 import dayjs from "dayjs";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, UseInViewOptions } from "framer-motion";
 import * as motion from "framer-motion/client";
 
 import EventCard from "@/components/eventcard";
 import EventPopup from "@/components/home/eventPopup";
 import { CONST_EVENTS } from "@/constants/events";
+import { useInView } from "@/hooks/useInView";
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (custom: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            delay: custom * 0.1,
+            ease: "easeOut",
+        },
+    }),
+};
+
+const inViewOptions: UseInViewOptions = {
+    once: true,
+    amount: 0.2,
+    margin: "0px 0px -100px 0px",
+};
 
 export const HomeEvents: React.FC = () => {
     const { liveEvents, pastEvents } = useMemo(() => {
@@ -34,6 +54,12 @@ export const HomeEvents: React.FC = () => {
         setSelectedId(null);
     };
 
+    const createRefs = (count: number): React.RefObject<HTMLDivElement>[] =>
+        Array.from({ length: count }, () => useRef<HTMLDivElement>(null));
+
+    const upcomingRefs = createRefs(liveEvents.length);
+    const pastRefs = createRefs(pastEvents.length);
+
     return (
         <section
             id='events'
@@ -45,24 +71,32 @@ export const HomeEvents: React.FC = () => {
                 </h2>
                 {liveEvents.length > 0 ? (
                     <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                        {liveEvents.map((event, index) => (
-                            <motion.div
-                                className='m-4'
-                                key={"upcoming" + index}
-                                layoutId={String(event.id)}
-                            >
-                                <EventCard
-                                    clickCallback={() => handleCardClick(event.id)}
-                                    className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
-                                    event={event}
-                                    isPressable
-                                    showDescription
-                                    showRegisterButton
-                                    locationOnTop={false}
-                                    truncateDescription
-                                />
-                            </motion.div>
-                        ))}
+                        {liveEvents.map((event, index) => {
+                            const isInView = useInView(upcomingRefs[index]!, inViewOptions);
+                            return (
+                                <motion.div
+                                    className='m-4'
+                                    key={"upcoming" + index}
+                                    layoutId={String(event.id)}
+                                    ref={upcomingRefs[index]}
+                                    custom={index % 3}
+                                    variants={cardVariants}
+                                    initial='hidden'
+                                    animate={isInView ? "visible" : "hidden"}
+                                >
+                                    <EventCard
+                                        clickCallback={() => handleCardClick(event.id)}
+                                        className='max-h-[400px] min-h-[350px] w-full'
+                                        event={event}
+                                        isPressable
+                                        showDescription
+                                        showRegisterButton
+                                        locationOnTop={false}
+                                        truncateDescription
+                                    />
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 ) : (
                     <p className='text-center text-xl text-white'>No live events as of now</p>
@@ -78,27 +112,38 @@ export const HomeEvents: React.FC = () => {
                     )}
                 </AnimatePresence>
             </div>
-            <div className='container mt-8 px-4 md:px-6'>
+            {/* <div className='container mt-8 px-4 md:px-6'>
                 <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Past Events
                 </h2>
                 <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                    {pastEvents.map((event, index) => (
-                        <div className='m-4' key={"past-" + index}>
-                            <EventCard
-                                clickCallback={() => handleCardClick(event.id)}
-                                className='max-h-[400px] min-h-[350px] w-full transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-accent'
-                                event={event}
-                                isPressable
-                                showRegisterButton
-                                locationOnTop={true}
-                                showDescription
-                                truncateDescription
-                            />
-                        </div>
-                    ))}
+                    {pastEvents.map((event, index) => {
+                        const isInView = useInView(pastRefs[index]!, inViewOptions);
+                        return (
+                            <motion.div
+                                className='m-4'
+                                key={"past-" + index}
+                                ref={pastRefs[index]}
+                                custom={index % 3}
+                                variants={cardVariants}
+                                initial='hidden'
+                                animate={isInView ? "visible" : "hidden"}
+                            >
+                                <EventCard
+                                    clickCallback={() => handleCardClick(event.id)}
+                                    className='max-h-[400px] min-h-[350px] w-full'
+                                    event={event}
+                                    isPressable
+                                    showRegisterButton
+                                    locationOnTop={true}
+                                    showDescription
+                                    truncateDescription
+                                />
+                            </motion.div>
+                        );
+                    })}
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };

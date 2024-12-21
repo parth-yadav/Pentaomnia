@@ -5,6 +5,8 @@ import { HomeHero } from "@/components/home/hero";
 import { HomePartners } from "@/components/home/partners";
 import { HomePromotions } from "@/components/home/promotion";
 import { HomeWho } from "@/components/home/who";
+
+import ParPage from "./home/parevents/parpage";
 import Whatsapp from "./home/whatsapp-widget";
 
 export default function LandingPage() {
@@ -14,7 +16,8 @@ export default function LandingPage() {
                 <Whatsapp />
                 <HomeHero />
                 <HomeWho />
-                <HomeEvents />
+              <HomeEvents />
+                <ParPage />
                 <HomePromotions />
                 <HomePartners />
                 <HomeBlogPeek />

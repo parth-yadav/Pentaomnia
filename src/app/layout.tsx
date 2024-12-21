@@ -1,35 +1,23 @@
 import "../styles/globals.css";
 import "../styles/globals.scss";
 
-import type { Metadata, Viewport } from "next";
+import { Metadata, Viewport } from "next";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import RootProvider from "@/providers/root";
 
-import packageJson from "../../package.json";
-
-// Optional interface for the package.json structure, if needed
-interface PackageJson {
-    name: string;
-    description: string;
-    author: {
-        name: string;
-        email: string;
-    };
-    keywords: string[];
-}
-
-const typedPackageJson = packageJson as PackageJson;
-
-// Set your custom site description and SEO keywords here
 export const metadata: Metadata = {
-    title: "Pentaomnia", // Title for the site
-    description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // Custom description
-    keywords: "event management, deigital marketing, event organistion, jalandhar, phagwara,", // Custom SEO keywords
+    metadataBase: new URL("https://www.pentaomnia.com"),
+    title: "Pentaomnia - Event Management & Digital Marketing Solutions",
+    description:
+        "Transforming events and digital marketing in Jalandhar and Phagwara. We provide innovative solutions to elevate your business and create memorable experiences.", // More descriptive description
+    keywords:
+        "event management, digital marketing, event organization, Jalandhar, Phagwara, business solutions, marketing services",
     openGraph: {
-        title: "Pentaomnia", // OpenGraph title
-        description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // OpenGraph description
+        title: "Pentaomnia - Event Management & Digital Marketing Solutions",
+        description:
+            "Transforming events and digital marketing in Jalandhar and Phagwara. We provide innovative solutions to elevate your business and create memorable experiences.",
         url: "https://www.pentaomnia.com",
         siteName: "Pentaomnia",
         images: [
@@ -37,17 +25,21 @@ export const metadata: Metadata = {
                 url: "/images/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Open Graph Image",
+                alt: "Pentaomnia - Event Management and Digital Marketing",
             },
         ],
     },
     twitter: {
         card: "summary_large_image",
         site: "@yourtwitterhandle",
-        title: "Pentaomnia", // Twitter title
-        description: "Pentaomnia is a cutting-edge platform for innovative web applications.", // Twitter description
-        // Uncomment if you have a Twitter image
-        // image: "/images/og-image.jpg",
+        title: "Pentaomnia - Event Management & Digital Marketing Solutions",
+        description:
+            "Transforming events and digital marketing in Jalandhar and Phagwara. We provide innovative solutions to elevate your business and create memorable experiences.",
+    },
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
+        apple: "/favicon.ico",
     },
 };
 

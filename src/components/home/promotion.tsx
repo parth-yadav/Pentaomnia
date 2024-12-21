@@ -1,28 +1,43 @@
-import {
-    BuildingIcon,
-    CameraIcon,
-    CodeIcon,
-    GraduationCapIcon,
-    InstagramIcon,
-    MonitorIcon,
-    PaletteIcon,
-    PartyPopperIcon,
-    PenToolIcon,
-    RocketIcon,
-    ShoppingBagIcon,
-    SpeakerIcon,
-    YoutubeIcon,
-} from "lucide-react";
+"use client";
+
+import { useRef } from "react";
+
+
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { BuildingIcon, CameraIcon, CodeIcon, GraduationCapIcon, InstagramIcon, MonitorIcon, PaletteIcon, PartyPopperIcon, PenToolIcon, RocketIcon, ShoppingBagIcon, SpeakerIcon, YoutubeIcon } from "lucide-react";
+
+
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+
+
+
+
+const MotionCard = motion(Card);
+
 export const HomePromotions: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    });
+
+    // Transform x values for left and right animations
+    const x1 = useTransform(scrollYProgress, [0, 0.5], [-100, 0]);
+    const x2 = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
+    const opacity1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+    const opacity2 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
     const iconBgColors = ["bg-accent"];
+
     interface Promotions {
         name: string;
         description: string;
         icon: React.ReactNode;
     }
+
     const productPromotions: Promotions[] = [
         {
             name: "Social Media Marketing",
@@ -85,13 +100,21 @@ export const HomePromotions: React.FC = () => {
     ];
 
     return (
-        <section id='promotions' className='w-full py-12 md:py-24 lg:py-32'>
+        <section ref={sectionRef} id='promotions' className='w-full py-12 md:py-24 lg:py-32'>
             <div className='container px-4 md:px-6'>
-                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter sm:text-5xl'>
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className='mb-8 text-center text-3xl font-bold tracking-tighter sm:text-5xl'
+                >
                     Our Services
-                </h2>
+                </motion.h2>
                 <div className='grid gap-6 lg:grid-cols-2'>
-                    <Card className='shadow-lg shadow-primary'>
+                    <MotionCard
+                        style={{ x: x1, opacity: opacity1 }}
+                        className='shadow-lg shadow-primary'
+                    >
                         <CardHeader>
                             <CardTitle className='flex items-center justify-center'>
                                 360° Marketing Agency
@@ -100,7 +123,14 @@ export const HomePromotions: React.FC = () => {
                         <CardContent>
                             <div className='grid gap-4 sm:grid-cols-2'>
                                 {productPromotions.map((item, index) => (
-                                    <div key={index} className='flex items-center space-x-4'>
+                                    <motion.div
+                                        key={index}
+                                        className='flex items-center space-x-4'
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        viewport={{ once: true }}
+                                    >
                                         <div
                                             className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
@@ -112,19 +142,29 @@ export const HomePromotions: React.FC = () => {
                                                 {item.description}
                                             </p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </CardContent>
-                    </Card>
-                    <Card className='shadow-lg shadow-primary'>
+                    </MotionCard>
+                    <MotionCard
+                        style={{ x: x2, opacity: opacity2 }}
+                        className='shadow-lg shadow-primary'
+                    >
                         <CardHeader className='flex items-center justify-center'>
                             <CardTitle>Event Management Services Provider</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className='grid gap-4 sm:grid-cols-2'>
                                 {socialPromotions.map((item, index) => (
-                                    <div key={index} className='flex items-center space-x-4'>
+                                    <motion.div
+                                        key={index}
+                                        className='flex items-center space-x-4'
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        viewport={{ once: true }}
+                                    >
                                         <div
                                             className={`flex h-12 w-12 items-center justify-center rounded-full p-3 ${iconBgColors[index % iconBgColors.length]}`}
                                         >
@@ -136,11 +176,11 @@ export const HomePromotions: React.FC = () => {
                                                 {item.description}
                                             </p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </CardContent>
-                    </Card>
+                    </MotionCard>
                 </div>
             </div>
         </section>

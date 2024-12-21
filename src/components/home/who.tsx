@@ -14,7 +14,18 @@ export const HomeWho: React.FC = () => {
                             Who We Are
                         </h2>
                         <p className='max-w-[900px] text-gray-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                            At Pentaomnia, we empower brands and elevate experiences through a comprehensive suite of services, including corporate events, university and college events, wedding planning, private functions, and product launches. Our expertise extends to brand, product, and service promotions, social media marketing, ad campaigns, SEO, web development, graphics designing, content creation, video editing, and product shoots. With a 360° approach, we seamlessly blend creativity and strategy to deliver unforgettable events, engaging digital experiences, and impactful marketing campaigns. We aim to build lasting partnerships that drive brand value, foster meaningful connections, and set new benchmarks of excellence. Choose Pentaomnia to transform your vision into reality and unlock the full potential of your brand.
+                            At Pentaomnia, we empower brands and elevate experiences through a
+                            comprehensive suite of services, including corporate events, university
+                            and college events, wedding planning, private functions, and product
+                            launches. Our expertise extends to brand, product, and service
+                            promotions, social media marketing, ad campaigns, SEO, web development,
+                            graphics designing, content creation, video editing, and product shoots.
+                            With a 360° approach, we seamlessly blend creativity and strategy to
+                            deliver unforgettable events, engaging digital experiences, and
+                            impactful marketing campaigns. We aim to build lasting partnerships that
+                            drive brand value, foster meaningful connections, and set new benchmarks
+                            of excellence. Choose Pentaomnia to transform your vision into reality
+                            and unlock the full potential of your brand.
                         </p>
                     </div>
                     {/* <Button>Learn More</Button> */}

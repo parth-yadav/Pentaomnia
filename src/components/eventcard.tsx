@@ -1,12 +1,20 @@
+"use client";
+
+import React, { useRef } from "react";
+
 import { Card, CardFooter, CardHeader } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 import { Skeleton } from "@nextui-org/skeleton";
 import dayjs from "dayjs";
+import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 
 import { Badge } from "@/components/ui/badge";
 import { type Event } from "@/constants/events";
+
+const ROTATION_RANGE = 32.5;
+const HALF_ROTATION_RANGE = 32.5 / 2;
 
 interface BaseEventCardProps {
     className?: string;
@@ -19,23 +27,19 @@ interface BaseEventCardProps {
     truncateDescription?: boolean;
 }
 
-// When loading is provided, event is optional
 interface LoadingProps extends BaseEventCardProps {
     loading: true;
-    event?: Event; // Optional when loading is true
+    event?: Event;
 }
 
-// When loading is not provided, event is required
 interface EventProps extends BaseEventCardProps {
-    loading?: false; // loading is optional and false by default
-    event: Event; // Required when loading is false
+    loading?: false;
+    event: Event;
 }
 
-// Combined type
 type EventCardProps = LoadingProps | EventProps;
 
 const EventCard: React.FC<EventCardProps> = ({
-    // description,
     className,
     loading,
     event,
@@ -47,6 +51,39 @@ const EventCard: React.FC<EventCardProps> = ({
     showRegisterButton = false,
     truncateDescription = false,
 }) => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const xSpring = useSpring(x);
+    const ySpring = useSpring(y);
+
+    const transform = useMotionTemplate`rotateX(${xSpring}deg) rotateY(${ySpring}deg)`;
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+
+        const rect = ref.current.getBoundingClientRect();
+
+        const width = rect.width;
+        const height = rect.height;
+
+        const mouseX = (e.clientX - rect.left) * ROTATION_RANGE;
+        const mouseY = (e.clientY - rect.top) * ROTATION_RANGE;
+
+        const rX = (mouseY / height - HALF_ROTATION_RANGE) * -1;
+        const rY = mouseX / width - HALF_ROTATION_RANGE;
+
+        x.set(rX);
+        y.set(rY);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     const RegisterButton: React.FC<{ className?: string }> = ({ className }) => (
         <div
             className={`${className} flex cursor-pointer items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-secondary`}
@@ -63,12 +100,18 @@ const EventCard: React.FC<EventCardProps> = ({
     );
 
     return (
-        <div className={`relative flex h-full flex-col ${className}`}>
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                transformStyle: "preserve-3d",
+                transform,
+            }}
+            className={`relative flex h-full flex-col ${className}`}
+        >
             {loading ? (
-                <Card
-                    // isFooterBlurred
-                    className={`col-span-12 h-[300px] w-full sm:col-span-5 ${className}`}
-                >
+                <Card className={`col-span-12 h-[300px] w-full sm:col-span-5 ${className}`}>
                     <Skeleton className='h-full w-full' />
                 </Card>
             ) : (
@@ -77,30 +120,14 @@ const EventCard: React.FC<EventCardProps> = ({
                     onPress={() => clickCallback && clickCallback()}
                     className={`relative col-span-12 h-[300px] w-full transform overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 sm:col-span-5 ${className}`}
                 >
-                    {/* <CardHeader className='absolute top-4 z-20 flex-col items-start'>
-                        {locationOnTop && (
-                            <div className='text-tiny font-bold text-white/70'>
-                                <Badge
-                                    variant='default'
-                                    className='rounded-full bg-gray-800 bg-opacity-70 p-2'
-                                >
-                                    <p className='flex items-center gap-1'>
-                                        <MapPin size={16} />
-                                        {event.location}
-                                    </p>
-                                </Badge>
-                            </div>
-                        )}
-                    </CardHeader> */}
-
                     <div className='relative h-full w-full'>
                         <Image
                             src={event.imageSrc}
                             alt={event.name}
                             fill
-                            className='object-cover' // Changed from object-contain to object-cover
+                            className='object-cover'
                             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                            priority={true} // Optional: for important images above the fold
+                            priority={true}
                         />
                         <div className='absolute inset-0 z-10 bg-black opacity-30 transition-opacity duration-300 hover:opacity-50' />
                     </div>
@@ -170,7 +197,7 @@ const EventCard: React.FC<EventCardProps> = ({
                     </CardFooter>
                 </Card>
             )}
-        </div>
+        </motion.div>
     );
 };
 
