@@ -63,10 +63,10 @@ export const HomeEvents: React.FC = () => {
     return (
         <>
             {liveEvents.length > 0 ? (
-        <section
-            id='events'
-            className='w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
-        >
+       <section
+    id='events'
+    className='w-full bg-gradient-to-b from-black to-transparent py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
+>
           
                 <div className='container px-4 md:px-6'>
                     <div>

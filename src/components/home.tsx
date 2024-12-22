@@ -8,11 +8,13 @@ import { HomeWho } from "@/components/home/who";
 
 import ParPage from "./home/parevents/parpage";
 import Whatsapp from "./home/whatsapp-widget";
+import ScrollToTopButton from "./home/scrollup";
 
 export default function LandingPage() {
     return (
         <div className='flex min-h-screen flex-col'>
             <main className='flex min-h-screen flex-1 flex-col'>
+                <ScrollToTopButton />
                 <Whatsapp />
                 <HomeHero />
                 <HomeWho />

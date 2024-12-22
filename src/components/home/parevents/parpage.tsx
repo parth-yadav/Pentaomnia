@@ -1,14 +1,18 @@
-"use client";
-
+"use client"
 import { useEffect, useRef, useState } from "react";
+
+
 
 import Lenis from "@studio-freight/lenis";
 import { useScroll } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
+
+
 import { projects } from "./data";
 import styles from "./page.module.scss";
 import Cardss from "./parevents";
+
 
 export default function ParPage() {
     const container = useRef<HTMLElement>(null);
@@ -33,23 +37,23 @@ export default function ParPage() {
         return () => lenis.destroy();
     }, []);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry) {
-                    setIsVisible(entry.isIntersecting);
-                }
-            },
-            { root: null, threshold: 0.1 },
-        );
+   useEffect(() => {
+       const observer = new IntersectionObserver(
+           ([entry]) => {
+               if (entry) {
+                   setIsVisible(entry.isIntersecting);
+               }
+           },
+           { root: null, threshold: 0.1 },
+       );
 
-        const section = container.current;
-        if (section) observer.observe(section);
+       const section = container.current;
+       if (section) observer.observe(section);
 
-        return () => {
-            if (section) observer.unobserve(section);
-        };
-    }, []);
+       return () => {
+           if (section) observer.unobserve(section);
+       };
+   }, []);
 
     const handleScroll = (direction: "up" | "down") => {
         if (!lenisRef.current) return;

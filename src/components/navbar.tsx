@@ -24,10 +24,10 @@ interface LinkProps {
 
 const Links: LinkProps[] = [
     { name: "Events", href: "/events" },
-    { name: "Promotions", href: "/promos" },
+    { name: "Portfolio", href: "/promos" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "#footer" },
-    { name: "Register", href: "/register" },
+    { name: "Careers", href: "/register" },
 ];
 
 export default function NavBar() {
