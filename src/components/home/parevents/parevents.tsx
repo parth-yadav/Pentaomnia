@@ -28,6 +28,8 @@ const Cardss = ({ i, title, description, src, url, color, progress, range, targe
     const scale = useTransform(progress, range, [1, targetScale]);
 
     return (
+        <>
+        
         <div ref={container} className={styles.cardContainer}>
             
             <motion.div
@@ -63,8 +65,10 @@ const Cardss = ({ i, title, description, src, url, color, progress, range, targe
                     </div>
                 </div>
             </motion.div>
-        </div>
-    );
+            </div>
+              </>
+            );
+          
 };
 
 export default Cardss;

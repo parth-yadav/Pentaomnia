@@ -32,16 +32,17 @@ export default function ParPage() {
             id='events'
             className='w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
         >
-            <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
-                    Past Events
-                </h2>
+           
              
             <main ref={container} className={styles.main}>
                
-                
+                 <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
+                    Past Events
+                </h2>
             {projects.map((project, i) => {
                 const targetScale = 1 - (projects.length - i) * 0.05;
                 return (
+
                     <Cardss
                         key={`p_${i}`}
                         i={i}

@@ -15,55 +15,55 @@ import { isDevelopmentMode } from "@/constants/dev";
 import { CONST_PROMOS } from "@/constants/promotions";
 
 export default function PromotionsPage() {
-    const [promos, setPromos] = useState<Promotion[] | null>(null);
-    const [filteredPromos, setFilteredPromos] = useState<Promotion[]>([]);
-    const [selectedId, setSelectedId] = useState<number | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const searchInputRef = useRef<HTMLInputElement>(null);
-    const handleCardClick = (index: number) => {
-        setSelectedId(index);
-    };
+    // const [promos, setPromos] = useState<Promotion[] | null>(null);
+    // const [filteredPromos, setFilteredPromos] = useState<Promotion[]>([]);
+    // const [selectedId, setSelectedId] = useState<number | null>(null);
+    // const [isLoading, setIsLoading] = useState<boolean>(true);
+    // const searchInputRef = useRef<HTMLInputElement>(null);
+    // const handleCardClick = (index: number) => {
+    //     setSelectedId(index);
+    // };
 
-    useEffect(() => {
-        // Filter promos based on search input
-        if (promos) {
-            const filteredPromos = promos.filter(
-                (promo) =>
-                    promo.title
-                        .toLowerCase()
-                        .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
-                    promo.description
-                        .toLowerCase()
-                        .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
-                    promo.category
-                        .toLowerCase()
-                        .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
-                    promo.partnerName
-                        .toLowerCase()
-                        .includes((searchInputRef.current?.value ?? "").toLowerCase()),
-            );
-            // Update the filtered promos state
-            setFilteredPromos(filteredPromos);
-        }
-    }, [promos, searchInputRef.current?.value]);
+    // useEffect(() => {
+    //     // Filter promos based on search input
+    //     if (promos) {
+    //         const filteredPromos = promos.filter(
+    //             (promo) =>
+    //                 promo.title
+    //                     .toLowerCase()
+    //                     .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
+    //                 promo.description
+    //                     .toLowerCase()
+    //                     .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
+    //                 promo.category
+    //                     .toLowerCase()
+    //                     .includes((searchInputRef.current?.value ?? "").toLowerCase()) ||
+    //                 promo.partnerName
+    //                     .toLowerCase()
+    //                     .includes((searchInputRef.current?.value ?? "").toLowerCase()),
+    //         );
+    //         // Update the filtered promos state
+    //         setFilteredPromos(filteredPromos);
+    //     }
+    // }, [promos, searchInputRef.current?.value]);
 
-    useEffect(() => {
-        setTimeout(
-            () => {
-                setPromos(CONST_PROMOS.sort((a, b) => dayjs(a.endDate).diff(dayjs(b.endDate))));
-                setIsLoading(false);
-            },
-            isDevelopmentMode ? 0 : 2000,
-        );
-        return () => {
-            setPromos(null);
-        };
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(
+    //         () => {
+    //             setPromos(CONST_PROMOS.sort((a, b) => dayjs(a.endDate).diff(dayjs(b.endDate))));
+    //             setIsLoading(false);
+    //         },
+    //         isDevelopmentMode ? 0 : 2000,
+    //     );
+    //     return () => {
+    //         setPromos(null);
+    //     };
+    // }, []);
 
     return (
         <div className='container mx-auto px-4 py-8'>
-            <h1 className='mb-8 text-center text-4xl font-bold'>Promotions</h1>
-            <div className='mx-auto grid grid-cols-1 gap-4 sm:w-[80%] md:w-[65%] lg:w-[45%]'>
+            <h1 className='mb-8 text-center text-4xl font-bold'>Page Under Maintenance</h1>
+            {/* <div className='mx-auto grid grid-cols-1 gap-4 sm:w-[80%] md:w-[65%] lg:w-[45%]'>
                 <Input
                     classNames={{
                         base: "max-w-full h-10",
@@ -103,7 +103,7 @@ export default function PromotionsPage() {
                     
                     </div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }
