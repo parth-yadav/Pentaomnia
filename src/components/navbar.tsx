@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
     Navbar,
@@ -32,14 +32,35 @@ const Links: LinkProps[] = [
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(true);
     const isMobile = useIsMobile();
+    let lastScrollY = 0;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY) {
+                // User is scrolling down
+                setShowNavbar(false);
+            } else {
+                // User is scrolling up
+                setShowNavbar(true);
+            }
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <Navbar
             isBlurred={!isMenuOpen}
             isBordered
             onMenuOpenChange={setIsMenuOpen}
-            className={isMobile ? "flex-col items-start" : ""}
+            className={`transition-transform duration-300 ${
+                showNavbar ? "translate-y-0" : "-translate-y-full"
+            } ${isMobile ? "flex-col items-start" : ""}`}
         >
             <NavbarContent>
                 <NavbarMenuToggle

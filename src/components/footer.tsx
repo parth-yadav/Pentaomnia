@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -68,23 +68,52 @@ export default function Footer() {
                     </div>
                     <div className='space-y-2 text-accent'>
                         <h3 className='text-lg font-semibold'>Contact Us</h3>
-                        <p>Email: Pentaomnia@gmail.com</p>
-                        <p className='ml-12'>Marketing@pentaomnia.com</p>
-                        <p>Phone: +91-9592333800</p>
-                        <p>Address:</p>
+                        <div className='flex flex-col space-y-2'>
+                            <div className='flex items-center space-x-2'>
+                                <Mail className='h-3 w-3' />
+                                <h2>Pentaomnia@gmail.com</h2>
+                            </div>
+                            <div className='flex items-center space-x-2'>
+                                <Mail className='invisible h-3 w-3' />
+                                <p>Marketing@pentaomnia.com</p>
+                            </div>
+                        </div>
+
+                        <br></br>
+                        <div className='flex items-center space-x-2'>
+                            <Phone className='h-3 w-3' />
+                            <h2 className=''>+91-9592333800</h2>
+                        </div>
+                        {/* <p>Phone: +91-9592333800</p> */}
+                        <br></br>
                         <p>
-                            <Link className='hover:underline' href='https://www.google.com/maps/search/Room+209,+Block+13+Lovely+Professional+University+Jalandhar,+Punjab+-+144411/@31.3191751,75.569771,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D'>
+                            <Link
+                                className='hover:underline'
+                                href='https://www.google.com/maps/search/Room+209,+Block+13+Lovely+Professional+University+Jalandhar,+Punjab+-+144411/@31.3191751,75.569771,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D'
+                            >
                                 {" "}
-                                Corporate Office: Room 209, Block 13 Lovely Professional University
-                                Jalandhar, Punjab - 144411
+                                <div className='flex items-center space-x-2'>
+                                    <MapPin className='h-3 w-3' />
+                                    <h2 className='font-bold'>Corporate Office</h2>
+                                </div>
+                                Room 209, Block 13 Lovely Professional University Jalandhar, Punjab
+                                - 144411
                             </Link>
                         </p>
+                        <br></br>
                         <p>
-                            <Link className='hover:underline' href='https://www.google.com/maps/place/Pentaomnia+Private+Limited/@26.8720702,84.4650253,12z/data=!4m10!1m2!2m1!1sPENTAOMNIA+PRIVATE+LIMITED+C%2Fo+Sh.+Naim+House+No.+24,+Ward+No.+08+Jhakhra+Village,+Tola+%26+PO+Baisakhwa+BLOCK+SIKTA,+BETTIAH+West+Champaran,+Bihar,+India,+845307!3m6!1s0x39935d372f986775:0x767b5b740b2ac36b!8m2!3d26.9639379!4d84.6143963!15sCqABUEVOVEFPTU5JQSBQUklWQVRFIExJTUlURUQgQy9vIFNoLiBOYWltIEhvdXNlIE5vLiAyNCwgV2FyZCBOby4gMDggSmhha2hyYSBWaWxsYWdlLCBUb2xhICYgUE8gQmFpc2FraHdhIEJMT0NLIFNJS1RBLCBCRVRUSUFIIFdlc3QgQ2hhbXBhcmFuLCBCaWhhciwgSW5kaWEsIDg0NTMwN5IBGGV2ZW50X21hbmFnZW1lbnRfY29tcGFueeABAA!16s%2Fg%2F11j0vqz_gm?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D'>
+                            <Link
+                                className='hover:underline'
+                                href='https://www.google.com/maps/place/Pentaomnia+Private+Limited/@26.8720702,84.4650253,12z/data=!4m10!1m2!2m1!1sPENTAOMNIA+PRIVATE+LIMITED+C%2Fo+Sh.+Naim+House+No.+24,+Ward+No.+08+Jhakhra+Village,+Tola+%26+PO+Baisakhwa+BLOCK+SIKTA,+BETTIAH+West+Champaran,+Bihar,+India,+845307!3m6!1s0x39935d372f986775:0x767b5b740b2ac36b!8m2!3d26.9639379!4d84.6143963!15sCqABUEVOVEFPTU5JQSBQUklWQVRFIExJTUlURUQgQy9vIFNoLiBOYWltIEhvdXNlIE5vLiAyNCwgV2FyZCBOby4gMDggSmhha2hyYSBWaWxsYWdlLCBUb2xhICYgUE8gQmFpc2FraHdhIEJMT0NLIFNJS1RBLCBCRVRUSUFIIFdlc3QgQ2hhbXBhcmFuLCBCaWhhciwgSW5kaWEsIDg0NTMwN5IBGGV2ZW50X21hbmFnZW1lbnRfY29tcGFueeABAA!16s%2Fg%2F11j0vqz_gm?entry=ttu&g_ep=EgoyMDI0MTExMy4xIKXMDSoASAFQAw%3D%3D'
+                            >
                                 {" "}
-                                Headquarters: PENTAOMNIA PRIVATE LIMITED C/o Sh. Naim House No. 24,
-                                Ward No. 08 Jhakhra Village, Tola & PO Baisakhwa BLOCK SIKTA,
-                                BETTIAH West Champaran, Bihar, India, 845307
+                                <div className='flex items-center space-x-2'>
+                                    <MapPin className='h-3 w-3' />
+                                    <h2 className='font-bold'>Headquarters</h2>
+                                </div>
+                                PENTAOMNIA PRIVATE LIMITED C/o Sh. Naim House No. 24, Ward No. 08
+                                Jhakhra Village, Tola & PO Baisakhwa BLOCK SIKTA, BETTIAH West
+                                Champaran, Bihar, India, 845307
                             </Link>
                         </p>
                     </div>
