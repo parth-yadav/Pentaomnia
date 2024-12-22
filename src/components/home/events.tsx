@@ -61,57 +61,60 @@ export const HomeEvents: React.FC = () => {
     const pastRefs = createRefs(pastEvents.length);
 
     return (
+        <>
+            {liveEvents.length > 0 ? (
         <section
             id='events'
             className='w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32'
         >
-            <div className='container px-4 md:px-6'>
-                <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
-                    Upcoming Events
-                </h2>
-                {liveEvents.length > 0 ? (
-                    <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                        {liveEvents.map((event, index) => {
-                            const isInView = useInView(upcomingRefs[index]!, inViewOptions);
-                            return (
-                                <motion.div
-                                    className='m-4'
-                                    key={"upcoming" + index}
-                                    layoutId={String(event.id)}
-                                    ref={upcomingRefs[index]}
-                                    custom={index % 3}
-                                    variants={cardVariants}
-                                    initial='hidden'
-                                    animate={isInView ? "visible" : "hidden"}
-                                >
-                                    <EventCard
-                                        clickCallback={() => handleCardClick(event.id)}
-                                        className='max-h-[400px] min-h-[350px] w-full'
-                                        event={event}
-                                        isPressable
-                                        showDescription
-                                        showRegisterButton
-                                        locationOnTop={false}
-                                        truncateDescription
-                                    />
-                                </motion.div>
-                            );
-                        })}
+          
+                <div className='container px-4 md:px-6'>
+                    <div>
+                        <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
+                            Upcoming Events
+                        </h2>
+                        <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                            {liveEvents.map((event, index) => {
+                                const isInView = useInView(upcomingRefs[index]!, inViewOptions);
+                                return (
+                                    <motion.div
+                                        className='m-4'
+                                        key={"upcoming" + index}
+                                        layoutId={String(event.id)}
+                                        ref={upcomingRefs[index]}
+                                        custom={index % 3}
+                                        variants={cardVariants}
+                                        initial='hidden'
+                                        animate={isInView ? "visible" : "hidden"}
+                                    >
+                                        <EventCard
+                                            clickCallback={() => handleCardClick(event.id)}
+                                            className='max-h-[400px] min-h-[350px] w-full'
+                                            event={event}
+                                            isPressable
+                                            showDescription
+                                            showRegisterButton
+                                            locationOnTop={false}
+                                            truncateDescription
+                                        />
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
                     </div>
-                ) : (
-                    <p className='text-center text-xl text-white'>No live events as of now</p>
+                </div>
+           
+            <AnimatePresence>
+                {selectedId !== null && (
+                    <EventPopup
+                        onClose={handleClosePopup}
+                        layoutId={String(selectedId)}
+                        event={[...liveEvents, ...pastEvents].find((e) => e.id === selectedId)!}
+                        showRegisterButton={false}
+                    />
                 )}
-                <AnimatePresence>
-                    {selectedId !== null && (
-                        <EventPopup
-                            onClose={handleClosePopup}
-                            layoutId={String(selectedId)}
-                            event={[...liveEvents, ...pastEvents].find((e) => e.id === selectedId)!}
-                            showRegisterButton={false}
-                        />
-                    )}
-                </AnimatePresence>
-            </div>
+            </AnimatePresence>
+
             {/* <div className='container mt-8 px-4 md:px-6'>
                 <h2 className='mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl'>
                     Past Events
@@ -144,6 +147,10 @@ export const HomeEvents: React.FC = () => {
                     })}
                 </div>
             </div> */}
-        </section>
+            </section>
+            ) : (
+                <p className='text-center text-xl text-white'></p>
+            )}
+            </>
     );
 };
