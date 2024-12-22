@@ -10,9 +10,14 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 interface HomeHeroCarouselProps {
     className?: string;
     images: string[]; // Array of local image paths
+    height?: number; // Optional height prop with a default value
 }
 
-export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, images }) => {
+export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
+    className,
+    images,
+    height = 600, // Default height if not provided
+}) => {
     const plugin = useRef(
         Autoplay({
             delay: 4000,
@@ -23,7 +28,7 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, i
     return (
         <Carousel
             plugins={[plugin.current]}
-            className={`${className} max-w-[400px]  lg:max-w-[600px]`}
+            className={`${className} w-full`}
             opts={{
                 loop: true,
                 duration: 20,
@@ -32,17 +37,22 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({ className, i
         >
             <CarouselContent>
                 {images.map((imagePath, index) => (
-                    <CarouselItem key={index} className=''>
+                    <CarouselItem
+                        key={index}
+                        className='relative w-full'
+                        style={{ height: `${height}px` }}
+                    >
                         <Image
                             src={imagePath}
                             alt={`Carousel Image ${index + 1}`}
-                            className='object-cover'
-                            height={600}
-                            width={600}
+                            fill
+                            style={{ objectFit: "cover" }}
+                            sizes='100vw'
+                            priority={index === 0} // Prioritize loading for the first image
                         />
                     </CarouselItem>
                 ))}
             </CarouselContent>
-        </Carousel>
+        </Carousel> 
     );
 };

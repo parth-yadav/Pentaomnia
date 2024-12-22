@@ -8,7 +8,7 @@ export default function Whatsapp({ phoneNumber = "919592333800" }: { phoneNumber
     const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
     return (
-        <div className='flex'>
+        <div className='flex z-50' >
             <a
                 href={whatsappUrl}
                 target='_blank'
