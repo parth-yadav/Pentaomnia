@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { CardHoverEffectDemo } from "./animpartners";
 
 import { CONST_CLIENTS_LIST } from "@/constants/ourclients";
 
@@ -74,6 +75,7 @@ export const HomePartners: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
+            {/* <CardHoverEffectDemo /> */}
         </div>
     );
 };

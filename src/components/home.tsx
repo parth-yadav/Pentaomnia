@@ -5,6 +5,7 @@ import { HomeHero } from "@/components/home/hero";
 import { HomePartners } from "@/components/home/partners";
 import { HomePromotions } from "@/components/home/promotion";
 import { HomeWho } from "@/components/home/who";
+import StatsDisplay from "./home/stats";
 
 import ParPage from "./home/parevents/parpage";
 import Whatsapp from "./home/whatsapp-widget";
@@ -14,10 +15,11 @@ export default function LandingPage() {
     return (
         <div className='flex min-h-screen flex-col'>
             <main className='flex min-h-screen flex-1 flex-col'>
-                <ScrollToTopButton />  
-               
+                <ScrollToTopButton />                
                 <HomeHero />
+                 <StatsDisplay />
                 <HomeWho />
+               
               <HomeEvents />
                 <ParPage />
                 <HomePromotions />

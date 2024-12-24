@@ -6,8 +6,8 @@ import Link from "next/link";
 import { HomeHeroCarousel } from "@/components/home/homeherocarousel";
 import { Button } from "@/components/ui/button";
 
-import image from "../../../public/images/eventimages/alpheum.jpg";
-import ScrollToTopButton from "./scrollup";
+// import image from "../../../public/images/eventimages/alpheum.jpg";
+// import ScrollToTopButton from "./scrollup";
 
 export const HomeHero: React.FC = () => {
     const localImages = [
@@ -22,7 +22,7 @@ export const HomeHero: React.FC = () => {
             
             <div className='container px-4 md:px-6'>
                 <div className='grid gap-8 md:grid-cols-[1fr_400px] md:gap-12 xl:grid-cols-[1fr_600px]'>
-                    <div className='flex flex-col justify-center space-y-8 text-white'>
+                    <div className='flex flex-col justify-center space-y-4 text-white'>
                         <div className='space-y-4'>
                             <h1 className='text-4xl font-bold leading-tight sm:text-5xl xl:text-6xl'>
                                 {" "}
@@ -72,7 +72,7 @@ export const HomeHero: React.FC = () => {
                         </div>
                     </div>
                     <div className='flex w-full items-center justify-center'>
-                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} />
+                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} height={ 500} />
                     </div>
                 </div>
             </div>
