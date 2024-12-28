@@ -18,7 +18,7 @@ export const HomeHero: React.FC = () => {
         "/images/eventimages/musclemania.jpg",
     ];
     return (
-        <section className='w-full bg-gradient-to-r from-primary to-black'>
+        <section className='w-full bg-gradient-to-r from-black to-primary'>
             
             <div className='container px-4 md:px-6'>
                 <div className='grid gap-8 md:grid-cols-[1fr_400px] md:gap-12 xl:grid-cols-[1fr_600px]'>

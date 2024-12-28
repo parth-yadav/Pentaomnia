@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const HomeGetInvolved: React.FC = () => {
     return (
-        <section className='w-full bg-gradient-to-r from-primary to-accent py-8 text-white md:py-16 lg:py-24'>
+        <section className='w-full bg-gradient-to-r from-black to-primary  py-8 text-white md:py-16 lg:py-24'>
             <div className='container px-4 md:px-6'>
                 <div className='flex flex-col items-center justify-center space-y-4 text-center'>
                     <div className='space-y-2'>
@@ -16,7 +16,7 @@ export const HomeGetInvolved: React.FC = () => {
                         </p>
                     </div>
                     <Link href='/register' prefetch={false}>
-                        <Button className='bg-primary text-white hover:text-accent' size='lg'>
+                        <Button className='bg-accent text-white ' size='lg'>
                             Request Services Now
                         </Button>
                     </Link>

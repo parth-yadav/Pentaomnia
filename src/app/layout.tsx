@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <div className='flex h-full flex-col'>
                         <Navbar />
                         <main className='min-h-[calc(100vh-4rem)] flex-1'>{children}</main>
-                        <div className='bg-gray-800 p-4 text-white'>
+                        <div className='bg-gradient-to-r from-black to-primary p-4 text-white'>
                             <Footer />
                         </div>
                     </div>

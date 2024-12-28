@@ -24,7 +24,7 @@ export default function LandingPage() {
                 <ParPage />
                 <HomePromotions />
                 <HomePartners />
-                <HomeBlogPeek />
+               
                 <HomeGetInvolved />
             </main>
         </div>

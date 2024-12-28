@@ -47,8 +47,9 @@ export const HomePartners: React.FC = () => {
     }, []);
 
     return (
-        <div className='container mx-auto px-4 py-16'>
-            <h2 className='mb-12 text-center text-3xl font-bold'>Our Clients</h2>
+        <div className=' px-4 py-16 bg-gradient-to-r from-black to-primary '>
+            <div className='container mx-auto'>
+            <h2 className='mb-12  text-center text-3xl font-bold text-white'>Our Clients</h2>
             <div className='grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5'>
                 {CONST_CLIENTS_LIST.slice(0, 12).map((client, index) => (
                     <motion.div
@@ -75,7 +76,8 @@ export const HomePartners: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
-            {/* <CardHoverEffectDemo /> */}
+                {/* <CardHoverEffectDemo /> */}
+                </div>
         </div>
     );
 };
