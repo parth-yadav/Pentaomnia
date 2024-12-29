@@ -1,7 +1,14 @@
+import InfiniteScroll from "./infintescroll/components_InfiniteScroll";
+
 export const HomeWho: React.FC = () => {
     return (
-        <section id='about' className='relative bg-gradient-to-r from-black to-primary bg-center py-12 md:py-24 lg:py-32'>
-            <div className='absolute inset-0 '></div>
+        <section id='about' className='relative bg-gradient-to-r from-black to-primary bg-center pt-12 md:pt-24 lg:pt-32'>
+           
+            
+            <div className="absolute top-1/4 left-1/6 w-64 h-64 rounded-full bg-gradient-to-r from-accent via-yellow-200 to-transparent opacity-30 "></div>
+<div className="absolute top-2/3 left-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500 via-teal-200 to-transparent opacity-20 "></div>
+<div className="absolute top-1/2 left-2/3 w-72 h-72 rounded-full bg-gradient-to-r from-black via-teal-500 to-transparent opacity-25 "></div>
+
 
             <div className='container relative z-10 px-4 md:px-6'>
                 <div className='flex flex-col-reverse items-center justify-between space-y-8 md:flex-row md:space-x-8 md:space-y-0'>
@@ -34,8 +41,10 @@ export const HomeWho: React.FC = () => {
                             className='h-auto w-full rounded-lg shadow-lg'
                         />
                     </div>
+                    
                 </div>
             </div>
+            <InfiniteScroll />
         </section>
     );
 };

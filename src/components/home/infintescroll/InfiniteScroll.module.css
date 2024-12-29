@@ -1,0 +1,41 @@
+.scrollContainer {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff; /* Change this to your desired opaque color */
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(247, 243, 243, 0.1);
+}
+
+.scrollContent {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.logo {
+  margin-right: 2rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollContainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollContainer {
+    overflow-x: auto;
+  }
+}
+

@@ -87,6 +87,8 @@ const config = {
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
+                 slowping: 'ping 3s cubic-bezier(0, 0, 0.05, 1) infinite', // Custom slower ping
+      
             },
         },
     },
