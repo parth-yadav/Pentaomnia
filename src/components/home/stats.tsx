@@ -15,7 +15,7 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = "", delay })
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <motion.div
@@ -39,6 +39,7 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = "", delay })
             separator=","
             suffix={suffix}
             useEasing={true}
+            decimals={value % 1 === 0 ? 0 : 1} // Dynamically set decimals
           />
         ) : (
           "0"
@@ -46,8 +47,9 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = "", delay })
       </motion.div>
       <span className="text-sm text-muted-foreground">{label}</span>
     </motion.div>
-  )
-}
+  );
+};
+
 
 const StatsDisplay: React.FC = () => {
   return (
@@ -56,8 +58,8 @@ const StatsDisplay: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatItem label="Clients" value={50} suffix="+" delay={0} />
         <StatItem label="Events" value={200} suffix="+" delay={0.2} />
-        <StatItem label="Independents Projects" value={30} suffix="+" delay={0.4} />
-        <StatItem label="Years of Experience" value={5} suffix="+" delay={0.6} />
+        <StatItem label="Customer Rating" value={4.9} suffix="/5" delay={0.4} />
+        <StatItem label="Years of Experienc" value={5} suffix="+" delay={0.6} />
       </div>
     </div>
   )
