@@ -39,7 +39,7 @@ export const HeroHighlight = ({
         className="pointer-events-none bg-dot-thick-yellow-500 dark:bg-dot-thick-indigo-500   absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           WebkitMaskImage: useMotionTemplate`
-            radial-gradient(
+            radial-gradient
               200px circle at ${mouseX}px ${mouseY}px,
               black 0%,
               transparent 100%

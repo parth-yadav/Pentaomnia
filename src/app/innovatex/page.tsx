@@ -7,7 +7,7 @@ import RulesSection from "@/components/innovatex-2.0/rules";
 
 export default function InnovatexPage() {
     return (
-        <div className=''>
+        <div >
             
             <HeroHighlightDemo />
             

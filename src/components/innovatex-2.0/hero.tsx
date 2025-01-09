@@ -3,34 +3,32 @@ import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 import { TypewriterEffectSmoothDemo } from "./typewriter";
 import RulesSection from "./rules";
-
+import Image from "next/image";
 
 export function HeroHighlightDemo() {
   return (
-    <HeroHighlight containerClassName="bg-gradient-to-r from-green-900 to-black ">
-      <motion.h1
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
-        className="text-2xl px-4 md:text-4xl lg:text-6xl font-bold text-white dark:text-white max-w-4xl leading-relaxed lg:leading-snug  "
-      >
-        Innovatex is {" "}
-       
-          </motion.h1>
-          <div className="px-4 ">
-              <TypewriterEffectSmoothDemo />
-             
-          </div>
-           <RulesSection />
+    <HeroHighlight containerClassName="bg-black w-full flex flex-col">
+      {/* First Section */}<div className="">
+      <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl px-8  md:space-y-0 md:space-x-8">
+        <div className="text-2xl py-20 md:text-4xl lg:text-6xl font-bold text-white dark:text-white max-w-2xl leading-relaxed lg:leading-snug">
+          Innovatex is <TypewriterEffectSmoothDemo />
+        </div>
+        <div className="flex-shrink-0">
+          <Image
+            src="/images/brand.png"
+            alt="Innovatex logo"
+            width={200}
+            height={200}
+          />
+        </div>
+      </div>
+
+      {/* Second Section */}
+      <div className="text-2xl px-8 md:text-4xl lg:text-6xl font-bold text-white dark:text-white max-w-6xl leading-relaxed lg:leading-snug text-center">
+        Prizes Offers
+        </div>
+        </div>
     </HeroHighlight>
+    
   );
 }
