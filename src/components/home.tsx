@@ -10,15 +10,19 @@ import StatsDisplay from "./home/stats";
 import ParPage from "./home/parevents/parpage";
 import Whatsapp from "./home/whatsapp-widget";
 import ScrollToTopButton from "./home/scrollup";
+import InfiniteScroll from "./home/infintescroll/components_InfiniteScroll";
 
 export default function LandingPage() {
     return (
         <div className='flex min-h-screen flex-col'>
             <main className='flex min-h-screen flex-1 flex-col'>
-                <ScrollToTopButton />                
+                <ScrollToTopButton />     
+               
                 <HomeHero />
-                 <StatsDisplay />
+                 <InfiniteScroll />
+                
                 <HomeWho />
+                 <StatsDisplay />
                
               <HomeEvents />
                 <ParPage />

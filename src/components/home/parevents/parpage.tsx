@@ -69,7 +69,7 @@ export default function ParPage() {
             {/* Scroll Controls */}
             <div>
                 {isVisible && (
-                    <div className="fixed right-8 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-4 lg:flex hidden">
+                    <div className="fixed right-8 top-1/2 z-50  -translate-y-1/2 flex-col gap-4 lg:flex hidden">
                         <button
                             onClick={() => handleScroll("up")}
                             className="rounded-full bg-white/10 p-3 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -90,7 +90,7 @@ export default function ParPage() {
 
             <main className={styles.main}>
                 <h2 className="mb-8 text-center text-3xl font-bold tracking-tighter text-white sm:text-5xl">
-                    Past Events
+                    Recent Events
                 </h2>
                 {projects.map((project, i) => {
                     const targetScale = 1 - (projects.length - i) * 0.05;
