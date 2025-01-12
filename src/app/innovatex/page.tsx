@@ -7,6 +7,7 @@ import RulesSection from "@/components/innovatex-2.0/rules";
 import OurSponsors from "@/components/innovatex-2.0/oursponsers";
 import PrizesSection from "@/components/innovatex-2.0/prizex";
 import RegisterNowSection from "@/components/innovatex-2.0/registernow";
+import RulesCtaSection from "@/components/innovatex-2.0/rules-landingpage";
 
 export default function InnovatexPage() {
     return (
@@ -15,6 +16,7 @@ export default function InnovatexPage() {
             <HeroHighlightDemo />
             <OurSponsors />
             <PrizesSection />
+            <RulesCtaSection />
             <RegisterNowSection />
            
             
