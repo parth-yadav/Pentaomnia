@@ -61,7 +61,7 @@ export default function RegisterNowSection() {
           transition={{ delay: 0.5, duration: 0.5 }}
         >
           <Link 
-            href="/register" 
+            href="/innovatex/register" 
             className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50"
           >
             Register Now!

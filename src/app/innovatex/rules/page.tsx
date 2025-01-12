@@ -1,10 +1,15 @@
-import { HomeBlogPeek } from "@/components/home/blogpeek";
+import RulesContent from './rules-content'
 
-export default function InnovatexPage() {
-    return (
-        <div className='container mx-auto px-4 py-8'>
-            <h1 className='mb-8 text-center text-4xl font-bold'>Rules</h1>
-            {/* <HomeBlogPeek /> */}
-        </div>
-    );
+export const metadata = {
+  title: 'Hackathon Rules | YourHackathonName',
+  description: 'Official rules and guidelines for participating in our hackathon.',
 }
+
+export default function RulesPage() {
+  return (
+    <main className="min-h-screen bg-black">
+      <RulesContent />
+    </main>
+  )
+}
+
