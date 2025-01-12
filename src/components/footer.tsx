@@ -1,10 +1,34 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
+import {
+    Facebook,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    Phone,
+    Twitter,
+    Youtube,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
+    const [isInnovatex, setIsInnovatex] = useState(false);
+
+    useEffect(() => {
+        if (window.location.href.includes("innovatex")) {
+            setIsInnovatex(true);
+        }
+    }, []);
+
     return (
-      <footer id="footer" className="relative w-full bg-gradient-to-r from-black to-primary py-6 text-white">
-    <div className="container px-6 lg:px-12 xl:px-20">
+        <footer
+            id="footer"
+            className={`relative w-full py-6 text-white ${
+                isInnovatex ? "bg-black" : "bg-gradient-to-r from-black to-primary"
+            }`}
+        ><div className="container px-6 lg:px-12 xl:px-20">
         <hr className="mb-12 border-gray-700" />
 
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
