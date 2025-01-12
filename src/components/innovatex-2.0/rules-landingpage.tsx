@@ -15,7 +15,7 @@ export default function RulesCtaSection() {
           <p className="mt-10 max-w-[600px] text-yellow-600 md:text-lg">
             Before you register, make sure to review our hackathon guidelines. We want everyone to have a fair and exciting experience!
           </p>
-          <Link href="/rules" className="mt-8">
+          <Link href="innovatex/rules" className="mt-8">
             <Button
               className="relative h-12 overflow-hidden rounded-full bg-yellow-400 px-8 text-black transition-colors hover:bg-white/90"
             >
