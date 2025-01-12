@@ -7,9 +7,10 @@ const nextConfig = {
         ignoreBuildErrors: true,
     },
     images: {
-        unoptimized: true, // Important for static export
+        unoptimized: true, // Keep if needed
     },
-    output: "export",
+    // Remove the static export setting
+    // output: "export",
 };
 
 export default nextConfig;
