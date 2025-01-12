@@ -44,7 +44,7 @@ export const HomeWho: React.FC = () => {
                     
                 </div>
             </div>
-            <InfiniteScroll />
+            {/* <InfiniteScroll /> */}
         </section>
     );
 };

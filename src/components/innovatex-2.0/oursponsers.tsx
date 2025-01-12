@@ -6,11 +6,11 @@ import { Zap, Star, Coffee } from 'lucide-react'
 import Image from 'next/image'
 
 const sponsors = [
-  { name: 'TechCorp', logo: '/placeholder.svg?height=100&width=100', website: 'https://techcorp.com' },
-  { name: 'InnovateCo', logo: '/placeholder.svg?height=100&width=100', website: 'https://innovateco.com' },
-  { name: 'FutureTech', logo: '/placeholder.svg?height=100&width=100', website: 'https://futuretech.com' },
-  { name: 'CodeMasters', logo: '/placeholder.svg?height=100&width=100', website: 'https://codemasters.com' },
-  { name: 'ByteBuddies', logo: '/placeholder.svg?height=100&width=100', website: 'https://bytebuddies.com' },
+  { name: 'TechCorp', logo: '/images/2.jpg', website: 'https://techcorp.com' },
+  { name: 'InnovateCo', logo: '/images/2.jpg', website: 'https://innovateco.com' },
+  { name: 'FutureTech', logo: '/images/2.jpg', website: 'https://futuretech.com' },
+  { name: 'CodeMasters', logo: '/images/2.jpg', website: 'https://codemasters.com' },
+  { name: 'ByteBuddies', logo: '/images/2.jpg', website: 'https://bytebuddies.com' },
 ]
 
 export default function OurSponsors() {
