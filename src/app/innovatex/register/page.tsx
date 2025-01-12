@@ -1,4 +1,4 @@
-import RegisterForm from './registration-form'
+
 
 export const metadata = {
   title: 'Register for Hackathon | YourHackathonName',
@@ -12,7 +12,7 @@ export default function RegisterPage() {
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-yellow-800">
           Register for the Hackathon
         </h1>
-        <RegisterForm />
+       
       </div>
     </main>
   )
