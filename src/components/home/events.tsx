@@ -74,16 +74,7 @@ export const HomeEvents: React.FC = () => {
                             {liveEvents.map((event, index) => {
                                 const isInView = useInView(upcomingRefs[index]!, inViewOptions);
                                 return (
-                                    <motion.div
-                                        className='m-4'
-                                        key={"upcoming" + index}
-                                        layoutId={String(event.id)}
-                                        ref={upcomingRefs[index]}
-                                        custom={index % 3}
-                                        variants={cardVariants}
-                                        initial='hidden'
-                                        animate={isInView ? "visible" : "hidden"}
-                                    >
+                                    
                                         <EventCard
                                             clickCallback={() => handleCardClick(event.id)}
                                             className='max-h-[600px] min-h-[550px] w-full'
@@ -94,7 +85,7 @@ export const HomeEvents: React.FC = () => {
                                             locationOnTop={false}
                                             truncateDescription
                                         />
-                                    </motion.div>
+                                   
                                 );
                             })}
                         </div>
