@@ -5,7 +5,7 @@ const RegisterButton = () => {
   const router = useRouter();
 
   const handleRegisterClick = () => {
-    router.push('fitnessedge-powerplay/register'); // Replace '/register' with the actual route for your registration form
+    router.push('/fitnessedge-powerplay/register'); // Replace '/register' with the actual route for your registration form
   };
 
   return (

@@ -23,7 +23,7 @@ const RegistrationPage = () => {
       <div className="absolute inset-0 bg-black/60" aria-hidden="true"></div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-6 py-16">
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 py-8 sm:px-8 md:px-12 lg:px-16">
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl font-bold lg:font-extrabold mb-8 text-center">
           <span className="relative font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-200 to-red-500">
@@ -32,13 +32,23 @@ const RegistrationPage = () => {
         </h1>
 
         {/* Embedded Google Form */}
-        <div className="w-full max-w-3xl bg-black rounded-lg shadow-lg">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCXrY0zsM3MicOv1JIK4uIcdw395RSKhBqUhMHg4T-9l9cpg/viewform?embedded=true" width="640" height="1834"  >Loading…</iframe>
+        <div className="w-full max-w-3xl bg-black rounded-lg shadow-lg overflow-hidden">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScCXrY0zsM3MicOv1JIK4uIcdw395RSKhBqUhMHg4T-9l9cpg/viewform?embedded=true"
+            className="w-full h-[500px] sm:h-[700px] md:h-[800px] lg:h-[900px]"
+            title="Registration Form"
+            loading="lazy"
+          >
+            Loading…
+          </iframe>
         </div>
 
         {/* Footer Note */}
-        <p className="mt-8 text-sm text-gray-300">
-          Having trouble? Contact us at <a href="mailto:support@fitnessedge.com" className="underline">support@fitnessedge.com</a>
+        <p className="mt-8 text-sm text-gray-300 text-center">
+          Having trouble? Contact us at{" "}
+          <a href="mailto:support@fitnessedge.com" className="underline">
+            support@fitnessedge.com
+          </a>
         </p>
       </div>
     </div>
