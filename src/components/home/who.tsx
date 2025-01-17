@@ -2,7 +2,7 @@ import InfiniteScroll from "./infintescroll/components_InfiniteScroll";
 
 export const HomeWho: React.FC = () => {
     return (
-        <section id='about' className='relative bg-gradient-to-r from-black to-primary bg-center pt-12 md:pt-24 lg:pt-32'>
+        <section id='about' className='relative bg-gradient-to-r from-black to-primary bg-center pt-12 pb-12 md:pt-24 lg:pt-16'>
            
             
             <div className="absolute top-1/4 left-1/6 w-64 h-64 rounded-full bg-gradient-to-r from-accent via-yellow-200 to-transparent opacity-30 "></div>

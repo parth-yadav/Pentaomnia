@@ -51,12 +51,12 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, suffix = "", delay })
 
 const StatsDisplay: React.FC = () => {
   return (
-    <div className="bg-background p-8 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-center mb-2">Our Impact</h2>
+    <div className="bg-background p-4 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold text-center ">Our Impact</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatItem label="Clients" value={50} suffix="+" delay={0} />
         <StatItem label="Events" value={200} suffix="+" delay={0.2} />
-        <StatItem label="Independents Projects" value={30} suffix="+" delay={0.4} />
+        <StatItem label="Customer Rating" value={4.9} suffix="+" delay={0.4} />
         <StatItem label="Years of Experience" value={5} suffix="+" delay={0.6} />
       </div>
     </div>
