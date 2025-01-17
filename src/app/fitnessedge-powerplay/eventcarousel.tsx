@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -15,7 +15,8 @@ import skipping from '../../../public/images/fitness/skipping.jpg';
 import standingBarbell from '../../../public/images/fitness/standingBarbell.jpg';
 import trxPushUp from '../../../public/images/fitness/trxPushUp.jpg';
 import Card from './card';
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
+import RegisterButton from './registerbutton';
 
 interface Event {
   name: string;
@@ -27,18 +28,18 @@ interface Event {
 
 const EventGrid: React.FC = () => {
   const events: Event[] = [
-    { name: "Free Squat Hold", date: "20-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: FreeSquatHold },
-    { name: "Plank Competition", date: "21-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: plank },
-    { name: "Arm Wrestling", date: "22-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: armWrestling },
-    { name: "Deadlift", date: "23-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: DeadLift },
-    { name: "Standing Barbell", date: "24-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: standingBarbell },
-    { name: "TRX Pushups", date: "25-01-2025", responsibility: "Harsh Rao and Nitin Rai", venue: "DSW", image: trxPushUp },
-    { name: "Burpees", date: "27-01-2025", responsibility: "Adarsh and Dipesh", venue: "BH6", image: burpse },
-    { name: "Dumpling", date: "28-01-2025", responsibility: "Adarsh and Dipesh", venue: "BH5", image: dumpling },
-    { name: "The Bird-Dog (One-arm, One-Leg Plank)", date: "29-01-2025", responsibility: "Adarsh and Dipesh", venue: "BH5, BH2, BH4", image: birdDogExercise },
-    { name: "Pushups", date: "30-01-2025", responsibility: "Adarsh and Dipesh", venue: "BH1", image: Pushup },
-    { name: "Skipping", date: "31-01-2025", responsibility: "Adarsh and Dipesh", venue: "GH5, GH6", image: skipping },
-    { name: "Kettlebell Competition", date: "01-02-2025", responsibility: "Adarsh and Dipesh", venue: "GH1 to GH6", image: Kettlebell },
+    { name: 'Free Squat Hold', date: '20-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: FreeSquatHold },
+    { name: 'Plank Competition', date: '21-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: plank },
+    { name: 'Arm Wrestling', date: '22-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: armWrestling },
+    { name: 'Deadlift', date: '23-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: DeadLift },
+    { name: 'Standing Barbell', date: '24-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: standingBarbell },
+    { name: 'TRX Pushups', date: '25-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: trxPushUp },
+    { name: 'Burpees', date: '27-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH6', image: burpse },
+    { name: 'Dumpling', date: '28-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH5', image: dumpling },
+    { name: 'The Bird-Dog (One-arm, One-Leg Plank)', date: '29-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH5, BH2, BH4', image: birdDogExercise },
+    { name: 'Pushups', date: '30-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH1', image: Pushup },
+    { name: 'Skipping', date: '31-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'GH5, GH6', image: skipping },
+    { name: 'Kettlebell Competition', date: '01-02-2025', responsibility: 'Adarsh and Dipesh', venue: 'GH1 to GH6', image: Kettlebell },
   ];
 
   return (
@@ -60,10 +61,14 @@ const EventGrid: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Centered Register Button */}
+        <div className="flex justify-center items-center mt-10">
+          <RegisterButton />
+        </div>
       </div>
     </div>
   );
 };
 
 export default EventGrid;
-
