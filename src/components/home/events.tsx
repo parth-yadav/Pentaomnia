@@ -63,7 +63,7 @@ export const HomeEvents: React.FC = () => {
     return (
         <>
             {liveEvents.length > 0 ? (
-        <section  id='promotions' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-primary to-black '>
+        <section  id='promotions' className='w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-black to-primary '>
           
                 <div className='container px-4 md:px-6'>
                     <div>
@@ -86,11 +86,11 @@ export const HomeEvents: React.FC = () => {
                                     >
                                         <EventCard
                                             clickCallback={() => handleCardClick(event.id)}
-                                            className='max-h-[400px] min-h-[350px] w-full'
+                                            className='max-h-[600px] min-h-[550px] w-full'
                                             event={event}
                                             isPressable
                                             showDescription
-                                            showRegisterButton
+                                            showRegisterButton = {true}
                                             locationOnTop={false}
                                             truncateDescription
                                         />

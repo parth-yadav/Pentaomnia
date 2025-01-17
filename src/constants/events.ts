@@ -19,7 +19,7 @@ import Event4Image from "../../public/images/eventimages/armwrestle.jpg";
 import Event6Image from "../../public/images/eventimages/innovateex.jpg";
 import Event12Image from "../../public/images/eventimages/kuchkhattahojaye.jpg";
 import Event16Image from "../../public/images/eventimages/musclemania.jpg";
-
+import EventFit from "../../public/images/eventimages/fitness.jpg"
 
 export interface Event {
     id: number;
@@ -34,6 +34,18 @@ export interface Event {
 }
 
 export const CONST_EVENTS: Event[] = [
+    {
+        id: 2,
+        title: "Powerplay: Transform Resolutions into Reality",
+        description:
+            "Pentaomnia aims to promote health and fitness among students through a series of engaging activities. This initiative is designed to encourage students to embrace a healthier lifestyle, foster a culture of wellness on campus, and create awareness about the benefits of regular physical activity. By integrating fun challenges and fitness education, the event seeks to inspire participants to prioritize their wellbeing and achieve their fitness goals.",
+        startDateTime: "2025-1-20T18:00:00",
+        endDateTime: "2025-2-1T20:00:00",
+        location: "LPU",
+        url: "google.com",  
+        src: EventFit,
+        color: "#BBACAF",
+    },
     {
         id: 3,
         title: "Alephium Workshop",
@@ -114,4 +126,5 @@ export const CONST_EVENTS: Event[] = [
         src: Event16Image,
         color: "#BBACAF",
     },
+    
 ];

@@ -122,8 +122,8 @@ const EventCard: React.FC<EventCardProps> = ({
                 >
                     <div className='relative h-full w-full'>
                         <Image
-                            src={event.imageSrc}
-                            alt={event.name}
+                            src={event.src}
+                            alt={event.title}
                             fill
                             className='object-cover'
                             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
@@ -135,14 +135,14 @@ const EventCard: React.FC<EventCardProps> = ({
                     <CardFooter className='absolute bottom-0 z-20 justify-between border-t border-gray-300 bg-white bg-opacity-90 p-4 backdrop-blur-md'>
                         <div className='flex flex-col space-y-2'>
                             <h4 className='text-left text-2xl font-semibold text-black'>
-                                {event.name}
+                                {event.title}
                             </h4>
                             {showDescription && (
                                 <div className='text-md'>
                                     <div className='flex flex-col items-start gap-2'>
                                         <span>
                                             {truncateDescription
-                                                ? event.description.slice(0, 86) + "..."
+                                                ? event.description.slice(0, 160) + "..."
                                                 : event.description}
                                         </span>
                                     </div>
