@@ -36,6 +36,9 @@ const config = {
                 ring: "hsl(var(--ring))",
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
+               
+                
+
                 // C1E6F3 1E3970 FCB817
                 // hsl(196, 68%, 85%)
                 // hsl(220, 58%, 28%)

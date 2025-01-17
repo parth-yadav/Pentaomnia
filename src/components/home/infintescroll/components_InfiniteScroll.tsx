@@ -43,7 +43,7 @@ const InfiniteScroll: React.FC = () => {
           {content}
           {content}
           {content} {/* Added one more repeat for smoother transition */}
-        </div>
+        </div>  
       </div>
     </div>
   )

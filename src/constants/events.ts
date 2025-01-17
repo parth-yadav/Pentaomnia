@@ -42,7 +42,7 @@ export const CONST_EVENTS: Event[] = [
         startDateTime: "2025-1-20T18:00:00",
         endDateTime: "2025-2-1T20:00:00",
         location: "LPU",
-        url: "google.com",  
+        url: "/fitnessedge-powerplay",  
         src: EventFit,
         color: "#BBACAF",
     },

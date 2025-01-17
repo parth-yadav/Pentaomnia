@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+
 import {
     Facebook,
     Instagram,
@@ -13,22 +13,30 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default function Footer() {
-    const [isInnovatex, setIsInnovatex] = useState(false);
 
-    useEffect(() => {
-        if (window.location.href.includes("innovatex")) {
-            setIsInnovatex(true);
-        }
-    }, []);
+import React, { useState, useEffect } from 'react';
 
-    return (
-        <footer
-            id="footer"
-            className={`relative w-full py-6 text-white ${
-                isInnovatex ? "bg-black" : "bg-gradient-to-r from-black to-primary"
-            }`}
-        ><div className="container px-6 lg:px-12 xl:px-20">
+function Footer() {
+  const [isInnovatex, setIsInnovatex] = useState(false);
+
+  useEffect(() => {
+    const url = window.location.href;
+    if (url.includes("innovatex")) {
+      setIsInnovatex(true);
+    } else if (url.includes("fitnessedge")) {
+      setIsInnovatex(true); // We're reusing the same state for simplicity
+    }
+  }, []);
+
+  return (
+    <footer
+      className={`relative w-full py-6 text-white ${
+        isInnovatex || window.location.href.includes("fitnessedge")
+          ? "bg-black"
+          : "bg-gradient-to-r from-black to-primary"
+      }`}
+      >
+          <div className="container px-6 lg:px-12 xl:px-20">
         <hr className="mb-12 border-gray-700" />
 
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,7 +138,11 @@ export default function Footer() {
             <p>© 2024 Pentaomnia. All rights reserved.</p>
         </div>
     </div>
-</footer>
-
-    );
+      
+    </footer>
+  );
 }
+
+export default Footer;
+
+

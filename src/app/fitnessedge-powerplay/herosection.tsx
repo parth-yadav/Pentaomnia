@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import gym from "../assets/gym.jpg";
+import gym from "../../../public/images/fitness/gym.jpg";
 
 const HeroSection: React.FC = () => {
   return (
