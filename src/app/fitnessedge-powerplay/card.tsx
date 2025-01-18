@@ -11,7 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image, date, name, responsibility, venue }) => {
   return (
-    <div className="bg-white border border-red-500 rounded-lg shadow-lg overflow-hidden h-[400px] flex flex-col">
+    <div className="bg-white border border-red-500 rounded-lg shadow-lg overflow-hidden h-[325px] flex flex-col">
       {/* Event Date */}
       <div className="bg-red-600 text-white px-4 py-2 text-center font-semibold">
         <h6>{name}</h6>
@@ -29,11 +29,11 @@ const Card: React.FC<CardProps> = ({ image, date, name, responsibility, venue })
       </div>
 
       {/* Event Details */}
-      <div className=" p-4 flex flex-col ">
+      <div className=" p-4 flex flex-col text-center ">
         <div>
-          <h2 className="text-xl font-bold text-red-600 mb-2 text-center">
+          {/* <h2 className="text-xl font-bold text-red-600 mb-2 text-center">
             {name}
-          </h2>
+          </h2> */}
           {/* <p className="text-gray-700 mb-2">
             <span className="font-semibold">Responsibility:</span> {responsibility}
           </p> */}

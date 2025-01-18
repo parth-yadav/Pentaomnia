@@ -61,7 +61,7 @@ const HeroSection = () => {
           <h1 className="text-4xl  font-extrabold mb-6">
           Win Prizes Worth {" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-red-500">
-            ₹5,000
+            ₹20,000
           </span>
         </h1>
           <div className="w-full flex justify-center md:justify-start">

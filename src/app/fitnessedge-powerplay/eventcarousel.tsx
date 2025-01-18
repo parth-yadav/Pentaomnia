@@ -32,14 +32,14 @@ const EventGrid: React.FC = () => {
     { name: 'Plank Competition', date: '21-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: plank },
     { name: 'Arm Wrestling', date: '22-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: armWrestling },
     { name: 'Deadlift', date: '23-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: DeadLift },
-    { name: 'Standing Barbell', date: '24-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: standingBarbell },
+    { name: 'Standing Barbell Curl', date: '24-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: standingBarbell },
     { name: 'TRX Pushups', date: '25-01-2025', responsibility: 'Harsh Rao and Nitin Rai', venue: 'DSW', image: trxPushUp },
-    { name: 'Burpees', date: '27-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH6', image: burpse },
+    { name: 'Burpees', date: '26-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH6', image: burpse },
     { name: 'Dumpling', date: '28-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH5', image: dumpling },
-    { name: 'The Bird-Dog (One-arm, One-Leg Plank)', date: '29-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH5, BH2, BH4', image: birdDogExercise },
+    { name: 'The Bird-Dog (One-arm, One-Leg Plank)', date: '29-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH3, BH2, BH4', image: birdDogExercise },
     { name: 'Pushups', date: '30-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'BH1', image: Pushup },
     { name: 'Skipping', date: '31-01-2025', responsibility: 'Adarsh and Dipesh', venue: 'GH5, GH6', image: skipping },
-    { name: 'Kettlebell Competition', date: '01-02-2025', responsibility: 'Adarsh and Dipesh', venue: 'GH1 to GH6', image: Kettlebell },
+    { name: 'Kettlebell Competition', date: '01-02-2025', responsibility: 'Adarsh and Dipesh', venue: 'GH2 Basketball Court', image: Kettlebell },
   ];
 
   return (
