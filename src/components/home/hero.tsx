@@ -73,7 +73,7 @@ export const HomeHero: React.FC = () => {
                         </div>
                     </div>
                     <div className='flex w-full items-center justify-center'>
-                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} height={ 575} />
+                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} height={ 230} />
                     </div>
                 </div>
                 </div>

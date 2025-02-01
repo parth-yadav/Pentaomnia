@@ -41,9 +41,7 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
                     <CarouselItem
                         key={index}
                         className="relative w-full"
-                        style={{
-                            height: `calc(100vh - ${height}px)`, // Use full height dynamically
-                        }}
+                        
                     >
                         <div
                             className="relative w-full h-[350px] md:h-[600px]" // Responsive height
