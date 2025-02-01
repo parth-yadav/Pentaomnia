@@ -15,12 +15,12 @@ interface Project {
 }
 
 const projects: Project[] = [
- {
+  {
     title: "Alephium Workshop",
     description:
       "On 31st August 2024, Pentaomnia introduced a cutting-edge Web3 Technology workshop and training session conducted by Alephium officials at LPU. The workshop provided students with hands-on experience in blockchain technology, equipping them with skills that are highly relevant in the evolving tech industry. The event marked a significant step towards bridging the gap between academic learning and industry demands.",
     src: "alpheum.jpg",
-    url: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
+    url: "/promos",
     color: "#FFE699",
   },
   {
@@ -28,7 +28,7 @@ const projects: Project[] = [
     description:
       "Held on 16th and 17th September 2024, the Arm Wrestling Championship 3.0 brought together over 300 participants from across India to compete in this national-level event at LPU. The fierce competition showcased remarkable strength, determination, and sportsmanship, culminating in the crowning of the 'Champion of Champions.' The event drew a large audience and elevated the profile of arm wrestling as a competitive sport.",
     src: "armwrestle.jpg",
-    url: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
+    url: "/promos",
     color: "#FFDB70",
   },
   {
@@ -36,7 +36,7 @@ const projects: Project[] = [
     description:
       "From *12th to 14th November 2024, Pentaomnia Private Limited orchestrated *Arcana 2.0, a *National Level Quiz Competition* that brought together talented students from across the country. Competing fiercely to showcase their intellect and skills, participants vied for coveted certificates and exciting goodies. The event fostered healthy competition, celebrated knowledge, and left an indelible mark of excellence.",
     src: "arcana20.jpg",
-    url: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
+    url: "/promos",
     color: "#FFD147",
   },
   {
@@ -44,7 +44,7 @@ const projects: Project[] = [
     description:
       "InnovateX, a 24-hour hackathon held on 30th and 31st March 2024, challenged participants to innovate and develop impactful projects. The event concluded with the selection of three exceptional participants who earned placement offers with ZillionsofTech. InnovateX highlighted the creative and problem-solving capabilities of the students while offering them a pathway to professional success.",
     src: "innovateex.jpg",
-    url: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
+    url: "/promos",
     color: "#FFCC33",
   },
   {
@@ -52,7 +52,7 @@ const projects: Project[] = [
     description:
       "Pentaomnia conducted a movie promotion event for Guru Randhawa's movie 'Kuchh Khatta Ho Jaye' at LPU. The event brought together students and film enthusiasts, offering them an exclusive glimpse into the movie and its making.",
     src: "kuchkhattahojaye.jpg",
-    url: "https://www.ignant.com/2023/04/12/mark-rammers-all-over-again-is-a-study-of-regret-and-the-willingness-to-move-forward/",
+    url: "/promos",
     color: "#FFC20A",
   },
   {
@@ -60,10 +60,9 @@ const projects: Project[] = [
     description:
       "In *March 2024, Pentaomnia Private Limited championed the cause of health and fitness by hosting *Muscle Mania, an adrenaline-pumping event that attracted fitness enthusiasts from across Punjab. Over the course of a thrilling week, participants engaged in *15+ competitions* designed to test their strength, endurance, and athleticism. With lakhs worth of goodies distributed, this event truly celebrated the spirit of fitness and determination.",
     src: "musclemania.jpg",
-    url: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
+    url: "/promos",
     color: "#F5B800",
-  }
-  // ... (other project objects)
+  },
 ]
 
 export default function ProjectCarousel() {
@@ -83,30 +82,30 @@ export default function ProjectCarousel() {
     return (currentIndex + offset + projects.length) % projects.length
   }
 
- const bind = useDrag(
-  ({ down, movement: [mx], direction: [xDir], velocity, cancel }) => {
-    setIsDragging(down)
-    if (down) {
-      if (Math.abs(mx) > 50) {
-        if (xDir > 0) {
-          prevProject()
-        } else {
-          nextProject()
+  const bind = useDrag(
+    ({ down, movement: [mx], direction: [xDir], velocity, cancel }) => {
+      setIsDragging(down)
+      if (down) {
+        if (Math.abs(mx) > 50) {
+          if (xDir > 0) {
+            prevProject()
+          } else {
+            nextProject()
+          }
+          cancel()
         }
-        cancel()
-      }
-    } else {
-      if (velocity[0] > 0.2) { // Use velocity[0] for the x-component
-        if (xDir > 0) {
-          prevProject()
-        } else {
-          nextProject()
+      } else {
+        if (velocity[0] > 0.2) {
+          if (xDir > 0) {
+            prevProject()
+          } else {
+            nextProject()
+          }
         }
       }
-    }
-  },
-  { axis: "x", threshold: 10 },
-)
+    },
+    { axis: "x", threshold: 10 },
+  )
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -118,53 +117,63 @@ export default function ProjectCarousel() {
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [prevProject, nextProject]) // Added dependencies here
+  }, [])
+
+  const getBackgroundClass = (offset: number) => {
+    if (offset === 0) return 'bg-gray-800'; // Focused card - lightest
+    if (Math.abs(offset) === 1) return 'bg-gray-600'; // Adjacent cards - medium
+    return 'bg-gray-500'; // Outer cards - darkest
+  }
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto px-4 py-12 overflow-hidden">
-      <h2 className="text-3xl font-bold mb-8 text-center">Our Projects</h2>
+    <section
+      id="events"
+      className="relative w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32"
+    >
+      <h2 className="text-5xl font-bold mb-8 text-white text-center">Recent Events</h2>
       <div
         ref={containerRef}
-        className="flex justify-center items-center h-[500px] cursor-grab active:cursor-grabbing"
+        className="flex justify-center items-center h-[600px] cursor-grab active:cursor-grabbing px-4"
         {...bind()}
       >
         {[-2, -1, 0, 1, 2].map((offset) => {
           const projectIndex = getProjectIndex(offset)
-            const project = projects[projectIndex]
-            if (!project) return null // Add this line to handle undefined projects
+          const project = projects[projectIndex]
+          if (!project) return null
+
           return (
             <div
               key={projectIndex}
               className={`absolute transition-all duration-300 ease-in-out ${
                 offset === 0
-                  ? "w-80 z-30 opacity-100"
+                  ? "w-80 md:w-96 z-30 opacity-100"
                   : Math.abs(offset) === 1
-                    ? "w-64 z-20 opacity-70"
-                    : "w-48 z-10 opacity-40"
+                    ? "w-64 md:w-80 z-20 opacity-70"
+                    : "w-48 md:w-64 z-10 opacity-40"
               }`}
               style={{
-                transform: `translateX(${offset * 120}%) scale(${1 - Math.abs(offset) * 0.2})`,
+                transform: `translateX(${offset * 110}%) scale(${1 - Math.abs(offset) * 0.15})`,
                 pointerEvents: offset === 0 ? "auto" : "none",
               }}
             >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="relative h-48 w-full">
+              <div className="rounded-lg shadow-lg overflow-hidden">
+                <div className="relative h-64 w-full">
                   <Image
-                    src={`/placeholder.svg?height=192&width=320`}
+                    src={`/images/eventimages/${project.src}`}
                     alt={project.title}
                     layout="fill"
                     objectFit="cover"
                   />
                 </div>
-                <div className="p-6" style={{ backgroundColor: project.color }}>
-                  <h3 className="font-bold text-xl mb-2 truncate">{project.title}</h3>
-                  <p className="text-gray-700 text-sm line-clamp-3">{project.description}</p>
+                <div className={`p-6 bg-black ${getBackgroundClass(offset)}`}>
+                  <h3 className="font-bold text-gray-200 text-xl mb-2 truncate">{project.title}</h3>
+                  <p className="text-gray-200 text-sm line-clamp-3">{project.description}</p>
                   {offset === 0 && !isDragging && (
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-block text-blue-600 hover:text-blue-800"
+                      className="mt-4 inline-block text-yellow-300 hover:text-blue-800"
                       onClick={(e) => isDragging && e.preventDefault()}
                     >
                       Learn more
@@ -190,7 +199,6 @@ export default function ProjectCarousel() {
       >
         <ArrowRight className="h-6 w-6" />
       </Button>
-    </div>
+    </section>
   )
 }
-

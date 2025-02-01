@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { HomeHeroCarousel } from "@/components/home/homeherocarousel";
 import { Button } from "@/components/ui/button";
+import InfiniteScroll from "./infintescroll/components_InfiniteScroll";
 
 // import image from "../../../public/images/eventimages/alpheum.jpg";
 // import ScrollToTopButton from "./scrollup";
@@ -20,7 +21,7 @@ export const HomeHero: React.FC = () => {
     return (
         <section className='w-full bg-gradient-to-r from-black to-primary'>
             
-            <div className='container px-4 md:px-6'>
+            <div className='p-6  lg:ml-20 lg:pl-6 lg:p-0'>
                 <div className='grid gap-8 md:grid-cols-[1fr_400px] md:gap-12 xl:grid-cols-[1fr_600px]'>
                     <div className='flex flex-col justify-center space-y-4 text-white'>
                         <div className='space-y-4'>
@@ -72,10 +73,13 @@ export const HomeHero: React.FC = () => {
                         </div>
                     </div>
                     <div className='flex w-full items-center justify-center'>
-                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} height={ 500} />
+                        <HomeHeroCarousel className='w-full max-w-[600px]' images={localImages} height={ 575} />
                     </div>
                 </div>
-            </div>
+                </div>
+                 
+           
+           
         </section>
     );
 };

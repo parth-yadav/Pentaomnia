@@ -16,7 +16,7 @@ import ProjectCarousel from "./home/parevents/HorizontalScroll"
 export default function LandingPage() {
     return (
         <div className='flex min-h-screen flex-col'>
-            <main className='flex min-h-screen flex-1 flex-col'>
+            <main className='flex min-h-screen flex-1 flex-col overflow-hidden'>
                 <ScrollToTopButton />     
                
                 <HomeHero />
@@ -26,7 +26,7 @@ export default function LandingPage() {
                  <StatsDisplay />
                
               <HomeEvents />
-                <ParPage />
+                {/* <ParPage /> */}
                 <ProjectCarousel />
                 <HomePromotions />
                 <HomePartners />

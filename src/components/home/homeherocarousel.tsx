@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
@@ -10,13 +9,15 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 interface HomeHeroCarouselProps {
     className?: string;
     images: string[]; // Array of local image paths
-    height?: number; // Optional height prop with a default value
+    height?: number; // Default height for larger screens
+    mobileHeight?: number; // Height for mobile screens
 }
 
 export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
     className,
     images,
-    height = 600, // Default height if not provided
+    height = 600, // Default height for desktops
+    mobileHeight = 350, // Smaller height for mobile
 }) => {
     const plugin = useRef(
         Autoplay({
@@ -39,20 +40,26 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
                 {images.map((imagePath, index) => (
                     <CarouselItem
                         key={index}
-                        className='relative w-full'
-                        style={{ height: `${height}px` }}
+                        className="relative w-full"
+                        style={{
+                            height: `calc(100vh - ${height}px)`, // Use full height dynamically
+                        }}
                     >
-                        <Image
-                            src={imagePath}
-                            alt={`Carousel Image ${index + 1}`}
-                            fill
-                            style={{ objectFit: "cover" }}
-                            sizes='100vw'
-                            priority={index === 0} // Prioritize loading for the first image
-                        />
+                        <div
+                            className="relative w-full h-[350px] md:h-[600px]" // Responsive height
+                        >
+                            <Image
+                                src={imagePath}
+                                alt={`Carousel Image ${index + 1}`}
+                                fill
+                                style={{ objectFit: "cover" }}
+                                sizes="100vw"
+                                priority={index === 0} // Prioritize first image
+                            />
+                        </div>
                     </CarouselItem>
                 ))}
             </CarouselContent>
-        </Carousel> 
+        </Carousel>
     );
 };
