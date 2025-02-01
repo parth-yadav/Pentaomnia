@@ -11,6 +11,7 @@ import ParPage from "./home/parevents/parpage";
 import Whatsapp from "./home/whatsapp-widget";
 import ScrollToTopButton from "./home/scrollup";
 import InfiniteScroll from "./home/infintescroll/components_InfiniteScroll";
+import ProjectCarousel from "./home/parevents/HorizontalScroll"
 
 export default function LandingPage() {
     return (
@@ -26,6 +27,7 @@ export default function LandingPage() {
                
               <HomeEvents />
                 <ParPage />
+                <ProjectCarousel />
                 <HomePromotions />
                 <HomePartners />
                

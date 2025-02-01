@@ -34,6 +34,7 @@
         "@nextui-org/react": "^2.6.10",
         "@radix-ui/react-slot": "^1.1.1",
         "@studio-freight/lenis": "^1.0.42",
+        "@use-gesture/react": "^10.3.1",
         "autoprefixer": "^10.4.20",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
