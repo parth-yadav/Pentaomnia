@@ -47,122 +47,125 @@ if (state?.error) {
   })
 }
 
-  return (
-    <form action={formAction} className="space-y-8">
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">1. Contact Information</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name</Label>
-            <Input id="fullName" name="fullName" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="companyName">Company/Brand Name</Label>
-            <Input id="companyName" name="companyName" />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
-            <Input id="email" name="email" type="email" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="phoneNumber">Phone Number</Label>
-            <Input id="phoneNumber" name="phoneNumber" required />
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">2. Service Requirements</h2>
+    return (
+     <div className="text-white">
+  <form action={formAction} className="space-y-8 w-full max-w-lg mx-auto">
+    <div className="space-y-4">
+      <h2 className="text-lg font-semibold">1. Contact Information</h2>
+      <div className="grid grid-cols-1 gap-4">
         <div className="space-y-2">
-          <Label>Which service are you interested in?</Label>
-          {services.map((service) => (
-            <div className="flex items-center space-x-2" key={service.id}>
-              <Checkbox
-                id={service.id}
-                name="services"
-                value={service.id}
-                checked={selectedServices.includes(service.id)}
-               onCheckedChange={(checked: boolean) => handleServiceChange(checked, service.id)}
-
-              />
-              <Label htmlFor={service.id}>{service.label}</Label>
-            </div>
-          ))}
+          <Label htmlFor="fullName">Full Name</Label>
+          <Input id="fullName" name="fullName" required className="w-full bg-inherit" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="projectDescription">Briefly describe your project or requirements</Label>
-          <Textarea id="projectDescription" name="projectDescription" required />
+          <Label htmlFor="companyName">Company/Brand Name</Label>
+          <Input id="companyName" name="companyName" className="w-full bg-inherit" />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address</Label>
+          <Input id="email" name="email" type="email" required className=" bg-inherit w-full" />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="phoneNumber">Phone Number</Label>
+          <Input id="phoneNumber" name="phoneNumber" required className=" bg-inherit w-full" />
         </div>
       </div>
+    </div>
 
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">3. Budget & Timeline</h2>
-        <div className="space-y-2">
-          <Label>Estimated Budget</Label>
-          <RadioGroup name="budget" defaultValue="flexible">
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="10000-50000" id="budget-1" />
-              <Label htmlFor="budget-1">₹10,000 - ₹50,000</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="50000-100000" id="budget-2" />
-              <Label htmlFor="budget-2">₹50,000 - ₹1,00,000</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="100000+" id="budget-3" />
-              <Label htmlFor="budget-3">₹1,00,000+</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="flexible" id="budget-4" />
-              <Label htmlFor="budget-4">Flexible / Not Sure</Label>
-            </div>
-          </RadioGroup>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="startDate">Preferred Start Date</Label>
-            <Input id="startDate" name="startDate" type="date" required />
+    <div className="space-y-4">
+      <h2 className="text-lg font-semibold">2. Service Requirements</h2>
+      <div className="space-y-2">
+        <Label>Which service are you interested in?</Label>
+        {services.map((service) => (
+          <div className="flex items-center space-x-2" key={service.id}>
+            <Checkbox
+              id={service.id}
+              name="services"
+              value={service.id}
+              checked={selectedServices.includes(service.id)}
+              onCheckedChange={(checked: boolean) => handleServiceChange(checked, service.id)}
+            />
+            <Label htmlFor={service.id}>{service.label}</Label>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="deadline">Deadline (if any)</Label>
-            <Input id="deadline" name="deadline" type="date" />
+        ))}
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="projectDescription">Briefly describe your project or requirements</Label>
+        <Textarea id="projectDescription" name="projectDescription" required className="w-full" />
+      </div>
+    </div>
+
+    <div className="space-y-4">
+      <h2 className="text-lg font-semibold">3. Budget & Timeline</h2>
+      <div className="space-y-2">
+        <Label>Estimated Budget</Label>
+        <RadioGroup name="budget" defaultValue="flexible" className="space-y-2">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="10000-50000" id="budget-1" className="border-white" />
+            <Label htmlFor="budget-1">₹10,000 - ₹50,000</Label>
           </div>
-        </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="50000-100000" id="budget-2"  className="border-white" />
+            <Label htmlFor="budget-2" >₹50,000 - ₹1,00,000</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="100000+" id="budget-3" className="border-white"  />
+            <Label htmlFor="budget-3">₹1,00,000+</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="flexible" id="budget-4" className="border-white " />
+            <Label htmlFor="budget-4">Flexible / Not Sure</Label>
+          </div>
+        </RadioGroup>
       </div>
+     <div className="grid grid-cols-1 gap-4">
+  <div className="space-y-2">
+    <Label htmlFor="startDate">Preferred Start Date</Label>
+    <Input id="startDate" name="startDate" type="date" required className="w-auto max-w-xs text-black" />
+  </div>
+  <div className="space-y-2">
+    <Label htmlFor="deadline">Deadline (if any)</Label>
+    <Input id="deadline" name="deadline" type="date" className="w-auto max-w-xs text-black" />
+  </div>
+</div>
 
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">4. Additional Information</h2>
-        <div className="space-y-2">
-          <Label htmlFor="referralSource">How did you hear about us?</Label>
-          <Select name="referralSource">
-            <SelectTrigger>
-              <SelectValue placeholder="Select an option" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="social-media">Social Media</SelectItem>
-              <SelectItem value="referral">Referral</SelectItem>
-              <SelectItem value="website">Website/Search Engine</SelectItem>
-              <SelectItem value="event">Event</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="fileUpload">Upload any reference files (if needed)</Label>
-          <Input id="fileUpload" name="fileUpload" type="file" />
-        </div>
+    </div>
+
+    <div className="space-y-4">
+      <h2 className="text-lg font-semibold">4. Additional Information</h2>
+      <div className="space-y-2">
+        <Label htmlFor="referralSource">How did you hear about us?</Label>
+        <Select name="referralSource">
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select an option" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="social-media">Social Media</SelectItem>
+            <SelectItem value="referral">Referral</SelectItem>
+            <SelectItem value="website">Website/Search Engine</SelectItem>
+            <SelectItem value="event">Event</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-
-      <div className="space-y-4">
-        <h2 className="text-lg font-semibold">5. Confirmation</h2>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="scheduleConsultation" name="scheduleConsultation" />
-          <Label htmlFor="scheduleConsultation">Would you like to schedule a free consultation?</Label>
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="fileUpload">Upload any reference files (if needed)</Label>
+        <Input id="fileUpload" name="fileUpload" type="file" className="w-full" />
       </div>
+    </div>
 
-      <Button type="submit">Submit</Button>
-    </form>
-  )
+    <div className="space-y-4">
+      <h2 className="text-lg font-semibold">5. Confirmation</h2>
+      <div className="flex items-center space-x-2">
+        <Checkbox id="scheduleConsultation" name="scheduleConsultation" />
+        <Label htmlFor="scheduleConsultation">Would you like to schedule a free consultation?</Label>
+      </div>
+    </div>
+
+    <Button type="submit" className="w-full bg-accent text-black text-lg font-bold">Submit</Button>
+            </form>
+            </div>
+);
+
 }
 
