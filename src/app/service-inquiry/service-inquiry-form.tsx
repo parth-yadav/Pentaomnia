@@ -54,26 +54,26 @@ if (state?.error) {
       <h2 className="text-lg font-semibold">1. Contact Information</h2>
       <div className="grid grid-cols-1 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="fullName">Full Name</Label>
+          <Label htmlFor="fullName">Full Name*</Label>
           <Input id="fullName" name="fullName" required className="w-full bg-inherit" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="companyName">Company/Brand Name</Label>
+          <Label htmlFor="companyName">Company/Brand Name*</Label>
           <Input id="companyName" name="companyName" className="w-full bg-inherit" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
+          <Label htmlFor="email">Email Address*</Label>
           <Input id="email" name="email" type="email" required className=" bg-inherit w-full" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phoneNumber">Phone Number</Label>
+          <Label htmlFor="phoneNumber">Phone Number*</Label>
           <Input id="phoneNumber" name="phoneNumber" required className=" bg-inherit w-full" />
         </div>
       </div>
     </div>
 
     <div className="space-y-4">
-      <h2 className="text-lg font-semibold">2. Service Requirements</h2>
+      <h2 className="text-lg font-semibold">2. Service Requirements*</h2>
       <div className="space-y-2">
         <Label>Which service are you interested in?</Label>
         {services.map((service) => (
@@ -96,7 +96,7 @@ if (state?.error) {
     </div>
 
     <div className="space-y-4">
-      <h2 className="text-lg font-semibold">3. Budget & Timeline</h2>
+      <h2 className="text-lg font-semibold">3. Budget & Timeline*</h2>
       <div className="space-y-2">
         <Label>Estimated Budget</Label>
         <RadioGroup name="budget" defaultValue="flexible" className="space-y-2">
