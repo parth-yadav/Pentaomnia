@@ -61,7 +61,7 @@ export const HomeHero: React.FC = () => {
                                     variant='ghost'
                                     size='lg'
                                 >
-                                    Explore Events
+                                    Book Free Consultation
                                 </Button>
                             </Link>
                             <Link key='read-blogs' href='/blogs' prefetch={false}>
