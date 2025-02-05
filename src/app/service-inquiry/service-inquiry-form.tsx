@@ -286,8 +286,8 @@ export function ServiceInquiryForm() {
   }
 
   return (
-    <div className="text-white">
-      <form action={formAction} className="space-y-8 w-full border  rounded-2xl p-6 max-w-lg mx-auto">
+    <div className="text-white w-96  bg-white bg-opacity-10 inline-block p-2 rounded-xl">
+      <form action={formAction} className="space-y-8  border  rounded-2xl p-6 max-w-lg mx-auto">
         {renderStep()}
         <div className="flex justify-between mt-8">
           {currentStep > 0 && (
