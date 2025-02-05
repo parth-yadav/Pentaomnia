@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useFormState } from "react-dom"
-import { submitForm } from "./action"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
@@ -10,8 +8,9 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Toast, ToastDescription } from "@/components/ui/use-toast"
-import type React from "react" // Added import for React
+import { Toast } from "@/components/ui/taost"
+
+import type React from "react"
 
 const services = [
   { id: "social-media", label: "Social Media Marketing" },
@@ -25,7 +24,8 @@ const services = [
 ]
 
 export function ServiceInquiryForm() {
-  const [state, formAction] = useFormState(submitForm, null)
+ 
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectedServices, setSelectedServices] = useState<string[]>([])
   const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
@@ -50,13 +50,16 @@ export function ServiceInquiryForm() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target
-    setFormData((prev) => ({ ...prev, [name]: checked }))
-  }
-
   const handleNext = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, 4))
+    if (isStepComplete()) {
+      setCurrentStep((prev) => Math.min(prev + 1, 4))
+    } else {
+      // Toast({
+      //   title: "Required Fields",
+      //   // description: "Please fill in all required fields before proceeding.",
+      //   variant: "destructive",
+      // })
+    }
   }
 
   const handlePrevious = () => {
@@ -66,11 +69,15 @@ export function ServiceInquiryForm() {
   const isStepComplete = () => {
     switch (currentStep) {
       case 0:
-        return formData.fullName && formData.email && formData.phoneNumber
+        return (
+          formData.fullName.trim() !== "" &&
+          formData.email.trim() !== "" &&
+          formData.phoneNumber.trim() !== ""
+        )
       case 1:
-        return selectedServices.length > 0 && formData.projectDescription
+        return selectedServices.length > 0 && formData.projectDescription.trim() !== ""
       case 2:
-        return formData.budget && formData.startDate
+        return formData.budget !== "" && formData.startDate !== ""
       case 3:
         return formData.referralSource !== ""
       default:
@@ -79,32 +86,56 @@ export function ServiceInquiryForm() {
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-   
+    event.preventDefault()
+    setIsSubmitting(true)
 
-    const formData = {
-        fullName: "John Doe",
-        companyName: "ABC Corp",
-        email: "john@example.com",
-        phoneNumber: "1234567890",
-        projectDescription: "Need a new website",
-        budget: "10000-50000",
-        startDate: "2025-02-10",
-        deadline: "2025-03-01",
-        referralSource: "social-media",
-        scheduleConsultation: true,
-        selectedServices: "web-development,seo-content"
-    };
-
-    const response = await fetch('https://pentaomnia.com/api/submit.php', {
+    try {
+      const response = await fetch('https://pentaomnia.com/submit.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-    });
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          selectedServices: selectedServices.join(',')
+        })
+      })
 
-    const result = await response.json();
-    console.log(result);
-};
+      const result = await response.json()
+
+      if (result.success) {
+        // Toast({
+        //   title: "Success",
+        //   // description: "Your inquiry has been submitted successfully!",
+        // })
+        // Reset form
+        setFormData({
+          fullName: "",
+          companyName: "",
+          email: "",
+          phoneNumber: "",
+          projectDescription: "",
+          budget: "",
+          startDate: "",
+          deadline: "",
+          referralSource: "",
+          scheduleConsultation: false,
+        })
+        setSelectedServices([])
+        setCurrentStep(0)
+      } else {
+        throw new Error(result.message || 'Submission failed')
+      }
+    } catch (error) {
+      // Toast({
+      //   title: "Error",
+      //   // description: error instanceof Error ? error.message : "Failed to submit form. Please try again.",
+      //   variant: "destructive",
+      // })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   const renderStep = () => {
     switch (currentStep) {
@@ -295,49 +326,46 @@ export function ServiceInquiryForm() {
             </div>
           </div>
         )
+      default:
+        return null
     }
   }
 
-  if (state?.success) {
-    Toast({
-      title: "Success",
-      children: <ToastDescription>{state.success}</ToastDescription>,
-    })
-  }
-
-  if (state?.error) {
-    Toast({
-      title: "Error",
-      children: <ToastDescription>{state.error}</ToastDescription>,
-      variant: "destructive",
-    })
-  }
-
   return (
-   <div className="text-white w-full max-w-md bg-white bg-opacity-10 inline-block p-4 rounded-xl">
- <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
-  {renderStep()}
-  <div className="flex flex-wrap justify-between gap-4 mt-6">
-    {currentStep > 0 && (
-      <Button type="button" onClick={handlePrevious}>
-        Previous
-      </Button>
-    )}
-    {currentStep < 4 && (
-      <Button className="bg-white text-black" type="button" onClick={handleNext} disabled={!isStepComplete()}>
-        Next
-      </Button>
-    )}
-    {currentStep === 4 && (
-      <Button type="submit" className="bg-accent text-black text-lg font-bold">
-        Submit
-      </Button>
-    )}
-  </div>
-</form>
-
-</div>
-
+    <div className="text-white w-full max-w-md bg-white bg-opacity-10 inline-block p-4 rounded-xl">
+      <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
+        {renderStep()}
+        <div className="flex flex-wrap justify-between gap-4 mt-6">
+          {currentStep > 0 && (
+            <Button 
+              type="button" 
+              onClick={handlePrevious}
+              disabled={isSubmitting}
+            >
+              Previous
+            </Button>
+          )}
+          {currentStep < 4 && (
+            <Button 
+              className="bg-white text-black" 
+              type="button" 
+              onClick={handleNext} 
+              disabled={!isStepComplete() || isSubmitting}
+            >
+              Next
+            </Button>
+          )}
+          {currentStep === 4 && (
+            <Button 
+              type="submit" 
+              className="bg-accent text-black text-lg font-bold"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </Button>
+          )}
+        </div>
+      </form>
+    </div>
   )
 }
-
