@@ -78,6 +78,34 @@ export function ServiceInquiryForm() {
     }
   }
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+   
+
+    const formData = {
+        fullName: "John Doe",
+        companyName: "ABC Corp",
+        email: "john@example.com",
+        phoneNumber: "1234567890",
+        projectDescription: "Need a new website",
+        budget: "10000-50000",
+        startDate: "2025-02-10",
+        deadline: "2025-03-01",
+        referralSource: "social-media",
+        scheduleConsultation: true,
+        selectedServices: "web-development,seo-content"
+    };
+
+    const response = await fetch('https://pentaomnia.com/api/submit.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    console.log(result);
+};
+
   const renderStep = () => {
     switch (currentStep) {
       case 0:
@@ -287,26 +315,27 @@ export function ServiceInquiryForm() {
 
   return (
    <div className="text-white w-full max-w-md bg-white bg-opacity-10 inline-block p-4 rounded-xl">
-  <form action={formAction} className="space-y-6 border rounded-2xl p-6 mx-auto">
-    {renderStep()}
-    <div className="flex flex-wrap justify-between gap-4 mt-6">
-      {currentStep > 0 && (
-        <Button type="button" onClick={handlePrevious}>
-          Previous
-        </Button>
-      )}
-      {currentStep < 4 && (
-        <Button className="bg-white text-black" type="button" onClick={handleNext} disabled={!isStepComplete()}>
-          Next
-        </Button>
-      )}
-      {currentStep === 4 && (
-        <Button type="submit" className="bg-accent text-black text-lg font-bold">
-          Submit
-        </Button>
-      )}
-    </div>
-  </form>
+ <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
+  {renderStep()}
+  <div className="flex flex-wrap justify-between gap-4 mt-6">
+    {currentStep > 0 && (
+      <Button type="button" onClick={handlePrevious}>
+        Previous
+      </Button>
+    )}
+    {currentStep < 4 && (
+      <Button className="bg-white text-black" type="button" onClick={handleNext} disabled={!isStepComplete()}>
+        Next
+      </Button>
+    )}
+    {currentStep === 4 && (
+      <Button type="submit" className="bg-accent text-black text-lg font-bold">
+        Submit
+      </Button>
+    )}
+  </div>
+</form>
+
 </div>
 
   )
