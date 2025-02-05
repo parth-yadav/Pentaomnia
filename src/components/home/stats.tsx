@@ -59,7 +59,7 @@ const StatsDisplay: React.FC = () => {
         <StatItem label="Clients" value={50} suffix="+" delay={0} />
         <StatItem label="Events" value={200} suffix="+" delay={0.2} />
         <StatItem label="Customer Rating" value={4.9} suffix="/5" delay={0.4} />
-        <StatItem label="Years of Experienc" value={5} suffix="+" delay={0.6} />
+        <StatItem label="Years of Experience" value={5} suffix="+" delay={0.6} />
       </div>
     </div>
   )

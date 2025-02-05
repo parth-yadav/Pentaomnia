@@ -51,7 +51,7 @@ export const HomeHero: React.FC = () => {
                             </h1>
 
                             <p className='text-xl md:text-2xl'>
-                                Your All-in-One Partner forEvents, and Digital Excellence
+                                Your All-in-One Partner for Events, and Digital Excellence
                             </p>
                         </div>
                         <div className='flex flex-col gap-4 min-[400px]:flex-row'>

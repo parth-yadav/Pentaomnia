@@ -286,28 +286,29 @@ export function ServiceInquiryForm() {
   }
 
   return (
-    <div className="text-white w-96  bg-white bg-opacity-10 inline-block p-2 rounded-xl">
-      <form action={formAction} className="space-y-8  border  rounded-2xl p-6 max-w-lg mx-auto">
-        {renderStep()}
-        <div className="flex justify-between mt-8">
-          {currentStep > 0 && (
-            <Button type="button" onClick={handlePrevious}>
-              Previous
-            </Button>
-          )}
-          {currentStep < 4 && (
-            <Button className="bg-white text-black" type="button" onClick={handleNext} disabled={!isStepComplete()}>
-              Next
-            </Button>
-          )}
-          {currentStep === 4 && (
-            <Button type="submit" className="bg-accent text-black text-lg font-bold">
-              Submit
-            </Button>
-          )}
-        </div>
-      </form>
+   <div className="text-white w-full max-w-md bg-white bg-opacity-10 inline-block p-4 rounded-xl">
+  <form action={formAction} className="space-y-6 border rounded-2xl p-6 mx-auto">
+    {renderStep()}
+    <div className="flex flex-wrap justify-between gap-4 mt-6">
+      {currentStep > 0 && (
+        <Button type="button" onClick={handlePrevious}>
+          Previous
+        </Button>
+      )}
+      {currentStep < 4 && (
+        <Button className="bg-white text-black" type="button" onClick={handleNext} disabled={!isStepComplete()}>
+          Next
+        </Button>
+      )}
+      {currentStep === 4 && (
+        <Button type="submit" className="bg-accent text-black text-lg font-bold">
+          Submit
+        </Button>
+      )}
     </div>
+  </form>
+</div>
+
   )
 }
 

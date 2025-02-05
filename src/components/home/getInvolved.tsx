@@ -9,7 +9,7 @@ export const HomeGetInvolved: React.FC = () => {
                 <div className='flex flex-col items-center justify-center space-y-4 text-center'>
                     <div className='space-y-2'>
                         <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                            Your Success is Our Mission—Partner with Us Today
+                            Your Success is Our Mission — Partner with Us Today
                         </h2>
                         <p className=' md:text-xl'>
                            Whether elevating your brand or organizing unforgettable events, our team is ready to bring your vision to life. Partner with us today and embark on a journey of creativity and success!
