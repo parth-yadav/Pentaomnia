@@ -15,7 +15,7 @@ export const HomeGetInvolved: React.FC = () => {
                            Whether elevating your brand or organizing unforgettable events, our team is ready to bring your vision to life. Partner with us today and embark on a journey of creativity and success!
                         </p>
                     </div>
-                    <Link href='/register' prefetch={false}>
+                    <Link href='/service-inquiry' prefetch={false}>
                         <Button className='bg-accent text-white ' size='lg'>
                             Request Services Now
                         </Button>

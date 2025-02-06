@@ -104,10 +104,10 @@ export function ServiceInquiryForm() {
       const result = await response.json()
 
       if (result.success) {
-        // Toast({
-        //   title: "Success",
-        //   // description: "Your inquiry has been submitted successfully!",
-        // })
+        Toast({
+          title: "Success",
+          // description: "Your inquiry has been submitted successfully!",
+        })
         // Reset form
         setFormData({
           fullName: "",
@@ -127,11 +127,11 @@ export function ServiceInquiryForm() {
         throw new Error(result.message || 'Submission failed')
       }
     } catch (error) {
-      // Toast({
-      //   title: "Error",
-      //   // description: error instanceof Error ? error.message : "Failed to submit form. Please try again.",
-      //   variant: "destructive",
-      // })
+      Toast({
+        title: "Error",
+        // description: error instanceof Error ? error.message : "Failed to submit form. Please try again.",
+        variant: "destructive",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -282,32 +282,45 @@ export function ServiceInquiryForm() {
         )
       case 3:
         return (
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold">4. Additional Information</h2>
-            <div className="space-y-2">
-              <Label htmlFor="referralSource">How did you hear about us?</Label>
-              <Select
-                name="referralSource"
-                value={formData.referralSource}
-                onValueChange={(value) => setFormData((prev) => ({ ...prev, referralSource: value }))}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select an option" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="social-media">Social Media</SelectItem>
-                  <SelectItem value="referral">Referral</SelectItem>
-                  <SelectItem value="website">Website/Search Engine</SelectItem>
-                  <SelectItem value="event">Event</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="fileUpload">Upload any reference files (if needed)</Label>
-              <Input id="fileUpload" name="fileUpload" type="file" className="w-full" />
-            </div>
-          </div>
+<div className="space-y-4">
+  <h2 className="text-lg font-semibold">4. Additional Information</h2>
+  <div className="space-y-2">
+    <Label htmlFor="referralSource">How did you hear about us?</Label>
+    <Select
+      name="referralSource"
+      
+      value={formData.referralSource}
+      onValueChange={(value) => setFormData((prev) => ({ ...prev, referralSource: value }))}
+    >
+      <SelectTrigger className="w-full text-black">
+        {/* Ensure placeholder is visible */}
+        <SelectValue className="text-gray-500" placeholder="Select an option" />
+      </SelectTrigger>
+      <SelectContent>
+        {/* Customize the text color of selected option */}
+        <SelectItem value="social-media" className="text-black">
+          Social Media
+        </SelectItem>
+        <SelectItem value="referral" className="text-black">
+          Referral
+        </SelectItem>
+        <SelectItem value="website" className="text-black">
+          Website/Search Engine
+        </SelectItem>
+        <SelectItem value="event" className="text-black">
+          Event
+        </SelectItem>
+        <SelectItem value="other" className="text-black">
+          Other
+        </SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
+  <div className="space-y-2">
+    <Label htmlFor="fileUpload">Upload any reference files (if needed)</Label>
+    <Input id="fileUpload" name="fileUpload" type="file" className="w-full" />
+  </div>
+</div>
         )
       case 4:
         return (

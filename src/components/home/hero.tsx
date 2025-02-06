@@ -55,15 +55,16 @@ export const HomeHero: React.FC = () => {
                             </p>
                         </div>
                         <div className='flex flex-col gap-4 min-[400px]:flex-row'>
-                            <Link key='explore-events' href='#events' prefetch={false}>
+                           
                                 <Button
-                                    className='bg-accent text-lg text-white transition-colors duration-300 hover:text-black'
-                                    variant='ghost'
-                                    size='lg'
-                                >
-                                    Book Free Consultation
-                                </Button>
-                            </Link>
+  asChild
+  className="bg-accent text-lg text-white transition-colors duration-300 hover:text-black"
+  variant="ghost"
+  size="lg"
+>
+  <Link href="/service-inquiry">Book Free Consultation</Link>
+</Button>
+                            
                             <Link key='read-blogs' href='/blogs' prefetch={false}>
                                 <Button className='bg-accent text-lg' variant='ghost' size='lg'>
                                     Read Blogs
