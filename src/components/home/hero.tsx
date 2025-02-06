@@ -52,25 +52,21 @@ export const HomeHero: React.FC = () => {
                         Your All-in-One Partner for Events, and Digital Excellence
                     </p>
                 </div>
-                <div className='flex flex-col gap-4 min-[400px]:flex-row'>
-                    <Button
-                        asChild
-                        className='bg-accent text-lg text-white transition-colors duration-300 hover:text-black'
-                        variant='ghost'
-                        size='lg'
-                    >
-                        <Link href='/service-inquiry'>Book Free Consultation</Link>
-                    </Button>
-                    <Link key='read-blogs' href='/blogs' prefetch={false}>
+                
+                   <Button className='bg-accent text-lg text-black max-w-60'  size='lg'>
+    <Link href='/service-inquiry'>Book Free Consultation</Link>
+</Button>
+
+                    {/* <Link key='read-blogs' href='/blogs' prefetch={false}>
                         <Button className='bg-accent text-lg' variant='ghost' size='lg'>
                             Read Blogs
                         </Button>
-                    </Link>
-                </div>
+                    </Link> */}
+              
             </div>
             {/* Carousel Section */}
             <div className='w-full md:w-1/2 flex justify-center'>
-                <HomeHeroCarousel className='w-full max-w-[50vw]' images={localImages} height={230} />
+                <HomeHeroCarousel className='w-full' images={localImages} height={230} />
             </div>
         </div>
     </div>
