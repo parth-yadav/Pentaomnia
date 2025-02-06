@@ -8,7 +8,9 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Toast } from "@/components/ui/taost"
+// import { Toast } from "@/components/ui/toast"
+import { toast } from "sonner";
+
 
 import type React from "react"
 
@@ -26,6 +28,7 @@ const services = [
 export function ServiceInquiryForm() {
  
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [selectedServices, setSelectedServices] = useState<string[]>([])
   const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState({
@@ -85,9 +88,9 @@ export function ServiceInquiryForm() {
     }
   }
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setIsSubmitting(true)
+ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('https://pentaomnia.com/submit.php', {
@@ -97,17 +100,15 @@ export function ServiceInquiryForm() {
         },
         body: JSON.stringify({
           ...formData,
-          selectedServices: selectedServices.join(',')
-        })
-      })
+          selectedServices: selectedServices.join(','),
+        }),
+      });
 
-      const result = await response.json()
+      const result = await response.json();
 
       if (result.success) {
-        Toast({
-          title: "Success",
-          // description: "Your inquiry has been submitted successfully!",
-        })
+        toast.success("Your inquiry has been submitted successfully!");
+
         // Reset form
         setFormData({
           fullName: "",
@@ -120,22 +121,20 @@ export function ServiceInquiryForm() {
           deadline: "",
           referralSource: "",
           scheduleConsultation: false,
-        })
-        setSelectedServices([])
-        setCurrentStep(0)
+        });
+        setSelectedServices([]);
+        setCurrentStep(0);
+        setIsSubmitted(true); // Hide submit button
       } else {
-        throw new Error(result.message || 'Submission failed')
+        throw new Error(result.message || 'Submission failed');
       }
     } catch (error) {
-      Toast({
-        title: "Error",
-        // description: error instanceof Error ? error.message : "Failed to submit form. Please try again.",
-        variant: "destructive",
-      })
+      toast.error("Failed to submit form. Please try again.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
+
 
   const renderStep = () => {
     switch (currentStep) {
@@ -368,15 +367,15 @@ export function ServiceInquiryForm() {
               Next
             </Button>
           )}
-          {currentStep === 4 && (
-            <Button 
-              type="submit" 
-              className="bg-accent text-black text-lg font-bold"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
-            </Button>
-          )}
+         {currentStep === 4 && !isSubmitted && (
+  <Button 
+    type="submit" 
+    className="bg-accent text-black text-lg font-bold"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? 'Submitting...' : 'Submit'}
+  </Button>
+)}
         </div>
       </form>
     </div>

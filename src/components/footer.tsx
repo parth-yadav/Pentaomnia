@@ -123,9 +123,11 @@ function Footer() {
                     </div>
                 </div>
 
+                
                 <div className="mt-8 border-t border-gray-700 pt-8 text-center text-accent">
-                    <p>© 2024 Pentaomnia. All rights reserved.</p>
-                </div>
+  <p>© {new Date().getFullYear()} Pentaomnia. All rights reserved.</p>
+</div>
+
             </div>
         </footer>
     );
