@@ -128,7 +128,7 @@ export default function ProjectCarousel() {
   return (
     <section
       id="events"
-      className="relative w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-32"
+      className="relative w-full bg-gradient-to-r from-black to-primary py-12 text-gray-800 dark:bg-slate-900 dark:text-white md:py-24 lg:py-8"
     >
       <h2 className="text-5xl font-bold mb-8 text-white text-center">Recent Events</h2>
       <div

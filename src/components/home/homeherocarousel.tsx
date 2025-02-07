@@ -1,10 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext, CarouselApi } from "@/components/ui/carousel";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselPrevious,
+    CarouselNext,
+    CarouselApi,
+} from "@/components/ui/carousel";
 
 interface HomeHeroCarouselProps {
     className?: string;
@@ -27,20 +34,22 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
     );
 
     const [api, setApi] = useState<CarouselApi | null>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        if (!api) return;
+        const updateIndex = () => setCurrentIndex(api.selectedScrollSnap());
+        api.on("select", updateIndex);
+        updateIndex(); // Initial index setup
+    }, [api]);
 
     return (
         <Carousel
-            setApi={setApi} // Get carousel API reference
+            setApi={setApi}
             plugins={[plugin.current]}
             className={`${className} w-full relative`}
-            opts={{ loop: true, duration: 20, skipSnaps: true }}
+            opts={{ loop: true, duration: 24 }}
         >
-            <button
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full"
-                onClick={() => api?.scrollPrev()} // Use actual API
-            >
-                <ChevronLeft size={24} />
-            </button>
             <CarouselContent>
                 {images.map((imagePath, index) => (
                     <CarouselItem key={index} className="relative w-full">
@@ -56,13 +65,36 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
                         </div>
                     </CarouselItem>
                 ))}
+                
             </CarouselContent>
-            <button
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full"
-                onClick={() => api?.scrollNext()} // Use actual API
-            >
-                <ChevronRight size={24} />
-            </button>
+            
+            {/* Navigation buttons */}
+            <div className=" absolute bottom-4 left-1/2 transform -translate-x-1/2  text-center px-4  z-30">
+                <button
+                    className="bg-black/50 mx-14 text-gray-400 hover:text-white p-2 rounded-full"
+                    onClick={() => api?.scrollPrev()}
+                >
+                    <ChevronLeft size={24} />
+                </button>
+                <button
+                    className="bg-black/50 mx-14 text-gray-400 hover:text-white p-2 rounded-full"
+                    onClick={() => api?.scrollNext()}
+                >
+                    <ChevronRight size={24} />
+                </button>
+            </div>
+
+            {/* Indicator dots */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {images.map((_, index) => (
+                    <div
+                        key={index}
+                        className={`w-3 h-3 rounded-full transition-all ${
+                            currentIndex === index ? "bg-white" : "bg-gray-500"
+                        }`}
+                    />
+                ))}
+            </div>
         </Carousel>
     );
 };
