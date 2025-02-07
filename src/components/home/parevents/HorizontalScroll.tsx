@@ -185,20 +185,22 @@ export default function ProjectCarousel() {
           )
         })}
       </div>
+      <div className="text-center">     
       <Button
         onClick={prevProject}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 rounded-full p-2 shadow-lg z-40"
+        className="mx-3 transform -translate-y-1/2 bg-white text-gray-800 rounded-full p-2 shadow-lg z-40"
         aria-label="Previous project"
       >
         <ArrowLeft className="h-6 w-6" />
       </Button>
       <Button
         onClick={nextProject}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 rounded-full p-2 shadow-lg z-40"
+        className="mx-3 transform -translate-y-1/2 bg-white text-gray-800 rounded-full p-2 shadow-lg z-40"
         aria-label="Next project"
       >
         <ArrowRight className="h-6 w-6" />
-      </Button>
+        </Button>
+         </div>
     </section>
   )
 }

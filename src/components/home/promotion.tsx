@@ -25,10 +25,10 @@ export const HomePromotions: React.FC = () => {
     });
 
     // Transform x values for left and right animations
-    const x1 = useTransform(scrollYProgress, [0, 0.5], [-100, 0]);
-    const x2 = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
-    const opacity1 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-    const opacity2 = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+    const x1 = useTransform(scrollYProgress, [0, 0.3], [-100, 0]);
+    const x2 = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
+    const opacity1 = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const opacity2 = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
     const iconBgColors = ["bg-accent"];
 
@@ -105,7 +105,7 @@ export const HomePromotions: React.FC = () => {
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.3 }}
                     className='mb-8 text-white text-center text-3xl font-bold tracking-tighter sm:text-5xl'
                 >
                     Our Services
