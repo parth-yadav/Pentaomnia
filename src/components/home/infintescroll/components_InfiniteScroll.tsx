@@ -32,7 +32,7 @@ const InfiniteScroll: React.FC = () => {
       <Image src="images/scrolllogos/startupbihar.jpg" alt="Logo 3" width={100} height={50} className={styles.logo} />
       <Image src="images/scrolllogos/startupindia.jpg" alt="Logo 4" width={100} height={50} className={styles.logo} />
       <Image src="images/scrolllogos/msme.jpg" alt="Logo 2" width={100} height={50} className={styles.logo} />
-    </>
+   </>
   )
 
   return (

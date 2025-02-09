@@ -78,22 +78,22 @@ function Footer() {
                                 href="https://www.google.com/maps/search/Room+209,+Block+13+Lovely+Professional+University+Jalandhar,+Punjab+-+144411"
                             >
                                 <div className="flex items-center space-x-3">
-                                    <MapPin className="h-4 w-4" />
-                                    <span className="font-bold">Corporate Office</span>
+                                    <MapPin className=" text-white h-4 w-4" />
+                                    <span className=" text-white font-bold">Corporate Office</span>
                                 </div>
-                                <p className="text-sm">
+                                <p className="text-sm ">
                                     Room 209, Block 13 Lovely Professional University Jalandhar, Punjab - 144411
                                 </p>
                             </Link>
                         </div>
                         <div className="mt-4">
                             <Link
-                                className="hover:underline"
+                                className="hover:underline "
                                 href="https://www.google.com/maps/place/Pentaomnia+Private+Limited"
                             >
                                 <div className="flex items-center space-x-3">
-                                    <MapPin className="h-4 w-4" />
-                                    <span className="font-bold">Headquarters</span>
+                                    <MapPin className=" text-white h-4 w-4" />
+                                    <span className=" text-white font-bold">Headquarters</span>
                                 </div>
                                 <p className="text-sm">
                                     PENTAOMNIA PRIVATE LIMITED C/o Sh. Naim House No. 24, Ward No. 08 Jhakhra Village, Tola & PO

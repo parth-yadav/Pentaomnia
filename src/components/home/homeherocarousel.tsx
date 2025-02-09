@@ -69,20 +69,21 @@ export const HomeHeroCarousel: React.FC<HomeHeroCarouselProps> = ({
             </CarouselContent>
             
             {/* Navigation buttons */}
-            <div className=" absolute bottom-4 left-1/2 transform -translate-x-1/2  text-center px-4  z-30">
-                <button
-                    className="bg-black/50 mx-14 text-gray-400 hover:text-white p-2 rounded-full"
-                    onClick={() => api?.scrollPrev()}
-                >
-                    <ChevronLeft size={24} />
-                </button>
-                <button
-                    className="bg-black/50 mx-14 text-gray-400 hover:text-white p-2 rounded-full"
-                    onClick={() => api?.scrollNext()}
-                >
-                    <ChevronRight size={24} />
-                </button>
-            </div>
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-24 px-4 z-30">
+    <button
+        className="bg-black opacity-70 text-gray-300 hover:text-white p-3 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+        onClick={() => api?.scrollPrev()}
+    >
+        <ChevronLeft size={24} />
+    </button>
+    <button
+        className="bg-black opacity-70 text-gray-300 hover:text-white p-3 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+        onClick={() => api?.scrollNext()}
+    >
+        <ChevronRight size={24} />
+    </button>
+</div>
+
 
             {/* Indicator dots */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">

@@ -27,9 +27,9 @@ export const HomeHero: React.FC = () => {
                 <div className='space-y-4'>
                     <h1 className='text-4xl font-bold leading-tight sm:text-5xl xl:text-6xl'>
                         <span className='relative'>
-                            Empowering
+                            Empowering{' '}
                             <svg
-                                viewBox='0 0 286 73'
+                                viewBox='0 8 310 103'
                                 fill='none'
                                 className='absolute -left-2 -right-2 -top-2 bottom-0 translate-y-1'
                             >
