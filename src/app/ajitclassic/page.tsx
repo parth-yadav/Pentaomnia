@@ -82,6 +82,9 @@ const Ajit = () => {
         <h1 className="text-3xl font-bold mb-6 text-center text-white">
           Registration Form for Audience
         </h1>
+        <h1 className="text-xl font-bold mb-6 text-center text-yellow-300">
+          Ajit Classic 2025
+        </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           {["name", "registrationNumber", "contactNumber", "email", "courseName"].map((field) => {
   const formattedField = field.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
