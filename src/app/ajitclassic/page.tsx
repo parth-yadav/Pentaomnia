@@ -19,39 +19,49 @@ const Ajit = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  event.preventDefault();
+
+  // Validate registration number (must be 8 digits)
+  if (!/^\d{8}$/.test(formData.registrationNumber)) {
+    toast.error("Registration number must be exactly 8 digits.");
+    return;
+  }
+
     setIsSubmitting(true);
+    
 
-    try {
-      const response = await fetch("https://pentaomnia.com/submitajit.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+  try {
+    const response = await fetch("https://pentaomnia.com/submitajit.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.message === "Success" && result.insertedId) {
+      toast.success("Registration submitted successfully!");
+      setIsSubmitted(true);
+      setFormData({
+        name: "",
+        registrationNumber: "",
+        contactNumber: "",
+        email: "",
+        courseName: "",
       });
-
-      const result = await response.json();
-
-      if (result.message === "Success" && result.insertedId) {
-        toast.success("Registration submitted successfully!");
-        setIsSubmitted(true);
-        setFormData({
-          name: "",
-          registrationNumber: "",
-          contactNumber: "",
-          email: "",
-          courseName: "",
-        });
-      } else {
-        throw new Error(result.message || "Submission failed");
-      }
-    } catch (error) {
-      toast.error("Failed to submit form. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+    } else {
+      throw new Error(result.message || "Submission failed");
     }
+  } catch (error) {
+    toast.error("Failed to submit form. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
   };
+  
+  
 
  return (
   <>
@@ -73,22 +83,26 @@ const Ajit = () => {
           Registration Form
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          {["name", "registrationNumber", "contactNumber", "email", "courseName"].map((field) => (
-            <div key={field} className="flex flex-col gap-2">
-              <label htmlFor={field} className="text-gray-300">
-                {field.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())}
-              </label>
-              <input
-                type={field === "email" ? "email" : field === "contactNumber" ? "tel" : "text"}
-                id={field}
-                name={field}
-                value={formData[field as keyof typeof formData]}
-                onChange={handleChange}
-                placeholder={`Enter your ${field}`}
-                className="w-full px-4 py-2 border border-gray-700 rounded-md bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
-              />
-            </div>
-          ))}
+          {["name", "registrationNumber", "contactNumber", "email", "courseName"].map((field) => {
+  const formattedField = field.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+  const placeholderText = `Enter your ${formattedField.replace(/ N/g, " N")}`;
+
+  return (
+    <div key={field} className="flex flex-col gap-2">
+      <label htmlFor={field} className="text-gray-300">{formattedField}</label>
+      <input
+        type={field === "email" ? "email" : field === "contactNumber" ? "tel" : "text"}
+        id={field}
+        name={field}
+        value={formData[field as keyof typeof formData]}
+        onChange={handleChange}
+        placeholder={placeholderText}
+        className="w-full px-4 py-2 border border-gray-700 rounded-md bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+      />
+    </div>
+  );
+})}
+
 
           <button
             type="submit"
