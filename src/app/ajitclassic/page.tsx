@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 const Ajit = () => {
   const [formData, setFormData] = useState({
@@ -52,12 +53,22 @@ const Ajit = () => {
     }
   };
 
-  return (
-    <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center"
+ return (
+  <>
+   <Toaster
+  position="top-right"
+  toastOptions={{
+    style: {
+      background: "#1e293b", // Dark blue-gray background
+      color: "#fff", // White text color
+    },
+  }}
+/>
+
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url('/images/ajit.jpg')` }}
     >
-      <div className="bg-gradient-to-b from-gray-900 to-black p-8 rounded-xl shadow-xl shadow-yellow-500/50 w-full max-w-md">
+      <div className="bg-gradient-to-b m-6 from-gray-900 to-black p-8 rounded-xl shadow-xl shadow-yellow-500/50 w-full max-w-md">
         <h1 className="text-3xl font-bold mb-6 text-center text-white">
           Registration Form
         </h1>
@@ -93,7 +104,8 @@ const Ajit = () => {
         </form>
       </div>
     </div>
-  );
+  </>
+);
 };
 
 export default Ajit;
