@@ -32,14 +32,18 @@ export const HomeWho: React.FC = () => {
                         </p>
                     </div>
 
-                    {/* Right Image */}
-                    <div className="flex-1">
-                        <img
-                            src="/images/shahidsir.jpg"
-                            alt="Who We Are"
-                            className="h-auto w-full rounded-lg shadow-lg"
-                        />
-                    </div>
+                  {/* Right Image */}
+<div className="flex-1">
+    <img
+        src="/images/shahidsir.jpg"
+        alt="Who We Are"
+        className="h-auto w-full rounded-b-none rounded-lg shadow-lg"
+    />
+    <p className=" p-2 text-center bg-white rounded-t-none rounded-lg text-gray-600">
+        Founder and CEO: Mr. Shahid in Bihar Business Connect 2024 with Mr. Azhar Iquabal Founder and MD of Inshorts News App.
+    </p>
+</div>
+
                 </div>
             </div>
 
