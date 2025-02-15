@@ -80,7 +80,7 @@ const Ajit = () => {
     >
       <div className="bg-gradient-to-b m-6 from-gray-900 to-black p-8 rounded-xl shadow-xl shadow-yellow-500/50 w-full max-w-md">
         <h1 className="text-3xl font-bold mb-6 text-center text-white">
-          Registration Form
+          Registration Form for Audience
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           {["name", "registrationNumber", "contactNumber", "email", "courseName"].map((field) => {
