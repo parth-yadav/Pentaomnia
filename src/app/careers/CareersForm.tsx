@@ -78,7 +78,7 @@ export default function CareerApplicationForm() {
         formDataToSend.append("cvFile", formData.cvFile);
       }
 
-      const response = await fetch("/api/careers", {
+      const response = await fetch("https://pentaomnia.com/careerapplications.php", {
         method: "POST",
         body: formDataToSend,
       });
