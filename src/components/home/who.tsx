@@ -13,15 +13,15 @@ export const HomeWho: React.FC = () => {
         },
         {
             image: "/images/whoweare/flyingbeast.jpg",
-            caption: "Corporate Event: Pentaomnia organizing a large-scale business conference.",
+            caption: "Our CEO is with Mr Gaurav Taneja (Flying beast), Famous Influencer India",
         },
         {
             image: "/images/whoweare/mla.jpg",
-            caption: "Wedding Planning: A beautifully decorated wedding venue by Pentaomnia.",
+            caption: "Our CEO is with Kewal Singh Pathania, MLA, Shahpur",
         },
         {
             image: "/images/whoweare/sbdind.jpg",
-            caption: "Product Launch: Pentaomnia managing a successful product launch event.",
+            caption: "Receiving appreciation awards from Mr Pardeep Kaile, CEO SBD India Private Limited",
         },
     ];
 

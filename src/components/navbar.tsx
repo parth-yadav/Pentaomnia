@@ -27,7 +27,7 @@ const Links: LinkProps[] = [
     { name: "Portfolio", href: "/promos" },
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "#footer" },
-    { name: "Careers", href: "/register" },
+    { name: "Careers", href: "/careers" },
 ];
 
 export default function NavBar() {

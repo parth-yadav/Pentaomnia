@@ -8,11 +8,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const positions = [
-  { id: "frontend-developer", label: "Frontend Developer" },
-  { id: "backend-developer", label: "Backend Developer" },
-  { id: "product-designer", label: "Product Designer" },
-  { id: "marketing-specialist", label: "Marketing Specialist" },
-  { id: "customer-success-manager", label: "Customer Success Manager" },
+  { id: "hr", label: "HR" },
+  { id: "web-development", label: "Web Development" },
+  { id: "content-writer", label: "Content Writer" },
+  { id: "contnet-creator", label: "Content Creator" },
+  { id: "filming", label: "Filming" },
+  { id: "event-management", label: "Event Management" },
+  { id: "video-editor", label: "Video Editor" },
+  { id: "vfx-artist", label: "VFX Artist" },
+  { id: "3d-vfx", label: "3D VFX Artist" },
+  { id: "sfx", label: "SFX Artist" },
+  { id: "graphic-designer", label: "Graphic Designer" },
+  { id: "cinematic", label: "Cinematic Videographer" },
+  { id: "marketing", label: "Marketing" },
+  { id: "sales", label: "Sales" },
 ];
 
 export default function CareerApplicationForm() {
@@ -25,6 +34,7 @@ export default function CareerApplicationForm() {
     email: "",
     address: "",
     selectedPositions: [] as string[],
+    cvFile: null as File | null,
   });
 
   const handleInputChange = (
@@ -33,6 +43,14 @@ export default function CareerApplicationForm() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0]; // Safely access the first file
+  setFormData((prev) => ({
+    ...prev,
+    cvFile: file || null, // Explicitly assign `null` if no file is selected
+  }));
+};
 
   const handleCheckboxChange = (checked: boolean, position: string) => {
     setFormData((prev) => ({
@@ -48,12 +66,21 @@ export default function CareerApplicationForm() {
     setIsSubmitting(true);
 
     try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("yearOfGraduation", formData.yearOfGraduation);
+      formDataToSend.append("registrationNumber", formData.registrationNumber);
+      formDataToSend.append("contactNumber", formData.contactNumber);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("address", formData.address);
+      formDataToSend.append("selectedPositions", formData.selectedPositions.join(","));
+      if (formData.cvFile) {
+        formDataToSend.append("cvFile", formData.cvFile);
+      }
+
       const response = await fetch("/api/careers", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
       const result = await response.json();
@@ -68,6 +95,7 @@ export default function CareerApplicationForm() {
           email: "",
           address: "",
           selectedPositions: [],
+          cvFile: null,
         });
       } else {
         throw new Error(result.message || "Submission failed");
@@ -80,7 +108,7 @@ export default function CareerApplicationForm() {
   };
 
   return (
-    <div className="text-black w-full max-w-md bg-white bg-opacity-10 inline-block p-4 rounded-xl">
+    <div className="text-black w-full bg-white bg-opacity-10 inline-block rounded-xl">
       <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
         {/* Name */}
         <div className="space-y-2">
@@ -177,6 +205,19 @@ export default function CareerApplicationForm() {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
+            required
+            className="w-full bg-inherit"
+          />
+        </div>
+
+        {/* CV Upload */}
+        <div className="space-y-2">
+          <Label htmlFor="cvFile">Upload Your CV*</Label>
+          <Input
+            id="cvFile"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
             required
             className="w-full bg-inherit"
           />

@@ -58,14 +58,14 @@ const CareersPage: React.FC = () => {
         >
           We’re looking for talented individuals who are passionate about innovation, teamwork, and making an impact. Explore open positions and take the next step in your career.
         </motion.p>
-        <Link href="#openings" passHref>
+        <Link href="/careers/form" passHref>
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-dark transition-colors"
           >
-            View Open Positions <ArrowRightIcon className="inline-block ml-2 w-5 h-5" />
+            Join Us<ArrowRightIcon className="inline-block ml-2 w-5 h-5" />
           </motion.button>
         </Link>
       </section>

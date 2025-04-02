@@ -25,15 +25,15 @@ export default function CareersPage() {
           We’re excited to hear from you! Fill out the form below to apply for a position or inquire about opportunities.
         </motion.p>
       </section>
-
+    
       {/* Form Section */}
-      <section className="container mx-auto px-4 md:px-8 lg:px-16 mt-12">
+      <section className="lg:w-[50vw] w-[90vw]  mx-auto  mt-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg"
+          className=" mx-auto bg-white dark:bg-gray-800 rounded-2xl pt-4 shadow-lg"
         >
           <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 dark:text-gray-200">
             Application Form
