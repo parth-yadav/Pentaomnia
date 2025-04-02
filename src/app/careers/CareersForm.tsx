@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import toast, { Toaster } from "react-hot-toast";
 
 const positions = [
   { id: "hr", label: "HR" },
@@ -45,12 +45,31 @@ export default function CareerApplicationForm() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const file = e.target.files?.[0]; // Safely access the first file
-  setFormData((prev) => ({
-    ...prev,
-    cvFile: file || null, // Explicitly assign `null` if no file is selected
-  }));
-};
+    const file = e.target.files?.[0]; // Safely access the first file
+
+    if (!file) {
+      toast.error("No file selected.");
+      return;
+    }
+
+    // Check file type
+    if (file.type !== "application/pdf") {
+      toast.error("Only PDF files are allowed.");
+      return;
+    }
+
+    // Check file size (250KB = 250 * 1024 bytes)
+    if (file.size > 250 * 1024) {
+      toast.error("File size exceeds the maximum limit of 250KB.");
+      return;
+    }
+
+    // Set the valid file
+    setFormData((prev) => ({
+      ...prev,
+      cvFile: file || null,
+    }));
+  };
 
   const handleCheckboxChange = (checked: boolean, position: string) => {
     setFormData((prev) => ({
@@ -108,130 +127,143 @@ export default function CareerApplicationForm() {
   };
 
   return (
-    <div className="text-black w-full bg-white bg-opacity-10 inline-block rounded-xl">
-      <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
-        {/* Name */}
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name*</Label>
-          <Input
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+    <>
+      {/* Toast Configuration */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#1e293b", // Dark blue-gray background
+            color: "#fff", // White text color
+          },
+        }}
+      />
 
-        {/* Year of Graduation */}
-        <div className="space-y-2">
-          <Label htmlFor="yearOfGraduation">Year of Graduation*</Label>
-          <Input
-            id="yearOfGraduation"
-            name="yearOfGraduation"
-            type="number"
-            value={formData.yearOfGraduation}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+      <div className="text-black w-full bg-white bg-opacity-10 inline-block rounded-xl">
+        <form onSubmit={handleSubmit} className="space-y-6 border rounded-2xl p-6 mx-auto">
+          {/* Name */}
+          <div className="space-y-2">
+            <Label htmlFor="name">Full Name*</Label>
+            <Input
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* Registration Number */}
-        <div className="space-y-2">
-          <Label htmlFor="registrationNumber">Registration Number*</Label>
-          <Input
-            id="registrationNumber"
-            name="registrationNumber"
-            value={formData.registrationNumber}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+          {/* Year of Graduation */}
+          <div className="space-y-2">
+            <Label htmlFor="yearOfGraduation">Year of Graduation*</Label>
+            <Input
+              id="yearOfGraduation"
+              name="yearOfGraduation"
+              type="number"
+              value={formData.yearOfGraduation}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* Contact Number */}
-        <div className="space-y-2">
-          <Label htmlFor="contactNumber">Contact Number*</Label>
-          <Input
-            id="contactNumber"
-            name="contactNumber"
-            type="tel"
-            value={formData.contactNumber}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+          {/* Registration Number */}
+          <div className="space-y-2">
+            <Label htmlFor="registrationNumber">Registration Number*</Label>
+            <Input
+              id="registrationNumber"
+              name="registrationNumber"
+              value={formData.registrationNumber}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* Positions to Apply */}
-        <div className="space-y-2">
-          <Label>Positions You Are Applying For*</Label>
-          {positions.map((position) => (
-            <div key={position.id} className="flex text-black items-center space-x-2">
-              <Checkbox
-                className="text-black border border-black"
-                id={position.id}
-                name="selectedPositions"
-                checked={formData.selectedPositions.includes(position.id)}
-                onCheckedChange={(checked) =>
-                  handleCheckboxChange(checked === true, position.id)
-                }
-              />
-              <Label htmlFor={position.id}>{position.label}</Label>
-            </div>
-          ))}
-        </div>
+          {/* Contact Number */}
+          <div className="space-y-2">
+            <Label htmlFor="contactNumber">Contact Number*</Label>
+            <Input
+              id="contactNumber"
+              name="contactNumber"
+              type="tel"
+              value={formData.contactNumber}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* Email */}
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address*</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+          {/* Positions to Apply */}
+          <div className="space-y-2">
+            <Label>Positions You Are Applying For*</Label>
+            {positions.map((position) => (
+              <div key={position.id} className="flex text-black items-center space-x-2">
+                <Checkbox
+                  className="text-black border border-black"
+                  id={position.id}
+                  name="selectedPositions"
+                  checked={formData.selectedPositions.includes(position.id)}
+                  onCheckedChange={(checked) =>
+                    handleCheckboxChange(checked === true, position.id)
+                  }
+                />
+                <Label htmlFor={position.id}>{position.label}</Label>
+              </div>
+            ))}
+          </div>
 
-        {/* Address */}
-        <div className="space-y-2">
-          <Label htmlFor="address">Address*</Label>
-          <Textarea
-            id="address"
-            name="address"
-            value={formData.address}
-            onChange={handleInputChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+          {/* Email */}
+          <div className="space-y-2">
+            <Label htmlFor="email">Email Address*</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* CV Upload */}
-        <div className="space-y-2">
-          <Label htmlFor="cvFile">Upload Your CV*</Label>
-          <Input
-            id="cvFile"
-            type="file"
-            accept=".pdf,.doc,.docx"
-            onChange={handleFileChange}
-            required
-            className="w-full bg-inherit"
-          />
-        </div>
+          {/* Address */}
+          <div className="space-y-2">
+            <Label htmlFor="address">Address*</Label>
+            <Textarea
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
 
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          className="bg-accent text-black text-lg font-bold w-full"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit Application"}
-        </Button>
-      </form>
-    </div>
+          {/* CV Upload */}
+          <div className="space-y-2">
+            <Label htmlFor="cvFile">Upload Your CV*</Label>
+            <Input
+              id="cvFile"
+              type="file"
+              accept=".pdf" // Restrict to PDF files only
+              onChange={handleFileChange}
+              required
+              className="w-full bg-inherit"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            className="bg-accent text-black text-lg font-bold w-full"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit Application"}
+          </Button>
+        </form>
+      </div>
+    </>
   );
 }
