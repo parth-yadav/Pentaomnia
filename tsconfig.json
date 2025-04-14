@@ -39,6 +39,6 @@
         "**/*.js",
         ".next/types/**/*.ts",
         "src/components/landingpage.tsx"
-    ],
+, "src/app/innovatex2.0/page.tsx"    ],
     "exclude": ["node_modules"]
 }

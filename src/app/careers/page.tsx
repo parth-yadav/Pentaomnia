@@ -139,7 +139,7 @@ const CareersPage: React.FC = () => {
         >
           We’re excited to hear from you! Apply today and become part of our growing team.
         </motion.p>
-        <Link href="/careers/apply" passHref>
+        <Link href="/careers/form" passHref>
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

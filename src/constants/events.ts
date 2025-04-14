@@ -126,5 +126,19 @@ export const CONST_EVENTS: Event[] = [
         src: Event16Image,
         color: "#BBACAF",
     },
+
+     {
+        id: 6,
+        title: "InnovateX 2.0",
+        description:
+           "InnovateX 2.0 is a free 2-day workshop at Lovely Professional University (April 18–19, 2025), covering D2C, Data Analytics, and Generative AI. Learn from top industry leaders through hands-on sessions, gain practical insights, earn a certificate, and build connections. Perfect for students, professionals, and tech enthusiasts ready to upskill fast—at zero cost.",
+        startDateTime: "2025-4-18T19:00:00",
+        endDateTime: "2025-4-19T22:17:00",
+        location: "LPU",
+        url: "/innovatex2.0",
+
+        src: Event6Image,
+        color: "#BBACAF",
+    },
     
 ];
