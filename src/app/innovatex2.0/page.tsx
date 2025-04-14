@@ -281,69 +281,70 @@ export default function Home() {
             🎯 Why You Can't Miss This
           </motion.h3>
           
-          <motion.ul 
-            className="flex flex-col md:flex-row justify-center gap-8 text-gray-200"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <motion.li 
-              className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
-              variants={fadeIn}
-            >
-              <motion.span 
-                className="text-blue-600 text-2xl"
-                variants={bounceVariants}
-                animate="animate"
-              >
-                💡
-              </motion.span>
-              Expert-led Live Sessions
-            </motion.li>
-            
-            <motion.li 
-              className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
-              variants={fadeIn}
-            >
-              <motion.span 
-                className="text-blue-600 text-2xl"
-                variants={bounceVariants}
-                animate="animate"
-              >
-                🛠
-              </motion.span>
-              Real-World Applications
-            </motion.li>
-            
-            <motion.li 
-              className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
-              variants={fadeIn}
-            >
-              <motion.span 
-                className="text-blue-600 text-2xl"
-                variants={bounceVariants}
-                animate="animate"
-              >
-                📃
-              </motion.span>
-              Certificate of Participation
-            </motion.li>
-            
-            <motion.li 
-              className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
-              variants={fadeIn}
-            >
-              <motion.span 
-                className="text-blue-600 text-2xl"
-                variants={bounceVariants}
-                animate="animate"
-              >
-                🤝
-              </motion.span>
-              Network with Industry Mentors
-            </motion.li>
-          </motion.ul>
+        <motion.ul 
+  className="flex flex-col md:flex-row justify-center gap-8 text-gray-200 items-center"
+  variants={staggerContainer}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.1 }}
+>
+  <motion.li 
+    className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
+    variants={fadeIn}
+  >
+    <motion.span 
+      className="text-blue-600 text-2xl"
+      variants={bounceVariants}
+      animate="animate"
+    >
+      💡
+    </motion.span>
+    Expert-led Live Sessions
+  </motion.li>
+
+  <motion.li 
+    className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
+    variants={fadeIn}
+  >
+    <motion.span 
+      className="text-blue-600 text-2xl"
+      variants={bounceVariants}
+      animate="animate"
+    >
+      🛠
+    </motion.span>
+    Real-World Applications
+  </motion.li>
+
+  <motion.li 
+    className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
+    variants={fadeIn}
+  >
+    <motion.span 
+      className="text-blue-600 text-2xl"
+      variants={bounceVariants}
+      animate="animate"
+    >
+      📃
+    </motion.span>
+    Certificate of Participation
+  </motion.li>
+
+  <motion.li 
+    className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300"
+    variants={fadeIn}
+  >
+    <motion.span 
+      className="text-blue-600 text-2xl"
+      variants={bounceVariants}
+      animate="animate"
+    >
+      🤝
+    </motion.span>
+    Network with Industry Mentors
+  </motion.li>
+</motion.ul>
+
         </div>
       </section>
 
