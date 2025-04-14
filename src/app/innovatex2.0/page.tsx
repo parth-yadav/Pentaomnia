@@ -106,7 +106,7 @@ export default function Home() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      Register Now
+      Register for Free
     </motion.a>
   </div>
 </motion.header>
@@ -154,7 +154,7 @@ export default function Home() {
       whileHover="hover"
       whileTap="tap"
     >
-      Reserve Your Spot
+      Register for free
     </motion.a>
   </div>
 </section>
@@ -406,7 +406,7 @@ export default function Home() {
             whileHover="hover"
             whileTap="tap"
           >
-            Register Now
+            Register for Free
           </motion.a>
         </div>
       </section>
