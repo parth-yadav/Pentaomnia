@@ -2,6 +2,8 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import WorkshopRegistrationForm from './WorkShop';
+import Link from 'next/link';
+import { ExternalLink } from 'lucide-react';
 
 export default function Home() {
   // Animation variants
@@ -223,46 +225,73 @@ export default function Home() {
     whileHover="hover"
             >
               <img 
-      src="/images/innov20/brandmonkey.jpg" 
+      src="/images/innov20/brandmonkeyc.jpg" 
       alt="Tisha Singh"
                 className="w-48 h-48 mx-auto rounded-full  mb-4 border-2 border-blue-300 shadow-md shadow-white"
     />
    
     <h4 className="text-xl font-bold text-blue-300 mb-2">Day 1: D2C Mastery</h4>
-    <p className="text-gray-200">Learn how to build, launch, and grow a D2C brand with Sourav Srivastava, Founder & CEO – Brandmonkey.</p>
+              <p className="text-gray-200">Learn how to build, launch, and grow a D2C brand with</p>
+               <Link
+  href="https://www.linkedin.com/in/souravsrivastvainite/"
+  target="_blank"
+  className="flex items-center gap-1 text-blue-300 underline hover:text-blue-400"
+>
+  <p>Sourav Srivastava, Founder & CEO – Brandmonkey.</p>
+  <ExternalLink className="w-5 h-5" />
+</Link>
   </motion.div>
 
   {/* Data Analytics Card */}
   <motion.div 
-    className="bg-gray-600/50 p-6 rounded-lg shadow-md text-center"
-    variants={cardVariants}
-    whileHover="hover"
-            >
-               <img 
-      src="/images/innov20/ethicallearn.jpg" 
-      alt="Sourav Srivastava"
-      className="w-48 h-48 mx-auto rounded-full  mb-4 border-2 border-blue-300"
-    />
-    
-    <h4 className="text-xl font-bold text-blue-300 mb-2">Day 2: Data Analytics</h4>
-    <p className="text-gray-200">Discover how data drives smart decisions with Tajwar Khan, CEO & Founder – Ethical Learner.</p>
-  </motion.div>
+  className="bg-gray-600/50 p-6 rounded-lg shadow-md text-center"
+  variants={cardVariants}
+  whileHover="hover"
+>
+  <img 
+    src="/images/innov20/ethicallearn.jpg" 
+    alt="Sourav Srivastava"
+    className="w-48 h-48 mx-auto rounded-full mb-4 border-2 border-blue-300"
+  />
+  <h4 className="text-xl font-bold text-blue-300 mb-2">Day 2: Data Analytics</h4>
+  <p className="text-gray-200">
+    Discover how data drives smart decisions with
+  </p>
+  <Link
+    href="https://www.linkedin.com/in/tajwar-khan/"
+    target="_blank"
+    className="flex items-center justify-center gap-1 text-blue-300 underline hover:text-blue-400"
+  >
+    Tajwar Khan, CEO & Founder – Ethical Learner
+    <ExternalLink className="w-5 h-5" />
+  </Link>
+</motion.div>
 
-  {/* Generative AI Card */}
-  <motion.div 
-    className="bg-gray-600/50 p-6 rounded-lg shadow-md text-center"
-    variants={cardVariants}
-    whileHover="hover"
-            >
-              <img 
-      src="/images/innov20/tisha.jpg" 
-      alt="Tajwar Khan"
-      className="w-48 h-48 mx-auto rounded-full  mb-4 border-2 border-blue-300"
-    />
-    
-    <h4 className="text-xl font-bold text-blue-300 mb-2">Day 2: Generative AI</h4>
-    <p className="text-gray-200">Uncover the power of AI in business and productivity with Tisha Singh, Technical Lead.</p>
-  </motion.div>
+
+<motion.div 
+  className="bg-gray-600/50 p-6 rounded-lg shadow-md text-center"
+  variants={cardVariants}
+  whileHover="hover"
+>
+  <img 
+    src="/images/innov20/tishaaac.jpg" 
+    alt="Tajwar Khan"
+    className="w-48 h-48 mx-auto rounded-full mb-4 border-2 border-blue-300"
+  />
+  <h4 className="text-xl font-bold text-blue-300 mb-2">Day 2: Generative AI</h4>
+  <p className="text-gray-200">
+    Uncover the power of AI in business and productivity with
+  </p>
+  <Link
+    href="https://www.linkedin.com/in/stisha/"
+    target="_blank"
+    className="flex items-center justify-center gap-1 text-blue-300 underline hover:text-blue-400"
+  >
+    Tisha Singh, Technical Lead - Linkenite
+
+    <ExternalLink className="w-4 h-4" />
+  </Link>
+</motion.div>
 </motion.div>
 
         </div>
