@@ -20,15 +20,19 @@ export default function WorkshopRegistrationForm() {
     email: "",
     coreInterest: "",
   });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Validate registration number to ensure it's exactly 8 digits
+    // Clear previous error for this field
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+
     if (name === "registrationNumber" && !/^\d{0,8}$/.test(value)) {
-      toast.error("Registration Number must be exactly 8 digits.");
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "Registration Number must be exactly 8 digits.",
+      }));
       return;
     }
 
@@ -44,7 +48,10 @@ export default function WorkshopRegistrationForm() {
 
     // Validate registration number before submission
     if (formData.registrationNumber.length !== 8) {
-      toast.error("Registration Number must be exactly 8 digits.");
+      setErrors((prev) => ({
+        ...prev,
+        registrationNumber: "Registration Number must be exactly 8 digits.",
+      }));
       return;
     }
 
@@ -62,9 +69,9 @@ export default function WorkshopRegistrationForm() {
       });
 
       const result = await response.json();
+
       if (result.success) {
         toast.success("Your registration has been submitted successfully!");
-        // Reset form
         setFormData({
           name: "",
           registrationNumber: "",
@@ -77,11 +84,23 @@ export default function WorkshopRegistrationForm() {
           email: "",
           coreInterest: "",
         });
+        setErrors({}); // Clear any previous errors
       } else {
-        throw new Error(result.message || "Submission failed");
+        if (result.message && result.message.includes("Duplicate entry")) {
+          // Handle duplicate registration number error
+          console.log("Duplicate registration number error:", result.message);
+          setErrors((prev) => ({
+            ...prev,
+            registrationNumber:
+              "This registration number is already registered. Please use a different one.",
+          }));
+          toast.error("This registration number is already registered. Please use a different one.");
+        } else {
+          throw new Error(result.message || "Submission failed");
+        }
       }
     } catch (error) {
-      toast.error("Failed to submit the form. Please try again.");
+      toast.error("Failed to submit the form. Please try again." + error);
     } finally {
       setIsSubmitting(false);
     }
@@ -129,6 +148,9 @@ export default function WorkshopRegistrationForm() {
               required
               className="w-full bg-inherit"
             />
+            {errors.registrationNumber && (
+              <p className="text-red-500 text-sm">{errors.registrationNumber}</p>
+            )}
           </div>
 
           {/* Contact Number */}

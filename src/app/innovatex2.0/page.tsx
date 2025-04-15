@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import WorkshopRegistrationForm from './WorkShop';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
+// import RegistrationClosed from './Closed';
 
 export default function Home() {
   // Animation variants
@@ -442,7 +443,8 @@ export default function Home() {
 
     {/* Registration Form Section */}
 <div id="register" className="flex justify-center">
-  <WorkshopRegistrationForm />
+        <WorkshopRegistrationForm />
+        {/* <RegistrationClosed /> */}
 </div>
 
 
