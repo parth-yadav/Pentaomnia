@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Award, Calendar, Camera, Diamond, Globe, MessageSquareQuote, Rocket, ChevronDown } from "lucide-react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 
 export default function AboutPage() {
   // Refs for sections to animate on scroll
@@ -16,14 +16,65 @@ export default function AboutPage() {
     offset: ["start start", "end start"]
   })
   
-  const heroTextY = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.9])
+  const heroTextY = useTransform(scrollYProgress, [0, 1], [0, 200])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.85])
   
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  // Enhanced animation variants
+  const fadeInFromLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15,
+        duration: 0.8 
+      } 
+    },
+  }
+  
+  const fadeInFromRight = {
+    hidden: { opacity: 0, x: 100 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15,
+        duration: 0.8 
+      } 
+    },
+  }
+  
+  const fadeInFromBottom = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15,
+        duration: 0.8 
+      } 
+    },
+  }
+
+  const popIn = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 500, 
+        damping: 25, 
+        delay: 0.2 
+      } 
+    },
   }
 
   const staggerChildren = {
@@ -31,7 +82,8 @@ export default function AboutPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   }
@@ -39,15 +91,33 @@ export default function AboutPage() {
   const cardHover = {
     rest: { scale: 1, boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" },
     hover: { 
-      scale: 1.03, 
-      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
-      transition: { duration: 0.3, ease: "easeOut" }
+      scale: 1.05, 
+      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)",
+      transition: { 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 20 
+      } 
     }
+  }
+  
+  const rotateIn = {
+    hidden: { opacity: 0, rotate: -10, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      rotate: 0, 
+      scale: 1, 
+      transition: { 
+        type: "spring", 
+        stiffness: 200, 
+        damping: 20 
+      } 
+    },
   }
 
   return (
     <div className="bg-gradient-to-r from-black to-primary text-white">
-      {/* Hero Section with Parallax Background */}
+      {/* Hero Section with Enhanced Parallax Background */}
       <div ref={heroRef} className="relative h-[100vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -57,12 +127,24 @@ export default function AboutPage() {
             className="object-cover brightness-40 scale-110"
             priority
           />
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900 opacity-90"></div>
+          {/* Enhanced overlay elements */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.9, transition: { duration: 1.5 } }}
+            className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"
+          ></motion.div>
           
-          {/* Decorative elements */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-900 to-transparent"></div>
-          <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.8, duration: 1 } }}
+            className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-900 to-transparent"
+          ></motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 0.5, duration: 2 } }}
+            className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"
+          ></motion.div>
         </div>
         
         <motion.div 
@@ -71,57 +153,86 @@ export default function AboutPage() {
         >
           <motion.h1
             className="text-5xl md:text-7xl font-playfair font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ 
+              delay: 0.2, 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100
+            }}
           >
             About Us
           </motion.h1>
           <motion.h2
             className="text-2xl md:text-4xl font-semibold font-playfair mb-6 text-yellow-400"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ 
+              delay: 0.4, 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100
+            }}
           >
             Pentaomnia Private Limited
           </motion.h2>
           <motion.p
             className="text-xl italic mb-10 text-blue-100"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ 
+              delay: 0.6, 
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100
+            }}
           >
             Where Innovation Meets Execution
           </motion.p>
           
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              delay: 1, 
+              duration: 0.5,
+              type: "spring",
+              stiffness: 400,
+              damping: 15
+            }}
           >
-            <div 
-              
-              className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-100 transition-colors"
+            <motion.div 
+              whileHover={{ scale: 1.1, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-100 transition-colors cursor-pointer"
             >
               <span>Discover our story</span>
               <ChevronDown className="h-4 w-4 animate-bounce" />
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
 
       <div ref={contentRef} className="container mx-auto px-4 py-12 max-w-6xl">
-        {/* Company Introduction */}
+        {/* Company Introduction with Rotating Animation */}
         <motion.section
           id="company-intro"
           className="mb-20 mt-8 relative"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeIn}
+          viewport={{ once: true, margin: "-50px" }}
+          variants={rotateIn}
         >
-          {/* Decorative element */}
-          <div className="absolute left-0 top-0 w-12 h-12 border-l-2 border-t-2 border-blue-400 -ml-6 -mt-6 opacity-70"></div>
+          {/* Enhanced decorative element */}
+          <motion.div 
+            className="absolute left-0 top-0 w-12 h-12 border-l-2 border-t-2 border-blue-400 -ml-6 -mt-6 opacity-70"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
+          ></motion.div>
           
           <div className="max-w-3xl mx-auto bg-slate-800/50 p-8 rounded-xl backdrop-blur-sm border border-blue-900/30">
             <p className="text-xl font-playfair leading-relaxed text-blue-50">
@@ -133,7 +244,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* What We Do Section */}
+        {/* What We Do Section with Left-Right Animations */}
         <motion.section
           className="mb-28 py-12 px-6 bg-gradient-to-br from-slate-900 to-blue-900/70 rounded-2xl border border-blue-800/30 shadow-lg"
           initial="hidden"
@@ -141,21 +252,21 @@ export default function AboutPage() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerChildren}
         >
-          <motion.div className="flex items-center mb-10" variants={fadeIn}>
+          <motion.div className="flex items-center mb-10" variants={fadeInFromLeft}>
             <div className="bg-blue-500 p-2 rounded-lg mr-3 shadow-md">
               <Diamond className="h-6 w-6 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">What We Do</h2>
           </motion.div>
 
-          <motion.p className="mb-12 text-xl text-blue-100" variants={fadeIn}>
+          <motion.p className="mb-12 text-xl text-blue-100" variants={fadeInFromRight}>
             At Pentaomnia, we specialize in transforming visions into reality:
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div
               className="bg-gradient-to-br from-white to-blue-50 rounded-xl p-7 shadow-xl border border-blue-200 overflow-hidden relative group"
-              variants={fadeIn}
+              variants={fadeInFromLeft}
               whileHover="hover"
               initial="rest"
               animate="rest"
@@ -183,7 +294,7 @@ export default function AboutPage() {
 
             <motion.div
               className="bg-gradient-to-br from-white to-blue-50 rounded-xl p-7 shadow-xl border border-blue-200 overflow-hidden relative group"
-              variants={fadeIn}
+              variants={fadeInFromRight}
               whileHover="hover"
               initial="rest"
               animate="rest"
@@ -211,7 +322,7 @@ export default function AboutPage() {
 
             <motion.div
               className="bg-gradient-to-br from-white to-blue-50 rounded-xl p-7 shadow-xl border border-blue-200 overflow-hidden relative group"
-              variants={fadeIn}
+              variants={fadeInFromLeft}
               whileHover="hover"
               initial="rest"
               animate="rest"
@@ -232,7 +343,7 @@ export default function AboutPage() {
 
             <motion.div
               className="bg-gradient-to-br from-white to-blue-50 rounded-xl p-7 shadow-xl border border-blue-200 overflow-hidden relative group"
-              variants={fadeIn}
+              variants={fadeInFromRight}
               whileHover="hover"
               initial="rest"
               animate="rest"
@@ -257,12 +368,15 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <motion.p className="mt-12 text-xl text-blue-100 text-center max-w-2xl mx-auto italic" variants={fadeIn}>
+          <motion.p 
+            className="mt-12 text-xl text-blue-100 text-center max-w-2xl mx-auto italic" 
+            variants={popIn}
+          >
             Whether it's building a brand or managing a mega event, we ensure every detail speaks excellence.
           </motion.p>
         </motion.section>
 
-        {/* Achievements Section */}
+        {/* Achievements Section with Pop Animations */}
         <motion.section
           className="mb-28 py-16 px-8 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-2xl shadow-xl relative overflow-hidden"
           initial="hidden"
@@ -270,12 +384,32 @@ export default function AboutPage() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerChildren}
         >
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-          <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+          {/* Enhanced decorative elements */}
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true }}
+            className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"
+          ></motion.div>
           
-          <motion.div className="flex items-center mb-12" variants={fadeIn}>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"
+          ></motion.div>
+          
+          <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ once: true }}
+            className="absolute top-10 right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"
+          ></motion.div>
+          
+          <motion.div className="flex items-center mb-12" variants={fadeInFromBottom}>
             <div className="bg-yellow-400 p-2 rounded-full mr-3 shadow-md">
               <Award className="h-6 w-6 text-blue-900" />
             </div>
@@ -286,7 +420,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               <motion.div
                 className="flex items-start group"
-                variants={fadeIn}
+                variants={fadeInFromLeft}
                 whileHover={{ x: 8, transition: { duration: 0.2 } }}
               >
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 p-3 rounded-full mr-5 shadow-md group-hover:shadow-yellow-400/30 group-hover:shadow-lg transition-shadow">
@@ -302,7 +436,7 @@ export default function AboutPage() {
 
               <motion.div
                 className="flex items-start group"
-                variants={fadeIn}
+                variants={fadeInFromLeft}
                 whileHover={{ x: 8, transition: { duration: 0.2 } }}
               >
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 p-3 rounded-full mr-5 shadow-md group-hover:shadow-yellow-400/30 group-hover:shadow-lg transition-shadow">
@@ -319,7 +453,7 @@ export default function AboutPage() {
 
               <motion.div
                 className="flex items-start group"
-                variants={fadeIn}
+                variants={fadeInFromLeft}
                 whileHover={{ x: 8, transition: { duration: 0.2 } }}
               >
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 p-3 rounded-full mr-5 shadow-md group-hover:shadow-yellow-400/30 group-hover:shadow-lg transition-shadow">
@@ -338,7 +472,7 @@ export default function AboutPage() {
             <div className="space-y-8">
               <motion.div
                 className="flex items-start group"
-                variants={fadeIn}
+                variants={fadeInFromRight}
                 whileHover={{ x: 8, transition: { duration: 0.2 } }}
               >
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 p-3 rounded-full mr-5 shadow-md group-hover:shadow-yellow-400/30 group-hover:shadow-lg transition-shadow">
@@ -355,7 +489,7 @@ export default function AboutPage() {
 
               <motion.div
                 className="flex items-start group"
-                variants={fadeIn}
+                variants={fadeInFromRight}
                 whileHover={{ x: 8, transition: { duration: 0.2 } }}
               >
                 <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 p-3 rounded-full mr-5 shadow-md group-hover:shadow-yellow-400/30 group-hover:shadow-lg transition-shadow">
@@ -374,7 +508,7 @@ export default function AboutPage() {
 
           <motion.div 
             className="mt-16 relative h-72 w-full rounded-xl overflow-hidden shadow-2xl border border-white/10"
-            variants={fadeIn}
+            variants={popIn}
           >
             <Image src="/images/brand.png" alt="Team Achievements" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent"></div>
@@ -384,7 +518,7 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-        {/* Leadership Section */}
+        {/* Leadership Section with Diagonal Animations */}
         <motion.section
           className="mb-28"
           initial="hidden"
@@ -392,7 +526,7 @@ export default function AboutPage() {
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerChildren}
         >
-          <motion.div className="flex items-center mb-12" variants={fadeIn}>
+          <motion.div className="flex items-center mb-12" variants={fadeInFromBottom}>
             <div className="bg-blue-500 p-2 rounded-lg mr-3 shadow-md">
               <Diamond className="h-6 w-6 text-white" />
             </div>
@@ -402,8 +536,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div
               className="bg-gradient-to-br from-white/10 to-blue-900/30 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 group"
-              variants={fadeIn}
+              variants={fadeInFromLeft}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, x: -100, y: 50 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 100, 
+                damping: 20 
+              }}
             >
               <div className="relative h-72 w-full">
                 <Image
@@ -433,8 +575,16 @@ export default function AboutPage() {
 
             <motion.div
               className="bg-gradient-to-br from-white/10 to-blue-900/30 backdrop-blur-sm rounded-xl overflow-hidden shadow-xl border border-white/10 group"
-              variants={fadeIn}
+              variants={fadeInFromRight}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, x: 100, y: 50 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 100, 
+                damping: 20 
+              }}
             >
               <div className="relative h-72 w-full">
                 <Image src="/images/brand.png" alt="Aanchal Kumari" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -459,7 +609,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Vision & Mission Section */}
+        {/* Vision & Mission Section with Rotating and Scaling Effects */}
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -467,11 +617,24 @@ export default function AboutPage() {
           variants={staggerChildren}
           className="py-16 px-8 bg-gradient-to-br from-blue-600 to-indigo-800 text-white rounded-2xl shadow-2xl relative overflow-hidden mb-12"
         >
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mt-32"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mb-48"></div>
+          {/* Dynamic decorative elements */}
+          <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mt-32"
+          ></motion.div>
           
-          <motion.div className="flex items-center mb-12 relative z-10" variants={fadeIn}>
+          <motion.div 
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+    className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mb-48"
+          ></motion.div>
+          
+          <motion.div className="flex items-center mb-12 relative z-10" variants={fadeInFromLeft}>
             <div className="bg-yellow-400 p-2 rounded-full mr-3 shadow-md">
               <Diamond className="h-6 w-6 text-blue-900" />
             </div>
@@ -481,12 +644,21 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
             <motion.div
               className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-xl border border-white/20"
-              variants={fadeIn}
-              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+              variants={fadeInFromLeft}
+              whileHover={{ scale: 1.03, rotate: 1, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, rotate: -2 }}
+              whileInView={{ opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-yellow-400 inline-block p-3 rounded-xl shadow-lg mb-6">
+              <motion.div 
+                className="bg-yellow-400 inline-block p-3 rounded-xl shadow-lg mb-6"
+                whileHover={{ 
+                  rotate: [0, -10, 10, -5, 0], 
+                  transition: { duration: 0.5 } 
+                }}
+              >
                 <Diamond className="h-8 w-8 text-blue-900" />
-              </div>
+              </motion.div>
               <h3 className="text-2xl font-semibold mb-4 text-yellow-300">Vision</h3>
               <p className="text-white/90 text-lg leading-relaxed">
                 To become India's most trusted youth-led event and marketing company, known for creativity, commitment,
@@ -496,64 +668,158 @@ export default function AboutPage() {
 
             <motion.div
               className="bg-white/10 backdrop-blur-sm rounded-xl p-8 shadow-xl border border-white/20"
-              variants={fadeIn}
-              whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+              variants={fadeInFromRight}
+              whileHover={{ scale: 1.03, rotate: -1, transition: { duration: 0.3 } }}
+              initial={{ opacity: 0, rotate: 2 }}
+              whileInView={{ opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-yellow-400 inline-block p-3 rounded-xl shadow-lg mb-6">
+              <motion.div 
+                className="bg-yellow-400 inline-block p-3 rounded-xl shadow-lg mb-6"
+                whileHover={{ 
+                  scale: [1, 1.2, 1],
+                  transition: { duration: 0.5 } 
+                }}
+              >
                 <Rocket className="h-8 w-8 text-blue-900" />
-              </div>
+              </motion.div>
               <h3 className="text-2xl font-semibold mb-4 text-yellow-300">Mission</h3>
               <ul className="space-y-4 text-white/90 text-lg">
-                <li className="flex items-start">
+                <motion.li 
+                  className="flex items-start"
+                  whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                >
                   <span className="text-yellow-300 mr-3 text-xl">•</span>
                   <span>To empower brands, businesses, and events with impactful execution</span>
-                </li>
-                <li className="flex items-start">
+                </motion.li>
+                <motion.li 
+                  className="flex items-start"
+                  whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                >
                   <span className="text-yellow-300 mr-3 text-xl">•</span>
                   <span>To create opportunities for young talent in media, marketing & tech</span>
-                </li>
-                <li className="flex items-start">
+                </motion.li>
+                <motion.li 
+                  className="flex items-start"
+                  whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                >
                   <span className="text-yellow-300 mr-3 text-xl">•</span>
                   <span>To deliver value through innovation, design, and data-driven strategies</span>
-                </li>
+                </motion.li>
               </ul>
             </motion.div>
           </div>
 
           <motion.div 
             className="mt-16 relative h-72 w-full rounded-xl overflow-hidden shadow-2xl border border-white/10"
-            variants={fadeIn}
+            variants={popIn}
           >
             <Image src="/images/brand.png" alt="Team Vision" fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              viewport={{ once: true }}
+            ></motion.div>
+            <motion.div 
+              className="absolute bottom-0 left-0 right-0 p-6 text-center"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
+              viewport={{ once: true }}
+            >
               <p className="text-2xl font-semibold text-white mb-2">Join Our Journey</p>
               <p className="text-blue-200">Together, let's create experiences that matter</p>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.section>
         
-        {/* CTA Section - New */}
+        {/* CTA Section with Floating Animation */}
         <motion.section
           className="py-12 px-8 bg-gradient-to-br from-blue-900/50 to-indigo-900/50 backdrop-blur-sm rounded-xl border border-white/10 text-center"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 100, 
+            damping: 15,
+            duration: 0.8 
+          }}
         >
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Vision into Reality?</h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <motion.h2 
+            className="text-3xl font-bold mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            Ready to Transform Your Vision into Reality?
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            viewport={{ once: true }}
+          >
             Let's collaborate to create experiences that leave a lasting impression.
-          </p>
+          </motion.p>
+          
           <div className="flex justify-center gap-4 flex-wrap">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:shadow-yellow-400/30 hover:shadow-xl">
+            <motion.button 
+              className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:shadow-yellow-400/30 hover:shadow-xl"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, type: "spring", stiffness: 400 }}
+              viewport={{ once: true }}
+            >
               Get in Touch
-            </button>
-            <button className="bg-transparent border-2 border-white/70 hover:border-white text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:bg-white/10">
+            </motion.button>
+            
+            <motion.button 
+              className="bg-transparent border-2 border-white/70 hover:border-white text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all hover:bg-white/10"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, type: "spring", stiffness: 400 }}
+              viewport={{ once: true }}
+            >
               View Our Portfolio
-            </button>
+            </motion.button>
           </div>
         </motion.section>
+        
+        {/* Floating animated dots background element - added for extra visual flair */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-blue-400 rounded-full opacity-20"
+              style={{
+                width: Math.random() * 10 + 5,
+                height: Math.random() * 10 + 5,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, Math.random() * -100 - 50],
+                x: [0, Math.random() * 50 - 25],
+                opacity: [0.2, 0],
+              }}
+              transition={{
+                duration: Math.random() * 10 + 10,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
