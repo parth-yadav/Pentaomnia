@@ -1,5 +1,24 @@
 import "../styles/globals.css";
 import "../styles/globals.scss";
+import { Inter , Poppins, Playfair_Display } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-poppins',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-playfair',
+});
+
+
+
 
 import { Metadata, Viewport } from "next";
 
@@ -49,7 +68,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang='en' suppressHydrationWarning>
+        <html lang='en' className={` ${inter.variable} ${poppins.variable} ${playfair.variable}`} suppressHydrationWarning >
+
             <body className='flex h-screen flex-col'>
                 <RootProvider>
                     <div className='flex h-full flex-col'>

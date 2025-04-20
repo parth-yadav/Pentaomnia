@@ -93,6 +93,11 @@ const config = {
                  slowping: 'ping 3s cubic-bezier(0, 0, 0.05, 1) infinite', // Custom slower ping
       
             },
+             fontFamily: {
+                 inter: ['var(--font-inter)'],
+                  poppins: ['var(--font-poppins)'],
+        playfair: ['var(--font-playfair)'],
+      },
         },
     },
     plugins: [nextui(), require("tailwindcss-animate")],

@@ -1,10 +1,10 @@
 "use client";
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import WorkshopRegistrationForm from './WorkShop';
+// import WorkshopRegistrationForm from './WorkShop';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
-// import RegistrationClosed from './Closed';
+import RegistrationClosed from './Closed';
 
 export default function Home() {
   // Animation variants
@@ -147,7 +147,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
     >
-      18th – 19th April 2025 | Lovely Professional University
+      18th – 19th April 2025 | Lovely Professional University Block 18 - 106 
     </motion.p>
 
     <motion.a
@@ -398,9 +398,9 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            <motion.p variants={fadeIn}>📍 Venue: Lovely Professional University</motion.p>
+            <motion.p variants={fadeIn}>📍 Venue: Lovely Professional University Block 18 - 106</motion.p>
             <motion.p variants={fadeIn}>📆 Dates: 18th & 19th April 2025</motion.p>
-            <motion.p variants={fadeIn}>⏰ Timings: 10:00 AM – 5:00 PM (Both Days)</motion.p>
+            <motion.p variants={fadeIn}>⏰ Timings: 9:00 AM – 7:00 PM (Both Days)</motion.p>
             <motion.p variants={fadeIn}>💸 Fees: Zero. Nada. Nothing. 100% Free.</motion.p>
           </motion.div>
         </div>
@@ -443,8 +443,8 @@ export default function Home() {
 
     {/* Registration Form Section */}
 <div id="register" className="flex justify-center">
-        <WorkshopRegistrationForm />
-        {/* <RegistrationClosed /> */}
+        {/* <WorkshopRegistrationForm /> */}
+         <RegistrationClosed /> 
 </div>
 
 

@@ -13,6 +13,8 @@ import ZillionsLogo from "../../public/images/logos/zillionsoftech.jpg";
 import RelianceMall from "../../public/images/logos/Logo-RelianceMall.png"
 import Sbd from "../../public/images/logos/Screenshot_2025-02-26_185423-removebg-preview.png"
 import Bbf from "../../public/images/logos/babafatehsinghji.png"
+import Yuva from "../../public/images/logos/yuva.png"
+import Dominos from "../../public/images/logos/dominos-logo-vector.png"
 
 export interface OurClients {
     id: number;
@@ -52,9 +54,9 @@ export const CONST_CLIENTS_LIST: OurClients[] = [
         logo: KawasakiLogo,
     },
     {
-        id: 5,
-        name: "Baba FatehSinghji Fnd.",
-        logo: Bbf,
+        id: 10,
+        name: "Yuvaa",
+        logo: Yuva,
     },
     {
         id: 1,
@@ -62,9 +64,9 @@ export const CONST_CLIENTS_LIST: OurClients[] = [
         logo: Sbd,
     },
     {
-        id: 10,
-        name: "Kong Arm Wrestling",
-        logo: KongLogo,
+        id: 5,
+        name: "Domino's",
+        logo: Dominos,
     },
     {
         id: 2,
