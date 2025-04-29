@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Play, Pause, Headphones, Music, Radio, Youtube } from "lucide-react";
+import ClientShowcase from "@/components/home/ClientShowcase";
 
 // Define podcast/video data
 interface Podcast {
@@ -318,6 +319,8 @@ export default function PodcastPage() {
           </div>
         </div>
       </motion.div>
+
+      <ClientShowcase />  
 
       {/* Footer */}
       {/* <footer className="bg-gray-900 text-gray-400 py-12">
