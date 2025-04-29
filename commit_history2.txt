@@ -1,0 +1,774 @@
+7b5b05c | 2025-04-20 18:10:46 +0530 | animations
+ src/app/aboutus/page.tsx | 456 +++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 361 insertions(+), 95 deletions(-)
+
+cb023ae | 2025-04-20 11:01:58 +0530 | about us
+ public/images/innov20/inn.png               | Bin 0 -> 564666 bytes
+ public/images/logos/dominos-logo-vector.png | Bin 0 -> 8259 bytes
+ public/images/logos/yuva.png                | Bin 0 -> 132663 bytes
+ src/app/aboutus/page.tsx                    | 560 ++++++++++++++++++++++++++++
+ src/app/innovatex2.0/page.tsx               |  14 +-
+ src/app/layout.tsx                          |  22 +-
+ src/constants/events.ts                     |   8 +-
+ src/constants/ourclients.tsx                |  14 +-
+ tailwind.config.ts                          |   5 +
+ 9 files changed, 605 insertions(+), 18 deletions(-)
+
+8a8539b | 2025-04-15 21:15:05 +0530 | reg open
+ src/app/innovatex2.0/Closed.tsx   | 73 +++++++++++++++++++++++++++++++++++++++
+ src/app/innovatex2.0/WorkShop.tsx | 40 ++++++++++++++++-----
+ src/app/innovatex2.0/page.tsx     |  4 ++-
+ 3 files changed, 107 insertions(+), 10 deletions(-)
+
+37544bf | 2025-04-14 20:07:11 +0530 | images ui
+ public/images/innov20/brandmonkeyc.jpg | Bin 0 -> 145178 bytes
+ public/images/innov20/tishaa.jpg       | Bin 0 -> 148343 bytes
+ public/images/innov20/tishaaa.jpg      | Bin 0 -> 120022 bytes
+ public/images/innov20/tishaaac.jpg     | Bin 0 -> 153610 bytes
+ src/app/innovatex2.0/page.tsx          |  89 ++++++++++++++++++++++-----------
+ 5 files changed, 59 insertions(+), 30 deletions(-)
+
+a0b29d4 | 2025-04-14 09:47:23 +0530 | register for free
+ src/app/innovatex2.0/page.tsx | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+b04f583 | 2025-04-14 09:07:42 +0530 | ui ffix
+ src/app/innovatex2.0/page.tsx | 127 +++++++++++++++++++++---------------------
+ 1 file changed, 64 insertions(+), 63 deletions(-)
+
+822041d | 2025-04-14 08:57:23 +0530 | ui changes form done
+ src/app/innovatex2.0/WorkShop.tsx | 262 ++++++++++++++++++++++++++++++++++++++
+ src/app/innovatex2.0/page.tsx     | 166 ++++++++----------------
+ 2 files changed, 317 insertions(+), 111 deletions(-)
+
+6676b1e | 2025-04-14 07:31:43 +0530 | innov20
+ public/images/innov20/brandmonkey.jpg  | Bin 0 -> 140307 bytes
+ public/images/innov20/ethicallearn.jpg | Bin 0 -> 257413 bytes
+ public/images/innov20/tisha.jpg        | Bin 0 -> 276603 bytes
+ src/app/ajitclassic/page.tsx           | 128 ---------
+ src/app/careers/page.tsx               |   2 +-
+ src/app/innovatex2.0/page.tsx          | 480 +++++++++++++++++++++++++++++++++
+ src/constants/events.ts                |  14 +
+ tsconfig.json                          |   2 +-
+ 8 files changed, 496 insertions(+), 130 deletions(-)
+
+a53dac7 | 2025-04-02 23:49:55 +0530 | toasters added
+ src/app/careers/CareersForm.tsx | 296 ++++++++++++++++++++++------------------
+ 1 file changed, 164 insertions(+), 132 deletions(-)
+
+acdb9d4 | 2025-04-02 23:36:24 +0530 | careers page working fine
+ src/app/careers/CareersForm.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ac61967 | 2025-04-02 12:18:58 +0530 | who we are carousewl and careers and career form
+ src/app/careers/CareersForm.tsx | 61 ++++++++++++++++++++++++++++++++++-------
+ src/app/careers/form/page.tsx   |  6 ++--
+ src/app/careers/page.tsx        |  4 +--
+ src/components/home/who.tsx     |  6 ++--
+ src/components/navbar.tsx       |  2 +-
+ 5 files changed, 60 insertions(+), 19 deletions(-)
+
+9b4fe60 | 2025-03-30 20:47:52 +0530 | ui done
+ package-lock.json                          | 118 +++++++++++++++--
+ package.json                               |   5 +-
+ public/images/whoweare/ethicall.jpg        | Bin 0 -> 784303 bytes
+ public/images/whoweare/etimes.jpg          | Bin 0 -> 1570983 bytes
+ public/images/whoweare/flyingbeast.jpg     | Bin 0 -> 1000205 bytes
+ public/images/whoweare/mla.jpg             | Bin 0 -> 503590 bytes
+ public/images/whoweare/sbdind.jpg          | Bin 0 -> 1069474 bytes
+ public/images/{ => whoweare}/shahidsir.jpg | Bin
+ src/app/careers/CareersForm.tsx            | 196 +++++++++++++++++++++++++++++
+ src/app/careers/form/page.tsx              |  46 +++++++
+ src/app/careers/page.tsx                   | 157 +++++++++++++++++++++++
+ src/components/home/who.tsx                | 129 +++++++++++++++----
+ 12 files changed, 614 insertions(+), 37 deletions(-)
+
+4c191c8 | 2025-02-26 20:25:47 +0530 | clients updated
+ public/images/logos/Logo-RelianceMall.png          | Bin 0 -> 78266 bytes
+ ...reenshot_2025-02-26_185423-removebg-preview.png | Bin 0 -> 47711 bytes
+ public/images/logos/babafatehsinghji.png           | Bin 0 -> 43141 bytes
+ src/components/home/partners.tsx                   |  50 ++++++++++++---------
+ src/constants/ourclients.tsx                       |  43 +++++++++++-------
+ 5 files changed, 55 insertions(+), 38 deletions(-)
+
+f93768e | 2025-02-15 14:02:09 +0530 | minor change
+ src/app/ajitclassic/page.tsx | 3 +++
+ 1 file changed, 3 insertions(+)
+
+6ab221a | 2025-02-15 13:57:44 +0530 | for audience
+ src/app/ajitclassic/page.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+f7e4cd5 | 2025-02-15 13:47:37 +0530 | placeholder added
+ src/app/ajitclassic/page.tsx | 100 ++++++++++++++++++++++++-------------------
+ 1 file changed, 57 insertions(+), 43 deletions(-)
+
+f8de991 | 2025-02-15 13:33:47 +0530 | toaster added
+ src/app/ajitclassic/page.tsx | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+47fc65a | 2025-02-15 13:13:04 +0530 | submit toast added
+ src/app/ajitclassic/page.tsx | 118 +++++++++++++++++++++----------------------
+ 1 file changed, 57 insertions(+), 61 deletions(-)
+
+fb08d6a | 2025-02-15 12:42:44 +0530 | ajit classic submit page made
+ package-lock.json            |  28 +++++++++++-
+ package.json                 |   1 +
+ public/images/ajit.jpg       | Bin 0 -> 162995 bytes
+ src/app/ajitclassic/page.tsx | 103 +++++++++++++++++++++++++++++++++++++++++++
+ src/components/footer.tsx    |   8 ++--
+ src/components/home/who.tsx  |  20 +++++----
+ 6 files changed, 146 insertions(+), 14 deletions(-)
+
+dc6687f | 2025-02-09 22:35:51 +0530 | arrow of carousel fixed
+ src/components/footer.tsx                          | 12 ++++-----
+ src/components/home/hero.tsx                       |  4 +--
+ src/components/home/homeherocarousel.tsx           | 29 +++++++++++-----------
+ .../infintescroll/components_InfiniteScroll.tsx    |  2 +-
+ 4 files changed, 24 insertions(+), 23 deletions(-)
+
+2962918 | 2025-02-07 13:42:04 +0530 | arrows
+ src/components/home/homeherocarousel.tsx           | 64 ++++++++++++++++------
+ src/components/home/parevents/HorizontalScroll.tsx |  2 +-
+ 2 files changed, 49 insertions(+), 17 deletions(-)
+
+d3f7790 | 2025-02-07 11:14:06 +0530 | carousel arroe fixed and animation sorted
+ src/components/home/homeherocarousel.tsx           | 53 ++++++++++++----------
+ src/components/home/parevents/HorizontalScroll.tsx |  8 ++--
+ src/components/home/promotion.tsx                  | 10 ++--
+ 3 files changed, 39 insertions(+), 32 deletions(-)
+
+01bfe88 | 2025-02-06 21:48:28 +0530 | hero carousel on mobile fixed
+ src/components/home/hero.tsx | 22 +++++++++-------------
+ 1 file changed, 9 insertions(+), 13 deletions(-)
+
+8334cd4 | 2025-02-06 18:44:51 +0530 | added half of hercarousel and current year
+ package-lock.json                                |  10 ++
+ package.json                                     |   1 +
+ src/app/service-inquiry/service-inquiry-form.tsx |  63 ++++++-------
+ src/components/footer.tsx                        |   6 +-
+ src/components/home/hero.tsx                     | 114 +++++++++++------------
+ src/components/ui/{taost.tsx => toast.tsx}       |   0
+ 6 files changed, 100 insertions(+), 94 deletions(-)
+
+1ea83a1 | 2025-02-06 13:39:29 +0530 | buttons pointed to service0inquiry
+ src/app/service-inquiry/service-inquiry-form.tsx | 83 ++++++++++++++----------
+ src/components/home/getInvolved.tsx              |  2 +-
+ src/components/home/hero.tsx                     | 17 ++---
+ 3 files changed, 58 insertions(+), 44 deletions(-)
+
+ff5aa29 | 2025-02-06 00:12:41 +0530 | php testing 2
+ src/app/service-inquiry/service-inquiry-form.tsx | 184 +++++++++++++----------
+ 1 file changed, 106 insertions(+), 78 deletions(-)
+
+0abb8fa | 2025-02-05 18:17:53 +0530 | php test backend test 1
+ src/app/service-inquiry/service-inquiry-form.tsx | 69 +++++++++++++++++-------
+ 1 file changed, 49 insertions(+), 20 deletions(-)
+
+57ac9f8 | 2025-02-05 17:43:34 +0530 | inquiry form ui done
+ src/app/service-inquiry/service-inquiry-form.tsx | 43 ++++++++++++------------
+ src/components/home/getInvolved.tsx              |  2 +-
+ src/components/home/hero.tsx                     |  2 +-
+ src/components/home/stats.tsx                    |  2 +-
+ 4 files changed, 25 insertions(+), 24 deletions(-)
+
+d95a33d | 2025-02-05 16:53:42 +0530 |  service-inquiry in form of one question
+ src/app/service-inquiry/page.tsx                 | 2 +-
+ src/app/service-inquiry/service-inquiry-form.tsx | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+a734714 | 2025-02-05 13:47:59 +0530 | sliding form created
+ src/app/service-inquiry/action.ts                |   2 +-
+ src/app/service-inquiry/service-inquiry-form.tsx | 394 +++++++++++++++--------
+ 2 files changed, 269 insertions(+), 127 deletions(-)
+
+3bf0faa | 2025-02-05 11:52:58 +0530 | * added to req fileds
+ src/app/service-inquiry/service-inquiry-form.tsx | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+d457568 | 2025-02-05 11:50:03 +0530 | service form ui ready
+ src/app/service-inquiry/page.tsx                 |   4 +-
+ src/app/service-inquiry/service-inquiry-form.tsx | 207 ++++++++++++-----------
+ src/components/ui/checkbox.tsx                   |   2 +-
+ src/components/ui/radio-group.tsx                |   2 +-
+ 4 files changed, 109 insertions(+), 106 deletions(-)
+
+e37fac7 | 2025-02-05 11:23:31 +0530 | form ready
+ package-lock.json                | 602 +++++++++++++++++++++++++++++++++++----
+ package.json                     |   7 +-
+ src/app/service-inquiry/page.tsx |  11 +
+ 3 files changed, 571 insertions(+), 49 deletions(-)
+
+a248533 | 2025-02-05 11:15:14 +0530 | commiting with react-dom error
+ package-lock.json                                | 267 ++++++++++++++++++++++-
+ package.json                                     |   4 +-
+ src/app/service-inquiry/action.ts                |  43 ++++
+ src/app/service-inquiry/page.tsx                 |   0
+ src/app/service-inquiry/service-inquiry-form.tsx | 168 ++++++++++++++
+ src/components/home/hero.tsx                     |   2 +-
+ src/components/ui/taost.tsx                      | 129 +++++++++++
+ src/components/ui/textarea.tsx                   |  22 ++
+ src/components/ui/toaster.tsx                    | 129 +++++++++++
+ src/components/ui/use-toast.tsx                  | 129 +++++++++++
+ 10 files changed, 890 insertions(+), 3 deletions(-)
+
+2948fb1 | 2025-02-01 19:30:48 +0530 | hercarousle height
+ src/components/home/hero.tsx             | 2 +-
+ src/components/home/homeherocarousel.tsx | 4 +---
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+5d3f4df | 2025-02-01 19:08:21 +0530 | recent events ui changes ui changes for hero section overflow issue fixed
+ src/app/page.tsx                                   |   2 +-
+ src/components/home/hero.tsx                       |  10 +-
+ src/components/home/homeherocarousel.tsx           |  35 ++++---
+ src/components/home/parevents/HorizontalScroll.tsx | 108 +++++++++++----------
+ src/components/home/who.tsx                        |  44 ++++-----
+ src/components/{home.tsx => landingpage.tsx}       |   4 +-
+ tsconfig.json                                      |   2 +-
+ 7 files changed, 111 insertions(+), 94 deletions(-)
+
+1326c51 | 2025-02-01 15:41:27 +0530 | horizontal scroll
+ package-lock.json                                  |  17 ++
+ package.json                                       |   1 +
+ src/components/home.tsx                            |   2 +
+ src/components/home/parevents/HorizontalScroll.tsx | 196 +++++++++++++++++++++
+ 4 files changed, 216 insertions(+)
+
+453434c | 2025-01-30 17:27:07 +0530 | herocarousel update
+ src/components/home/hero.tsx             | 4 ++--
+ src/components/home/homeherocarousel.tsx | 6 +++---
+ src/components/home/scrollup.tsx         | 2 +-
+ src/components/home/who.tsx              | 4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+817bdc1 | 2025-01-23 09:47:34 +0530 | fitness edge marquee
+ src/app/fitnessedge-powerplay/marquee.tsx        | 13 +++++++++++++
+ src/app/fitnessedge-powerplay/page.tsx           |  4 +++-
+ src/app/fitnessedge-powerplay/registerbutton.tsx |  2 +-
+ 3 files changed, 17 insertions(+), 2 deletions(-)
+
+b41a999 | 2025-01-18 12:01:03 +0530 | date updates
+ src/app/fitnessedge-powerplay/card.tsx          | 8 ++++----
+ src/app/fitnessedge-powerplay/eventcarousel.tsx | 8 ++++----
+ src/app/fitnessedge-powerplay/herosection.tsx   | 2 +-
+ 3 files changed, 9 insertions(+), 9 deletions(-)
+
+9987f8f | 2025-01-18 01:18:23 +0530 | final commit fitness the output file is correct
+ src/app/fitnessedge-powerplay/register/page.tsx  | 20 +++++++++++++++-----
+ src/app/fitnessedge-powerplay/registerbutton.tsx |  2 +-
+ vercel.json                                      |  6 ------
+ 3 files changed, 16 insertions(+), 12 deletions(-)
+
+276864c | 2025-01-18 00:44:28 +0530 | with vercel.json
+ next.config.mjs   | 5 ++++-
+ public/.htaccess  | 9 +++++++++
+ public/_redirects | 1 +
+ vercel.json       | 6 ++++++
+ 4 files changed, 20 insertions(+), 1 deletion(-)
+
+9bacb87 | 2025-01-17 23:55:18 +0530 | fitnessedge page done
+ public/images/fitness/hero.jpg                   | Bin 0 -> 258999 bytes
+ src/app/fitnessedge-powerplay/eventcarousel.tsx  |  35 ++--
+ src/app/fitnessedge-powerplay/herosection.tsx    |  78 ++++++--
+ src/app/fitnessedge-powerplay/page.tsx           |   2 +
+ src/app/fitnessedge-powerplay/prizes.tsx         |  42 +++++
+ src/app/fitnessedge-powerplay/register/page.tsx  |  48 +++++
+ src/app/fitnessedge-powerplay/registerbutton.tsx |  21 +++
+ src/components/footer.tsx                        | 226 +++++++++++------------
+ src/components/home/events.tsx                   | 110 ++++-------
+ 9 files changed, 339 insertions(+), 223 deletions(-)
+
+1a8f899 | 2025-01-17 18:52:44 +0530 | fitness edge link
+ src/components/eventcard.tsx       | 169 +++++++++++++++++++------------------
+ src/components/home/eventPopup.tsx |  37 ++++----
+ src/components/home/events.tsx     |  13 +--
+ src/components/home/stats.tsx      |   4 +-
+ 4 files changed, 108 insertions(+), 115 deletions(-)
+
+6f49071 | 2025-01-17 15:05:05 +0530 | footer
+ public/images/fitness/Bird-DogExercise.jpg         | Bin 0 -> 335687 bytes
+ public/images/fitness/DeadLift.jpg                 | Bin 0 -> 354169 bytes
+ public/images/fitness/FreeSquatHold.jpg            | Bin 0 -> 393016 bytes
+ public/images/fitness/Kettlebell.jpg               | Bin 0 -> 331439 bytes
+ public/images/fitness/Pushup.jpg                   | Bin 0 -> 349903 bytes
+ public/images/fitness/armRestling.jpg              | Bin 0 -> 343674 bytes
+ public/images/fitness/burpse.jpg                   | Bin 0 -> 351294 bytes
+ public/images/fitness/dumpling.jpg                 | Bin 0 -> 303730 bytes
+ public/images/fitness/gym.jpg                      | Bin 0 -> 144449 bytes
+ public/images/fitness/plank.jpg                    | Bin 0 -> 370276 bytes
+ public/images/fitness/skipping.jpg                 | Bin 0 -> 325996 bytes
+ public/images/fitness/standingBarbell.jpg          | Bin 0 -> 378573 bytes
+ public/images/fitness/trxPushUp.jpg                | Bin 0 -> 269354 bytes
+ src/app/fitnessedge-powerplay/card.tsx             |  56 +++++++++++++++++
+ src/app/fitnessedge-powerplay/eventcarousel.tsx    |  69 +++++++++++++++++++++
+ .../fitnessedge-powerplay}/herosection.tsx         |   2 +-
+ src/app/fitnessedge-powerplay/page.tsx             |  13 ++++
+ src/app/layout.tsx                                 |   4 +-
+ src/components/fitnessedge/landingpage.tsx         |   0
+ src/components/footer.tsx                          |  48 ++++++++------
+ .../infintescroll/components_InfiniteScroll.tsx    |   2 +-
+ src/components/home/stats.tsx                      |  16 ++---
+ src/constants/events.ts                            |   2 +-
+ tailwind.config.ts                                 |   3 +
+ 24 files changed, 185 insertions(+), 30 deletions(-)
+
+b1d6f7e | 2025-01-17 12:22:26 +0530 | sm changes
+ src/components/home/infintescroll/components_InfiniteScroll.tsx | 2 +-
+ src/components/home/stats.tsx                                   | 6 +++---
+ src/components/home/who.tsx                                     | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+56ff8e5 | 2025-01-17 12:15:14 +0530 | recent events
+ public/images/eventimages/fitness.jpg      | Bin 0 -> 51731 bytes
+ src/components/eventcard.tsx               |   8 ++++----
+ src/components/fitnessedge/herosection.tsx |  30 +++++++++++++++++++++++++++++
+ src/components/fitnessedge/landingpage.tsx |   0
+ src/components/home/events.tsx             |   6 +++---
+ src/constants/events.ts                    |  15 ++++++++++++++-
+ 6 files changed, 51 insertions(+), 8 deletions(-)
+
+934f0f0 | 2025-01-12 17:02:54 +0530 | rules page button
+ src/components/innovatex-2.0/rules-landingpage.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ee41a72 | 2025-01-12 16:57:28 +0530 | no server
+ src/app/innovatex/register/action.ts             | 39 --------------
+ src/app/innovatex/register/page.tsx              |  4 +-
+ src/app/innovatex/register/registration-form.tsx | 67 ------------------------
+ 3 files changed, 2 insertions(+), 108 deletions(-)
+
+c5e2d54 | 2025-01-12 16:46:50 +0530 | no form
+ next.config.mjs                                  |  3 +-
+ src/app/innovatex/register/registration-form.tsx | 62 +-----------------------
+ 2 files changed, 3 insertions(+), 62 deletions(-)
+
+421eaa6 | 2025-01-12 16:33:35 +0530 | for not static
+ next.config.mjs | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+50bc677 | 2025-01-12 16:09:38 +0530 | minor changes
+ src/app/innovatex/page.tsx                         |  2 ++
+ src/components/innovatex-2.0/rules-landingpage.tsx | 34 ++++++++++++++++++++++
+ 2 files changed, 36 insertions(+)
+
+8eec4c2 | 2025-01-12 15:57:33 +0530 | logos added
+876bccf | 2025-01-12 15:47:05 +0530 | changed footer
+ src/components/fater.tsx  | 192 ++++++++++++++++++++++++++++++++++++++++++++++
+ src/components/footer.tsx |  30 +++++++-
+ 2 files changed, 219 insertions(+), 3 deletions(-)
+
+36e2b20 | 2025-01-12 15:43:56 +0530 | register page
+ .env                                             |   4 +
+ bun.lockb                                        | Bin 324687 -> 222873 bytes
+ package-lock.json                                | 514 ++++++++++++++++++++++-
+ package.json                                     |   8 +-
+ src/app/innovatex/register/action.ts             |  39 ++
+ src/app/innovatex/register/page.tsx              |  26 +-
+ src/app/innovatex/register/registration-form.tsx | 125 ++++++
+ src/app/innovatex/rules/page.tsx                 |  21 +-
+ src/app/innovatex/rules/rules-content.tsx        | 114 +++++
+ src/app/layout.tsx                               |   2 +-
+ src/components/footer.tsx                        | 163 ++++---
+ src/components/innovatex-2.0/registernow.tsx     |   2 +-
+ src/components/ui/toast.tsx                      | 129 ++++++
+ src/components/ui/toaster.tsx                    |  35 ++
+ src/hooks/use-toast.ts                           | 194 +++++++++
+ 15 files changed, 1287 insertions(+), 89 deletions(-)
+
+7a090db | 2025-01-12 14:10:21 +0530 | prizes section sponsor section of lading page of hackathon
+ src/app/innovatex/page.tsx                   |  7 +-
+ src/components/innovatex-2.0/hero.tsx        | 23 +++++--
+ src/components/innovatex-2.0/oursponsers.tsx | 82 ++++++++++++++++++++++++
+ src/components/innovatex-2.0/prizex.tsx      | 96 ++++++++++++++++++++++++++++
+ src/components/innovatex-2.0/registernow.tsx | 74 +++++++++++++++++++++
+ 5 files changed, 277 insertions(+), 5 deletions(-)
+
+0c06eb4 | 2025-01-09 22:31:24 +0530 | changes to the header and fooder alse the stats place was changes
+ src/components/footer.tsx                 | 251 ++++++++++++------------------
+ src/components/home.tsx                   |   8 +-
+ src/components/home/parevents/parpage.tsx |   4 +-
+ src/components/home/who.tsx               |   2 +-
+ 4 files changed, 107 insertions(+), 158 deletions(-)
+
+8f79c00 | 2025-01-09 21:50:15 +0530 |  some changes in hero section
+ src/app/innovatex/page.tsx            |  2 +-
+ src/components/innovatex-2.0/hero.tsx | 48 +++++++++++++++++------------------
+ src/components/ui/hero-highlight.tsx  |  2 +-
+ 3 files changed, 25 insertions(+), 27 deletions(-)
+
+72871d1 | 2025-01-07 17:04:32 +0530 | green bg type writer
+ package-lock.json                                  |   9 +
+ package.json                                       |   1 +
+ src/app/innovatex/page.tsx                         |  18 ++
+ src/app/innovatex/register/page.tsx                |  10 ++
+ src/app/innovatex/rules/page.tsx                   |  10 ++
+ src/app/innovatex/sponsors/page.tsx                |  10 ++
+ src/components/innovatex-2.0/hero.tsx              |  36 ++++
+ src/components/innovatex-2.0/rules.tsx             |  30 ++++
+ src/components/innovatex-2.0/typewriter.tsx        |  33 ++++
+ src/components/navbar.tsx                          |   2 +-
+ .../ui/background-gradient-animation.tsx           | 181 ++++++++++++++++++++
+ src/components/ui/hero-highlight.tsx               |  96 +++++++++++
+ src/components/ui/typewriter-effect.tsx            | 187 +++++++++++++++++++++
+ tailwind.config.ts                                 |  69 +++++++-
+ 14 files changed, 690 insertions(+), 2 deletions(-)
+
+bbfd6d3 | 2025-01-07 14:37:46 +0530 | new branch for hackathon
+ src/components/home/stats.tsx | 12 +++++++-----
+ src/components/navbar.tsx     |  1 +
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+396a2f7 | 2024-12-29 12:17:04 +0530 | scroll animation
+ public/images/scrolllogos/msme.jpg                 | Bin 0 -> 25826 bytes
+ public/images/scrolllogos/startupbihar.jpg         | Bin 0 -> 15844 bytes
+ public/images/scrolllogos/startupindia.jpg         | Bin 0 -> 4367 bytes
+ src/components/footer.tsx                          |   2 +
+ .../home/infintescroll/InfiniteScroll.module.css   |  41 +++++++
+ .../infintescroll/components_InfiniteScroll.tsx    |  52 +++++++++
+ src/components/home/partners.tsx                   | 124 ++++++++++-----------
+ src/components/home/stats.tsx                      |   2 +-
+ src/components/home/who.tsx                        |  13 ++-
+ tailwind.config.ts                                 |   2 +
+ 10 files changed, 168 insertions(+), 68 deletions(-)
+
+39009d6 | 2024-12-28 19:36:56 +0530 | dark bg
+ src/app/layout.tsx                  | 2 +-
+ src/components/footer.tsx           | 2 +-
+ src/components/home.tsx             | 2 +-
+ src/components/home/getInvolved.tsx | 4 ++--
+ src/components/home/hero.tsx        | 2 +-
+ src/components/home/partners.tsx    | 8 +++++---
+ src/components/home/promotion.tsx   | 4 ++--
+ src/components/home/who.tsx         | 6 +++---
+ 8 files changed, 16 insertions(+), 14 deletions(-)
+
+6ba1dc0 | 2024-12-25 00:07:36 +0530 | stats
+ package-lock.json                       | 11581 ++++++++++--------------------
+ package.json                            |    31 +-
+ src/components/footer.tsx               |     8 +-
+ src/components/home.tsx                 |     6 +-
+ src/components/home/animpartners.tsx    |    48 +
+ src/components/home/hero.tsx            |     8 +-
+ src/components/home/partners.tsx        |     2 +
+ src/components/home/stats.tsx           |    67 +
+ src/components/ui/card-hover-effect.tsx |   111 +
+ 9 files changed, 3960 insertions(+), 7902 deletions(-)
+
+ef5987c | 2024-12-23 00:08:47 +0530 | ui changes
+ src/components/home.tsx                   |  4 +-
+ src/components/home/events.tsx            |  5 +-
+ src/components/home/hero.tsx              |  4 +-
+ src/components/home/homeherocarousel.tsx  | 24 ++++++---
+ src/components/home/parevents/parpage.tsx | 88 +++++++++++++++----------------
+ src/components/home/scrollup.tsx          | 26 +++++----
+ src/components/home/whatsapp-widget.tsx   |  2 +-
+ 7 files changed, 82 insertions(+), 71 deletions(-)
+
+2ecd96c | 2024-12-22 23:01:58 +0530 | up button
+ src/components/home.tsx                   |  2 ++
+ src/components/home/events.tsx            |  8 +++---
+ src/components/home/parevents/parpage.tsx | 40 ++++++++++++++-------------
+ src/components/home/scrollup.tsx          | 45 +++++++++++++++++++++++++++++++
+ src/components/navbar.tsx                 |  4 +--
+ 5 files changed, 75 insertions(+), 24 deletions(-)
+
+ec4d57d | 2024-12-22 22:32:02 +0530 | contact us
+ public/images/shahidsir.jpg | Bin 0 -> 387337 bytes
+ src/components/footer.tsx   |  53 ++++++++++++++++++++++++++++++++++----------
+ src/components/home/who.tsx |  29 ++++++++++++++----------
+ src/components/navbar.tsx   |  25 +++++++++++++++++++--
+ 4 files changed, 81 insertions(+), 26 deletions(-)
+
+c2ca9a2 | 2024-12-22 22:01:45 +0530 | up and down arrow added
+ src/components/home/parevents/parpage.tsx | 106 ++++++++++++++++++++++--------
+ 1 file changed, 79 insertions(+), 27 deletions(-)
+
+e1ac1d6 | 2024-12-22 21:10:52 +0530 | live events heading fixed
+ src/components/home/events.tsx | 99 ++++++++++++++++++++++--------------------
+ 1 file changed, 53 insertions(+), 46 deletions(-)
+
+6b565dc | 2024-12-22 14:09:08 +0530 | changes in css for parlax events and pages set to 404
+ src/app/blogs/page.tsx                          |   4 +-
+ src/app/events/page.tsx                         | 222 +++++++++++++-----------
+ src/app/promos/page.tsx                         |  90 +++++-----
+ src/components/home/hero.tsx                    |  48 ++---
+ src/components/home/parevents/parevents.tsx     |   8 +-
+ src/components/home/parevents/parpage.tsx       |   9 +-
+ src/components/home/parevents/style.module.scss |   4 +-
+ 7 files changed, 202 insertions(+), 183 deletions(-)
+
+4e5fdfd | 2024-12-22 00:42:50 +0530 | resposive paral events
+ src/components/home/parevents/style.module.scss | 70 ++++++++++++++++++++-----
+ 1 file changed, 57 insertions(+), 13 deletions(-)
+
+c4bcc9e | 2024-12-22 00:30:47 +0530 | paral events
+ .husky/pre-commit                                  |   1 -
+ package-lock.json                                  | 813 ++++-----------------
+ package.json                                       |  74 +-
+ ...kuch khatta hojaye.jpg => kuchkhattahojaye.jpg} | Bin
+ src/app/layout.tsx                                 |  46 +-
+ src/components/eventcard.tsx                       |  89 ++-
+ src/components/home.tsx                            |   5 +-
+ src/components/home/events.tsx                     | 117 ++-
+ src/components/home/hero.tsx                       | 101 ++-
+ src/components/home/parevents/data.js              |  50 ++
+ src/components/home/parevents/page.module.scss     |   4 +
+ src/components/home/parevents/parevents.tsx        |  70 ++
+ src/components/home/parevents/parpage.tsx          |  58 ++
+ src/components/home/parevents/style.module.scss    |  68 ++
+ src/components/home/partners.tsx                   | 152 ++--
+ src/components/home/promotion.tsx                  |  94 ++-
+ src/components/home/who.tsx                        |  13 +-
+ src/constants/events.ts                            | 158 ++--
+ src/hooks/useInView.ts                             |  16 +
+ tsconfig.json                                      |   3 +-
+ 20 files changed, 815 insertions(+), 1117 deletions(-)
+
+c61bdf4 | 2024-12-09 16:55:20 +0530 | title description logo
+ package-lock.json           |   4 ++--
+ public/2.jpg                | Bin 0 -> 36662 bytes
+ public/favicon.ico          | Bin 25931 -> 201758 bytes
+ src/app/layout.tsx          |  31 ++++++++++++++++++++++++++++---
+ src/components/home/who.tsx |   2 +-
+ 5 files changed, 31 insertions(+), 6 deletions(-)
+
+dc59896 | 2024-11-22 09:54:03 +0530 | hero fix
+ src/components/home/hero.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+1fcda2e | 2024-11-22 09:51:02 +0530 | ui update
+ src/components/home/hero.tsx | 80 +++++++++++++++++++++-----------------------
+ 1 file changed, 39 insertions(+), 41 deletions(-)
+
+a1e33f8 | 2024-11-22 09:47:52 +0530 | hero section mobile ui fixes
+ src/components/home.tsx                  |  2 +-
+ src/components/home/hero.tsx             | 73 +++++++++++++++-----------------
+ src/components/home/homeherocarousel.tsx |  6 +--
+ 3 files changed, 39 insertions(+), 42 deletions(-)
+
+2493abf | 2024-11-22 09:06:59 +0530 | removed whatsapp
+ src/components/home.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+fccbdcf | 2024-11-22 09:02:48 +0530 | nextconfig
+ next.config.mjs   |   7 +-
+ package-lock.json | 399 +++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ package.json      |   1 +
+ 3 files changed, 404 insertions(+), 3 deletions(-)
+
+7931ba9 | 2024-11-21 10:04:19 +0530 | hero images
+ src/components/home/hero.tsx             | 18 ++++++++++++++++--
+ src/components/home/homeherocarousel.tsx | 23 ++++++++---------------
+ 2 files changed, 24 insertions(+), 17 deletions(-)
+
+b8d1a1c | 2024-11-17 23:44:30 +0530 | whatsapp added
+ src/components/eventcard.tsx            |   4 +-
+ src/components/footer.tsx               |  91 +++++++------
+ src/components/home/hero.tsx            |   4 +-
+ src/components/home/whatsapp-widget.tsx |  29 +++--
+ src/constants/events.ts                 | 222 +++++++++++++++++---------------
+ 5 files changed, 187 insertions(+), 163 deletions(-)
+
+5bc24c1 | 2024-11-17 22:56:25 +0530 | link updated
+ src/components/footer.tsx | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+7ef5325 | 2024-11-17 22:51:30 +0530 | logo
+ src/components/home/who.tsx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+4881b32 | 2024-11-17 22:23:55 +0530 | deploy error fixed
+ src/app/events/page.tsx |  1 +
+ src/app/promos/page.tsx | 10 +---------
+ 2 files changed, 2 insertions(+), 9 deletions(-)
+
+bcb5574 | 2024-11-17 22:11:30 +0530 | out clients css
+ public/images/logos/download (1).png | Bin 0 -> 4109 bytes
+ public/images/logos/gyanopedia.png   | Bin 0 -> 7350 bytes
+ public/images/logos/kawasaki.png     | Bin 7856 -> 0 bytes
+ public/images/logos/kong.png         | Bin 0 -> 37886 bytes
+ src/components/home/partners.tsx     |   2 +-
+ src/constants/ourclients.tsx         |   6 +++---
+ 6 files changed, 4 insertions(+), 4 deletions(-)
+
+f211005 | 2024-11-17 22:04:22 +0530 | fixed clients css
+ public/images/logos/JASS RECORDS.png                | Bin 0 -> 18159 bytes
+ public/images/logos/alpheum.png                     | Bin 0 -> 1590 bytes
+ public/images/logos/castrol.png                     | Bin 0 -> 4151 bytes
+ public/images/logos/cocacola.png                    | Bin 0 -> 8753 bytes
+ public/images/logos/cropped-sharksink.png           | Bin 0 -> 32787 bytes
+ public/images/logos/fitnessedge.jpeg                | Bin 0 -> 6915 bytes
+ public/images/logos/harley d.jpeg                   | Bin 0 -> 8632 bytes
+ public/images/logos/kawasaki.png                    | Bin 0 -> 7856 bytes
+ ...lubricant-car-text-label-trademark-thumbnail.png | Bin 0 -> 5271 bytes
+ public/images/logos/zillionsoftech.jpg              | Bin 0 -> 97909 bytes
+ src/components/home/partners.tsx                    |  20 +++++++++++---------
+ src/constants/ourclients.tsx                        |  20 ++++++++++----------
+ 12 files changed, 21 insertions(+), 19 deletions(-)
+
+e157ee4 | 2024-11-17 21:53:59 +0530 | mobile ui fixed event popup fixed
+ public/images/eventimages/alpheum.jpg            | Bin 0 -> 8361920 bytes
+ public/images/eventimages/arcana20.jpg           | Bin 0 -> 231488 bytes
+ public/images/eventimages/armwrestle.jpg         | Bin 0 -> 490571 bytes
+ public/images/eventimages/innovateex.jpg         | Bin 0 -> 2264289 bytes
+ public/images/eventimages/kuch khatta hojaye.jpg | Bin 0 -> 247512 bytes
+ public/images/eventimages/musclemania.jpg        | Bin 0 -> 324877 bytes
+ src/components/eventcard.tsx                     | 108 +++++++++++------------
+ src/components/home/eventPopup.tsx               |  83 +++++++++--------
+ src/components/home/events.tsx                   |   3 +-
+ src/components/home/hero.tsx                     |  41 +--------
+ src/components/home/partners.tsx                 |  20 +++--
+ src/components/home/promotion.tsx                |  84 +++++++++---------
+ src/constants/events.ts                          |  64 ++++++++------
+ src/constants/ourclients.tsx                     |  39 ++++----
+ 14 files changed, 222 insertions(+), 220 deletions(-)
+
+e84c102 | 2024-11-17 18:41:54 +0530 | fixed footer and event heading
+ src/components/eventcard.tsx        | 11 +++--
+ src/components/footer.tsx           | 87 +++++++++++-----------------------
+ src/components/home/events.tsx      | 93 ++++++++++++++++++++++---------------
+ src/components/home/getInvolved.tsx | 10 ++--
+ 4 files changed, 92 insertions(+), 109 deletions(-)
+
+00f827e | 2024-11-17 18:21:08 +0530 | Event date seg, updated original events
+ src/components/footer.tsx         |  55 +++++++++++++-
+ src/components/home/events.tsx    |  94 +++++++++++-------------
+ src/components/home/partners.tsx  |  70 +-----------------
+ src/components/home/promotion.tsx |  23 +++---
+ src/components/home/who.tsx       |   7 +-
+ src/constants/events.ts           | 151 +++++++++++++++++++++++++++++---------
+ src/constants/ourclients.tsx      |  26 ++++---
+ 7 files changed, 241 insertions(+), 185 deletions(-)
+
+008d10f | 2024-11-17 15:25:55 +0530 | Our clients look changed
+ src/components/footer.tsx        |  23 +++
+ src/components/home/blogpeek.tsx |   5 +-
+ src/components/home/partners.tsx | 295 ++++++++++++++++++++++++---------------
+ src/constants/ourclients.tsx     |  25 ++++
+ 4 files changed, 233 insertions(+), 115 deletions(-)
+
+69bf265 | 2024-11-05 23:47:47 +0530 | added  whatsapp widget
+ package.json                            |   1 -
+ src/components/eventcard.tsx            | 100 +++-----------------------------
+ src/components/home.tsx                 |   2 +
+ src/components/home/events.tsx          |   6 +-
+ src/components/home/whatsapp-widget.tsx |  18 ++++++
+ 5 files changed, 30 insertions(+), 97 deletions(-)
+
+ebef9c4 | 2024-11-05 21:02:00 +0530 | ui changes in colour and carousel
+ public/images/2.jpg                      | Bin 0 -> 497494 bytes
+ public/images/brand.png                  | Bin 0 -> 1118572 bytes
+ src/components/brand.tsx                 |   5 +-
+ src/components/eventcard.tsx             | 148 +++++++++++++++++++++++++------
+ src/components/footer.tsx                |  25 ++++--
+ src/components/home/events.tsx           |  10 +--
+ src/components/home/getInvolved.tsx      |   6 +-
+ src/components/home/hero.tsx             |  69 +++++++++++---
+ src/components/home/homeherocarousel.tsx |   8 +-
+ src/components/home/partners.tsx         |  89 +++++++++++++++++--
+ src/components/home/promotion.tsx        |  54 ++++++++---
+ src/components/home/who.tsx              |  22 +++--
+ src/components/navbar.tsx                |  50 +++++++----
+ src/hooks/use-mobile.tsx                 |  19 ++++
+ 14 files changed, 401 insertions(+), 104 deletions(-)
+
+55e04c5 | 2024-11-05 20:52:19 +0530 | ui changes
+ src/components/eventcard.tsx             | 85 +++++++++++++++++++-------------
+ src/components/home/eventPopup.tsx       |  1 +
+ src/components/home/events.tsx           | 31 +++++++++++-
+ src/components/home/hero.tsx             | 48 +++++++++---------
+ src/components/home/homeherocarousel.tsx | 23 +++++----
+ src/components/home/partners.tsx         | 33 ++++++++-----
+ src/components/home/promotion.tsx        |  6 +--
+ src/constants/ourclients.tsx             | 35 +++++++++++++
+ tailwind.config.ts                       | 10 ++--
+ 9 files changed, 183 insertions(+), 89 deletions(-)
+
+c51852a | 2024-10-23 21:25:27 +0530 | skeleton website
+ .eslintignore                                      |    33 +
+ .eslintrc.cjs                                      |    72 +
+ .gitignore                                         |    37 +
+ .husky/pre-commit                                  |     1 +
+ .lintstagedrc.js                                   |     5 +
+ .npmrc                                             |     1 +
+ .prettierignore                                    |    33 +
+ .prettierrc.cjs                                    |    30 +
+ README.md                                          |    62 +
+ bun.lockb                                          |   Bin 0 -> 324687 bytes
+ components.json                                    |    17 +
+ next.config.mjs                                    |    12 +
+ package-lock.json                                  | 10721 +++++++++++++++++++
+ package.json                                       |    92 +
+ postcss.config.cjs                                 |     7 +
+ public/app.webmanifest                             |    25 +
+ public/favicon.ico                                 |   Bin 0 -> 25931 bytes
+ src/app/blogs/page.tsx                             |    10 +
+ src/app/events/page.tsx                            |   124 +
+ src/app/layout.tsx                                 |    49 +
+ src/app/page.tsx                                   |     5 +
+ src/app/promos/page.tsx                            |   117 +
+ .../ProximaNova/Proxima-Nova-Black-Italic.otf      |   Bin 0 -> 95496 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Black.otf       |   Bin 0 -> 93168 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Bold-Italic.otf |   Bin 0 -> 101200 bytes
+ src/assets/fonts/ProximaNova/Proxima-Nova-Bold.otf |   Bin 0 -> 96640 bytes
+ .../ProximaNova/Proxima-Nova-Extrabold-Italic.otf  |   Bin 0 -> 98956 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Extrabold.otf   |   Bin 0 -> 95996 bytes
+ .../ProximaNova/Proxima-Nova-Light-Italic.otf      |   Bin 0 -> 95892 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Light.otf       |   Bin 0 -> 94316 bytes
+ .../ProximaNova/Proxima-Nova-Regular-Italic.otf    |   Bin 0 -> 94884 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Regular.otf     |   Bin 0 -> 94668 bytes
+ .../ProximaNova/Proxima-Nova-Semibold-Italic.otf   |   Bin 0 -> 95328 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Semibold.otf    |   Bin 0 -> 91904 bytes
+ .../fonts/ProximaNova/Proxima-Nova-Thin-Italic.otf |   Bin 0 -> 95184 bytes
+ src/assets/fonts/ProximaNova/Proxima-Nova-Thin.otf |   Bin 0 -> 90796 bytes
+ src/assets/fonts/Roboto/Roboto-Bold.woff           |   Bin 0 -> 24936 bytes
+ src/assets/fonts/Roboto/Roboto-Bold.woff2          |   Bin 0 -> 18444 bytes
+ src/assets/fonts/Roboto/Roboto-Medium.woff         |   Bin 0 -> 25184 bytes
+ src/assets/fonts/Roboto/Roboto-Medium.woff2        |   Bin 0 -> 18708 bytes
+ src/assets/fonts/Roboto/Roboto-Regular.woff        |   Bin 0 -> 25128 bytes
+ src/assets/fonts/Roboto/Roboto-Regular.woff2       |   Bin 0 -> 18624 bytes
+ src/assets/fonts/Roboto/Roboto-Thin.woff           |   Bin 0 -> 24748 bytes
+ src/assets/fonts/Roboto/Roboto-Thin.woff2          |   Bin 0 -> 18348 bytes
+ src/components/brand.tsx                           |    13 +
+ src/components/eventcard.tsx                       |   151 +
+ src/components/footer.tsx                          |    79 +
+ src/components/home.tsx                            |    23 +
+ src/components/home/blogcard.tsx                   |    72 +
+ src/components/home/blogpeek.tsx                   |    55 +
+ src/components/home/eventPopup.tsx                 |    65 +
+ src/components/home/events.tsx                     |    63 +
+ src/components/home/getInvolved.tsx                |    29 +
+ src/components/home/hero.tsx                       |    39 +
+ src/components/home/homeherocarousel.tsx           |    56 +
+ src/components/home/partners.tsx                   |    38 +
+ src/components/home/promotion.tsx                  |   115 +
+ src/components/home/who.tsx                        |    22 +
+ src/components/navbar.tsx                          |    64 +
+ src/components/nextcardbutton.tsx                  |    25 +
+ src/components/promocard.tsx                       |   106 +
+ src/components/theme-toggle.tsx                    |    42 +
+ src/components/ui/badge.tsx                        |    37 +
+ src/components/ui/button.tsx                       |    57 +
+ src/components/ui/card.tsx                         |    64 +
+ src/components/ui/carousel.tsx                     |   245 +
+ src/components/ui/checkbox.tsx                     |    31 +
+ src/components/ui/input.tsx                        |    24 +
+ src/components/ui/label.tsx                        |    24 +
+ src/components/ui/radio-group.tsx                  |    41 +
+ src/components/ui/select.tsx                       |   154 +
+ src/components/ui/sheet.tsx                        |   126 +
+ src/constants/blogs.ts                             |    32 +
+ src/constants/dev.ts                               |     1 +
+ src/constants/events.ts                            |    92 +
+ src/constants/keys.ts                              |     7 +
+ src/constants/promotions.ts                        |    88 +
+ src/lib/types/rest.d.ts                            |     1 +
+ src/lib/utils.ts                                   |     8 +
+ src/providers/next-ui.tsx                          |    11 +
+ src/providers/root.tsx                             |    14 +
+ src/providers/theme.tsx                            |    21 +
+ src/styles/globals.css                             |    54 +
+ src/styles/globals.scss                            |   178 +
+ tailwind.config.ts                                 |    92 +
+ tsconfig.json                                      |    43 +
+ 86 files changed, 13955 insertions(+)

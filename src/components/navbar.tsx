@@ -28,6 +28,8 @@ const Links: LinkProps[] = [
     { name: "Blogs", href: "/blogs" },
     { name: "Contact", href: "#footer" },
     { name: "Careers", href: "/careers" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Podcast", href: "/podcast" },
 ];
 
 export default function NavBar() {
