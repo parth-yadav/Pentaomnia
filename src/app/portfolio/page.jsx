@@ -12,7 +12,7 @@ import CallToAction from "@/components/portfolio/call-to-action"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       <Hero />
       {/* <Services /> */}
       <Projects />
@@ -33,6 +33,6 @@ export default function Home() {
           background-image: linear-gradient(to right, #a78bfa, #ec4899);
         }
       `}</style>
-    </main>
+    </div>
   )
 }
