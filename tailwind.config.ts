@@ -6,7 +6,7 @@ const config = {
     prefix: "",
     darkMode: ["class"],
     content: [
-        "./src/**/*.{ts,tsx}",
+        "./src/**/*.{ts,tsx,js,jsx}",
         "./node_modules/@nextui-org/theme/dist/components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
