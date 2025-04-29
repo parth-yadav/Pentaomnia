@@ -12,7 +12,7 @@ import CallToAction from "@/components/portfolio/call-to-action"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-gray-800 text-white">
       <Hero />
       {/* <Services /> */}
       <Projects />

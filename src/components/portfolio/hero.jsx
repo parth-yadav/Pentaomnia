@@ -8,11 +8,11 @@ export default function Hero() {
       {/* Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-slate-900/50 to-slate-950 z-0"></div>
 
-      {/* Background Image */}
+      {/* Background Image
       <div 
-        className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center opacity-15 z-[-1] blur-sm"
+        className="absolute inset-0 bg-[url('/2.jpg')] bg-cover bg-center opacity-15 z-[-1] blur-sm"
         style={{ backgroundBlendMode: 'overlay' }}
-      ></div>
+      ></div> */}
 
       {/* Floating Decorative Shapes */}
       <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-purple-600/20 blur-3xl z-0"></div>

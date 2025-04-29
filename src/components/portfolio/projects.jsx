@@ -117,7 +117,7 @@ const ProjectItem = ({ project, index }) => {
   return (
     <>
       <motion.div 
-        className="group relative  backdrop-blur-sm hover:bg-slate-800/60  hover:border-purple-500/30 rounded-xl overflow-hidden transition-all duration-300"
+        className="group relative  backdrop-blur-sm hover:bg-gray-800/60  hover:border-purple-500/30 rounded-xl overflow-hidden transition-all duration-300"
         variants={itemVariant}
       >
         {/* Flexbox Layout: Text Left | Image Right */}
@@ -245,7 +245,7 @@ export default function Portfolio() {
   
 
   return (
-    <section id="projects" className="py-24 bg-slate-900 relative overflow-hidden">
+    <section id="projects" className="py-24 bg-gray-800 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         style={{ y, opacity }}
