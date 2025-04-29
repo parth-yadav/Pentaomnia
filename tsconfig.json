@@ -39,6 +39,6 @@
         "**/*.js",
         ".next/types/**/*.ts",
         "src/components/landingpage.tsx"
-, "src/app/innovatex2.0/page.tsx", "src/app/portfolio/page.jsx"    ],
+, "src/app/innovatex2.0/page.tsx", "src/app/portfolio/page.jsx", "src/components/portfolio/call-to-action.jsx", "src/components/portfolio/projects.jsx"    ],
     "exclude": ["node_modules"]
 }
