@@ -85,7 +85,7 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
         <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-          <a href="#services" className="flex flex-col items-center text-slate-400 hover:text-white transition-colors">
+          <a href="#portfolio" className="flex flex-col items-center text-slate-400 hover:text-white transition-colors">
             <span className="text-sm mb-1">Scroll Down</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

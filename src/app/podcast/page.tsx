@@ -19,7 +19,7 @@ const podcastData: Podcast[] = [
     id: "1",
     title: "Event Planning Essentials",
     description: "Tips and tricks for planning successful corporate events in 2025",
-    youtubeId: "VIDEO_ID_1",
+    youtubeId: "5g8M96RECNw?si=nDCwv3eSMdMw99hh",
     date: "2025-04-15",
     category: "Event Planning"
   },
@@ -27,7 +27,7 @@ const podcastData: Podcast[] = [
     id: "2",
     title: "Digital Marketing Strategies",
     description: "Latest trends in digital marketing for event promotion",
-    youtubeId: "VIDEO_ID_2",
+    youtubeId: "5g8M96RECNw?si=nDCwv3eSMdMw99hh",
     date: "2025-04-01",
     category: "Digital Marketing"
   },
@@ -35,7 +35,7 @@ const podcastData: Podcast[] = [
     id: "3",
     title: "Tech Solutions for Events",
     description: "How to leverage technology for seamless event execution",
-    youtubeId: "VIDEO_ID_3",
+   youtubeId: "5g8M96RECNw?si=nDCwv3eSMdMw99hh",
     date: "2025-03-20",
     category: "Technology"
   },
@@ -43,7 +43,7 @@ const podcastData: Podcast[] = [
     id: "4",
     title: "Client Relationship Management",
     description: "Building lasting relationships with clients in the events industry",
-    youtubeId: "VIDEO_ID_4",
+   youtubeId: "5g8M96RECNw?si=nDCwv3eSMdMw99hh",
     date: "2025-03-10",
     category: "Client Management"
   }
@@ -56,6 +56,7 @@ export default function PodcastPage() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.2]);
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
+  const [hoveredVideoId, setHoveredVideoId] = useState<string | null>(null)
 
   // Filter podcasts based on selected category
   useEffect(() => {
@@ -78,19 +79,20 @@ export default function PodcastPage() {
         style={{ opacity, scale }}
         className="relative h-96 overflow-hidden flex items-center justify-center"
       >
-        <motion.div 
-          className="absolute -top-20 -right-20 w-64 h-64 bg-purple-500 rounded-full opacity-20"
-          animate={{ 
-            x: [0, 10, 0], 
-            y: [0, 15, 0],
-            scale: [1, 1.2, 1] 
-          }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 8,
-            ease: "easeInOut" 
-          }}
-        />
+       <motion.div 
+  className="absolute -top-20 -right-20 w-64 h-64 bg-purple-500 rounded-full opacity-20"
+  animate={{ 
+    x: [0, 10, 0], 
+    y: [0, 15, 0],
+    scale: [1, 1.2, 1] 
+  }}
+  transition={{ 
+    repeat: Infinity, 
+    duration: 1,
+    ease: "easeInOut",
+    repeatType: "loop"
+  }}
+/>
         <motion.div 
           className="absolute -bottom-32 -left-20 w-96 h-96 bg-blue-500 rounded-full opacity-20"
           animate={{ 
@@ -98,11 +100,12 @@ export default function PodcastPage() {
             y: [0, 10, 0],
             scale: [1, 1.1, 1] 
           }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 10,
-            ease: "easeInOut" 
-          }}
+         transition={{ 
+    repeat: Infinity, 
+    duration: 1,
+    ease: "easeInOut",
+    repeatType: "loop"
+  }}
         />
         <div className="z-10 text-center px-4 max-w-4xl">
           <motion.h1 
@@ -199,23 +202,29 @@ export default function PodcastPage() {
         {/* Podcast List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredPodcasts.map((podcast, index) => (
-            <motion.div
-              key={podcast.id}
-              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index, duration: 0.5 }}
-              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-            >
-              <div className="relative h-0 pb-[56.25%]">
-                <iframe
-                  src={`https://www.youtube.com/embed/${podcast.youtubeId}`}
-                  title={podcast.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute top-0 left-0 w-full h-full"
-                />
-              </div>
+             <motion.div
+    key={podcast.id}
+    className="bg-gray-800 rounded-xl overflow-hidden shadow-lg relative"
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.1 * index, duration: 0.5 }}
+    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+    onMouseEnter={() => setHoveredVideoId(podcast.youtubeId)}
+    onMouseLeave={() => setHoveredVideoId(null)}
+  >
+             <div className="relative h-0 pb-[56.25%]">
+      <iframe
+        src={
+          hoveredVideoId === podcast.youtubeId
+            ? `https://www.youtube.com/embed/${podcast.youtubeId}?autoplay=1&mute=1`
+            : `https://www.youtube.com/embed/${podcast.youtubeId}`
+        }
+        title={podcast.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="absolute top-0 left-0 w-full h-full"
+      />
+    </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-xs font-medium bg-purple-600 text-white px-3 py-1 rounded-full">
@@ -311,7 +320,7 @@ export default function PodcastPage() {
       </motion.div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      {/* <footer className="bg-gray-900 text-gray-400 py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
@@ -343,7 +352,7 @@ export default function PodcastPage() {
             <p>&copy; {new Date().getFullYear()} Event Management & Digital Solutions. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
