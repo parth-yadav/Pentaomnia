@@ -36,15 +36,14 @@ const clients = [
     name: "FinanceHub",
     description:
       "Developed an intuitive financial dashboard that simplified complex data visualization for FinanceHub's clients.",
-    image:  "/images/logos/cocacola.png",
+    image: "/images/logos/cocacola.png",
     storyLink: "/clients/financehub",
   },
 ]
 
 export default function ClientShowcase() {
-  const [activeClient, setActiveClient] = useState(0)
+  const [activeClient, setActiveClient] = useState<number | null>(null)
   const observerRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [isInView, setIsInView] = useState(false)
 
   // Set up observer refs with useCallback for better performance
   const setObserverRef = useCallback((el: HTMLDivElement | null, index: number) => {
@@ -69,19 +68,30 @@ export default function ClientShowcase() {
       threshold: 0.6, // Element is considered visible when 60% visible
     }
 
-    const observerCallback: IntersectionObserverCallback = (entries) => {
+    const callback: IntersectionObserverCallback = (entries) => {
+      let currentActiveIndex: number | null = null
+
       entries.forEach((entry) => {
+        const index = Number(entry.target.getAttribute("data-index"))
+
         if (entry.isIntersecting) {
-          const index = Number(entry.target.getAttribute("data-index"))
-          setActiveClient(index)
-          setIsInView(true)
+          // Only mark one active client at a time — the one with highest intersection ratio
+          if (
+            currentActiveIndex === null ||
+            entry.intersectionRatio > (observerRefs.current[currentActiveIndex]?.getBoundingClientRect().top || 0)
+          ) {
+            currentActiveIndex = index
+          }
         }
       })
+
+      if (currentActiveIndex !== null && currentActiveIndex !== activeClient) {
+        setActiveClient(currentActiveIndex)
+      }
     }
 
-    const observer = new IntersectionObserver(observerCallback, options)
+    const observer = new IntersectionObserver(callback, options)
 
-    // Observe all client sections
     observerRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref)
     })
@@ -89,7 +99,7 @@ export default function ClientShowcase() {
     return () => {
       observer.disconnect()
     }
-  }, [])
+  }, [activeClient])
 
   return (
     <div className="relative bg-gray-900 text-white">
@@ -99,11 +109,10 @@ export default function ClientShowcase() {
           ref={(el) => setObserverRef(el as HTMLDivElement, index)}
           data-index={index}
           className="sticky top-0 h-screen flex items-center overflow-hidden"
-          aria-hidden={activeClient !== index}
         >
           {/* Background image with optimized loading */}
           <div className="absolute inset-0 w-full h-full">
-            <div className="absolute inset-0 bg-black/60 z-10" /> {/* Overlay */}
+            <div className="absolute inset-0 bg-black/60 z-10" />
             <div className="relative w-full h-full">
               <Image
                 src={client.image || "/placeholder.svg"}
@@ -140,7 +149,7 @@ export default function ClientShowcase() {
       ))}
 
       {/* Navigation indicators */}
-      <div className="fixed bottom-12 left-0 right-0 z-30">
+      {/* <div className="fixed bottom-12 left-0 right-0 z-30">
         <div className="flex justify-center space-x-3">
           {clients.map((_, i) => (
             <button
@@ -154,7 +163,7 @@ export default function ClientShowcase() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
