@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function About() {
   return (
@@ -15,12 +16,18 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <div className="relative">
-              <div className="aspect-video bg-slate-800 rounded-xl overflow-hidden">
+              <div className="aspect-video  rounded-xl overflow-hidden">
                 <div className="h-full w-full flex items-center justify-center text-slate-500">
-                  <span>Team Image</span>
+                 <Image
+  src="/2.jpg"
+  alt={"About Us Image"}
+  width={3000}
+  height={600}
+  className="w-full h-full object-contain"
+/>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl"></div>
+              <div className="absolute -bottom-6 right-10 z-40 w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl"></div>
             </div>
           </motion.div>
 

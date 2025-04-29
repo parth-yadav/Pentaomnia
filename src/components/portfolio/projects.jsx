@@ -245,7 +245,7 @@ export default function Portfolio() {
   
 
   return (
-    <section id="portfolio" className="py-24 bg-slate-900 relative overflow-hidden">
+    <section id="projects" className="py-24 bg-slate-900 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         style={{ y, opacity }}
@@ -315,10 +315,10 @@ export default function Portfolio() {
             transition={{ duration: 0.5 }}
           >
             <Link
-              href="/contact"
+              href="/all-projects"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700 transition-all shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 inline-flex items-center font-medium"
             >
-              Start Your Project
+              View All Projects
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
