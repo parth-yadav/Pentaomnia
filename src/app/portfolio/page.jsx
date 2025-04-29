@@ -25,14 +25,14 @@ export default function Home() {
       {/* <Footer /> */}
 
       {/* Global style for gradient text */}
-      <style jsx global>{`
+      {/* <style jsx global>{`
         .text-gradient {
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
           background-image: linear-gradient(to right, #a78bfa, #ec4899);
         }
-      `}</style>
+      `}</style> */}
     </div>
   )
 }
