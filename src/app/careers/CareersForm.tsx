@@ -22,6 +22,8 @@ const positions = [
   { id: "cinematic", label: "Cinematic Videographer" },
   { id: "marketing", label: "Marketing" },
   { id: "sales", label: "Sales" },
+  { id: "shopify", label: "Shopify Developer" },
+  { id: "wordpress", label: "Wordpress Developer" },
 ];
 
 export default function CareerApplicationForm() {
